@@ -1,26 +1,33 @@
 package Classes;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Professor extends Usuario {
+  private static final String PATH_USUARIOS = "src/Arquivos/usuarios.csv";
+  private static final String PATH_PERGUNTAS = "src/Arquivos/perguntas.csv";
 
   public Professor(String email, String senha, String tipo) {
     super(email, senha, tipo);
   }
 
   public void criaUsuario(String email, String senha, String tipo){
-    salvaArquivo(email, senha, tipo);
+    salvaUsuario(email, senha, tipo);
+  }
+
+  public void criaPergunta(ArrayList<String> pergunta){
+    salvaPergunta(pergunta);
   }
 
   // METODOS PRIVADOS
-  private void salvaArquivo(String email, String senha, String tipo) {
+  private void salvaUsuario(String email, String senha, String tipo) {
     Usuario novoUsuario = new Usuario(email, senha, tipo);
     Boolean usuario_existente = Usuario.busca(email);
 
 
     if( usuario_existente == false ) {
       try {
-        FileWriter writer = new FileWriter("src/Arquivos/usuarios.csv", true);
+        FileWriter writer = new FileWriter(PATH_USUARIOS, true);
         writer.append(novoUsuario.getEmail());
         writer.append(",");
         writer.append(novoUsuario.getSenha());
@@ -33,6 +40,37 @@ public class Professor extends Usuario {
       }
     } else {
       System.out.println("Usuario ja existente");
+    }
+  }
+
+  private void salvaPergunta(ArrayList<String> pergunta){
+    String introducao = pergunta.get(0);
+    String questao = pergunta.get(1);
+    String opcao1 = pergunta.get(2);
+    String opcao2 = pergunta.get(3);
+    String opcao3 = pergunta.get(4);
+    String opcao4 = pergunta.get(5);
+    String resposta = pergunta.get(6);
+
+    try {
+      FileWriter writer = new FileWriter(PATH_PERGUNTAS, true);
+      writer.append(introducao);
+      writer.append(",");
+      writer.append(questao);
+      writer.append(",");
+      writer.append(opcao1);
+      writer.append(",");
+      writer.append(opcao2);
+      writer.append(",");
+      writer.append(opcao3);
+      writer.append(",");
+      writer.append(opcao4);
+      writer.append(",");
+      writer.append(resposta);
+      writer.append("\n");
+      writer.close();
+    } catch (IOException e) {
+      e.printStackTrace();
     }
   }
 
