@@ -8,7 +8,7 @@ public class Aluno extends Usuario {
   }
 
   private static ArrayList<String> busca_dados_aluno(String email){
-    ArrayList<String> usuario = Usuario.busca_usuario(email);
+    ArrayList<String> usuario = BuscaUsuario.busca(email);
     return usuario;
   }
 

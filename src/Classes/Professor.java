@@ -22,7 +22,7 @@ public class Professor extends Usuario {
   // METODOS PRIVADOS
   private void salvaUsuario(String email, String senha, String tipo) {
     Usuario novoUsuario = new Usuario(email, senha, tipo);
-    Boolean usuario_existente = Usuario.existente(email);
+    Boolean usuario_existente = BuscaUsuario.existente(novoUsuario.getEmail());
 
     if( usuario_existente == false ) {
       try {
@@ -50,6 +50,7 @@ public class Professor extends Usuario {
     var opcao3 = pergunta.get(4);
     var opcao4 = pergunta.get(5);
     var resposta = pergunta.get(6);
+    var dificuldade = pergunta.get(7);
 
     try {
       FileWriter writer = new FileWriter(PATH_PERGUNTAS, true);
@@ -66,6 +67,8 @@ public class Professor extends Usuario {
       writer.append(opcao4);
       writer.append(",");
       writer.append(resposta);
+      writer.append(",");
+      writer.append(dificuldade);
       writer.append("\n");
       writer.close();
     } catch (IOException e) {
