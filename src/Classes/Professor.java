@@ -22,8 +22,7 @@ public class Professor extends Usuario {
   // METODOS PRIVADOS
   private void salvaUsuario(String email, String senha, String tipo) {
     Usuario novoUsuario = new Usuario(email, senha, tipo);
-    Boolean usuario_existente = Usuario.busca(email);
-
+    Boolean usuario_existente = Usuario.existente(email);
 
     if( usuario_existente == false ) {
       try {
@@ -44,13 +43,13 @@ public class Professor extends Usuario {
   }
 
   private void salvaPergunta(ArrayList<String> pergunta){
-    String introducao = pergunta.get(0);
-    String questao = pergunta.get(1);
-    String opcao1 = pergunta.get(2);
-    String opcao2 = pergunta.get(3);
-    String opcao3 = pergunta.get(4);
-    String opcao4 = pergunta.get(5);
-    String resposta = pergunta.get(6);
+    var introducao = pergunta.get(0);
+    var questao = pergunta.get(1);
+    var opcao1 = pergunta.get(2);
+    var opcao2 = pergunta.get(3);
+    var opcao3 = pergunta.get(4);
+    var opcao4 = pergunta.get(5);
+    var resposta = pergunta.get(6);
 
     try {
       FileWriter writer = new FileWriter(PATH_PERGUNTAS, true);
