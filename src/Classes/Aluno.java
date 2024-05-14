@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 public class Aluno extends Usuario {
   // melhorar esse metodo p/ fazer so uma chamada da funcao aluno
+  private int nivel;
   public Aluno(String email) {
     super(busca_dados_aluno(email).get(0), busca_dados_aluno(email).get(1), busca_dados_aluno(email).get(2));
   }

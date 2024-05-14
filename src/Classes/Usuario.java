@@ -1,7 +1,7 @@
 package Classes;
 
 public class Usuario {
-  public String email;
+  private String email;
   private String senha;
   private String tipo;
 

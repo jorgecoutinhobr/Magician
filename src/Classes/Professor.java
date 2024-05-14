@@ -3,7 +3,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Professor extends Usuario {
+public class  Professor extends Usuario {
   private static final String PATH_USUARIOS = "src/Arquivos/usuarios.csv";
   private static final String PATH_PERGUNTAS = "src/Arquivos/perguntas.csv";
 
@@ -43,32 +43,13 @@ public class Professor extends Usuario {
   }
 
   private void salvaPergunta(ArrayList<String> pergunta){
-    var introducao = pergunta.get(0);
-    var questao = pergunta.get(1);
-    var opcao1 = pergunta.get(2);
-    var opcao2 = pergunta.get(3);
-    var opcao3 = pergunta.get(4);
-    var opcao4 = pergunta.get(5);
-    var resposta = pergunta.get(6);
-    var dificuldade = pergunta.get(7);
-
     try {
       FileWriter writer = new FileWriter(PATH_PERGUNTAS, true);
-      writer.append(introducao);
-      writer.append(",");
-      writer.append(questao);
-      writer.append(",");
-      writer.append(opcao1);
-      writer.append(",");
-      writer.append(opcao2);
-      writer.append(",");
-      writer.append(opcao3);
-      writer.append(",");
-      writer.append(opcao4);
-      writer.append(",");
-      writer.append(resposta);
-      writer.append(",");
-      writer.append(dificuldade);
+      for(int i = 0; i < pergunta.size()-1; i++){
+        writer.append(pergunta.get(i));
+        writer.append(";");
+      }
+      writer.append(pergunta.get(pergunta.size()-1));
       writer.append("\n");
       writer.close();
     } catch (IOException e) {
