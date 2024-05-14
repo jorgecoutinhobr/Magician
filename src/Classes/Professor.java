@@ -43,18 +43,23 @@ public class  Professor extends Usuario {
   }
 
   private void salvaPergunta(ArrayList<String> pergunta){
-    try {
-      FileWriter writer = new FileWriter(PATH_PERGUNTAS, true);
-      for(int i = 0; i < pergunta.size()-1; i++){
-        writer.append(pergunta.get(i));
-        writer.append(";");
-      }
-      writer.append(pergunta.get(pergunta.size()-1));
-      writer.append("\n");
-      writer.close();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
+   Boolean pergunta_existente = BuscaPergunta.existente(pergunta);
+   if (pergunta_existente == false) {
+     try {
+       FileWriter writer = new FileWriter(PATH_PERGUNTAS, true);
+       for (int i = 0; i < pergunta.size() - 1; i++) {
+         writer.append(pergunta.get(i));
+         writer.append(";");
+       }
+       writer.append(pergunta.get(pergunta.size() - 1));
+       writer.append("\n");
+       writer.close();
+     } catch (IOException e) {
+       e.printStackTrace();
+     }
+   } else {
+     System.out.println("Pergunta ja existe no Db");
+   }
   }
 
 }
