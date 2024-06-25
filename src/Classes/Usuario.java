@@ -1,5 +1,7 @@
 package Classes;
 
+import java.util.ArrayList;
+
 public class Usuario {
   private String email;
   private String senha;
@@ -33,6 +35,15 @@ public class Usuario {
 
   public void setTipo(String tipo) {
     this.tipo = tipo;
+  }
+
+  public void perguntaFormatada(ArrayList<String> perguntas){
+    if(perguntas.size()!= 0) {
+      System.out.println("\n\n" + perguntas.getFirst() + "\n\n" + perguntas.get(1) + "\n");
+      for (int i = 2; i < (perguntas.size() - 2); i++) {
+        System.out.println(perguntas.get(i));
+      }
+    }
   }
 
 }
