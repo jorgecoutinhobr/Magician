@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 a1@com,123,aluno
 salve@com,123,professor
 falamlk@com,111,aluno
+=======
+a4@com,123,aluno
+a3@com,123,professor
+professor@example.com,senha123,professor
+>>>>>>> fdc97632117ea4a9ae4030874053578f4a7deeb8

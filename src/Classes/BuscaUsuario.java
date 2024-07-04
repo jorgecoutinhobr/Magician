@@ -24,7 +24,7 @@ public class BuscaUsuario {
     return false;
   }
 
-  public static ArrayList<String> busca(String email){
+  public static ArrayList<String> busca(String email, int i){
     ArrayList<String> resultado = new ArrayList<>();
 
     if (!existente(email)) {
@@ -36,7 +36,7 @@ public class BuscaUsuario {
       String linha;
       while ((linha = reader.readLine())!= null) {
         String[] campos = linha.split(",");
-        if (campos.length >= 2 && campos[0].equals(email)) {
+        if (campos.length >= 2 && campos[i].equals(email)) {
           resultado.addAll(Arrays.asList(campos));
           return resultado;
         }

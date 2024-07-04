@@ -17,6 +17,7 @@ public class Usuario {
     return email;
   }
 
+
   public String getSenha(){
     return senha;
   }

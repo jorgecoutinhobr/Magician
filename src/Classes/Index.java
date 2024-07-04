@@ -13,7 +13,7 @@ public class Index {
 
     //autenticação do usuario. usado em fazerLogin()
     private Usuario autenticar(String email, String senha){
-        ArrayList<String> dadosU = BuscaUsuario.busca(email);
+        ArrayList<String> dadosU = Busca.usuario(email);
         if(dadosU.size() > 0 && dadosU.get(1).equals(senha)){
             String tipoU = dadosU.get(2);
             if(tipoU.equals("aluno")){

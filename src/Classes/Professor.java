@@ -43,6 +43,7 @@ public class  Professor extends Usuario {
   private void salvaPergunta(ArrayList<String> pergunta, int nivel){
     final String PATH_PERGUNTAS = "src/Arquivos/Perguntas/nivel" + String.valueOf(nivel) +  ".csv";
     if (!perguntaExistente(pergunta, PATH_PERGUNTAS)) {
+
       try {
         FileWriter writer = new FileWriter(PATH_PERGUNTAS, true);
         for (int i = 0; i < pergunta.size(); i++) {
@@ -66,6 +67,7 @@ public class  Professor extends Usuario {
   }
 
   private Boolean perguntaExistente(ArrayList<String> pergunta, String path){
+
     try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
       String linha;
       while ((linha = reader.readLine())!= null) {
@@ -80,4 +82,3 @@ public class  Professor extends Usuario {
     return false;
   }
 }
-

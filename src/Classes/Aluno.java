@@ -1,9 +1,5 @@
 package Classes;
-import java.util.ArrayList;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class Aluno extends Usuario {
@@ -15,7 +11,7 @@ public class Aluno extends Usuario {
   }
 
   private static ArrayList<String> busca_dados_aluno(String email){
-    return BuscaUsuario.busca(email);
+    return Busca.usuario(email);
   }
 
   // criar metodo para salvar historico de resposta
