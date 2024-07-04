@@ -5,8 +5,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -18,12 +18,12 @@ public class LoginController implements Initializable {
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
-    loginbtn.setOnAction(actionEvent -> {
-      try {
-        Classe.getInstance().getView().showAlunoWindow();
-      } catch (IOException e) {
-        throw new RuntimeException(e);
-      }
-    });
+    loginbtn.setOnAction(actionEvent -> onLogin());
+  }
+
+  private void onLogin(){
+    Stage currentStage = (Stage) loginbtn.getScene().getWindow();
+    currentStage.close();
+    Classe.getInstance().getView().showAlunoWindow();
   }
 }

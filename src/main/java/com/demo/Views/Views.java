@@ -18,7 +18,7 @@ public class Views {
     // otimizacao carregamento de telas
     if (alunoMenu == null) {
       try{
-        alunoMenu = new FXMLLoader(getClass().getResource("com/demo/Aluno/AlunoMenu.fxml")).load();
+        alunoMenu = new FXMLLoader(getClass().getResource("/com/demo/Aluno/AlunoMenu.fxml")).load();
       } catch (Exception e) {
         e.printStackTrace();
       }
@@ -27,12 +27,12 @@ public class Views {
   }
 
   public void showLoginWindow(){
-    FXMLLoader loader = new FXMLLoader( getClass().getResource("com/demo/Login.fxml"));
+    FXMLLoader loader = new FXMLLoader( getClass().getResource("/com/demo/Login.fxml"));
     createStage(loader);
   }
 
-  public void showAlunoWindow() throws IOException {
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("com/demo/Aluno/AlunoMenu.fxml")).load();
+  public void showAlunoWindow() {
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/demo/Aluno/AlunoMenu.fxml"));
     AlunosController alunosController = new AlunosController();
     loader.setController(alunosController);
     createStage(loader);
@@ -50,4 +50,5 @@ public class Views {
     stage.setTitle("Ola");
     stage.show();
   }
+
 }
