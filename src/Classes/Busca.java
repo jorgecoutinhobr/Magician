@@ -27,7 +27,7 @@ public class Busca {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        return resultado;
+        return null;
     }
 
     public static ArrayList<String> usuario(String email){

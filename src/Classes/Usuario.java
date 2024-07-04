@@ -38,8 +38,8 @@ public class Usuario {
   }
 
   public void perguntaFormatada(ArrayList<String> perguntas){
-    if(perguntas.size()!= 0) {
-      System.out.println("\n\n" + perguntas.getFirst() + "\n\n" + perguntas.get(1) + "\n");
+    if(perguntas.size() > 0) {
+      System.out.println("\n\n" + perguntas.get(0) + "\n\n" + perguntas.get(1) + "\n");
       for (int i = 2; i < (perguntas.size() - 2); i++) {
         System.out.println(perguntas.get(i));
       }

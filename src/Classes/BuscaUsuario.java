@@ -26,6 +26,12 @@ public class BuscaUsuario {
 
   public static ArrayList<String> busca(String email){
     ArrayList<String> resultado = new ArrayList<>();
+
+    if (!existente(email)) {
+      System.out.println("Usuário inexistente.");
+      return resultado;
+    }
+
     try (BufferedReader reader = new BufferedReader(new FileReader(PATH_USUARIOS))) {
       String linha;
       while ((linha = reader.readLine())!= null) {
@@ -38,6 +44,6 @@ public class BuscaUsuario {
     } catch (IOException e) {
       e.printStackTrace();
     }
-    return resultado;
+    return resultado; //return null
   }
 }
