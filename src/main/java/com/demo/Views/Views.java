@@ -1,5 +1,7 @@
 package com.demo.Views;
 
+import com.demo.Classes.ContextoAplicacao;
+import com.demo.Classes.Professor;
 import com.demo.Controllers.Alunos.AlunosMenuController;
 import com.demo.Controllers.Professores.CriaUsuarioController;
 import com.demo.Controllers.Professores.CriarPerguntaController;
@@ -45,7 +47,8 @@ public class Views {
     ProfessoresController professoresController = new ProfessoresController();
     loader.setController(professoresController);
     createStage(loader);
-    professoresController.initialize(nome);
+    Professor professorLogado = ContextoAplicacao.getInstancia().getProfessorLogado();
+    professoresController.initialize(professorLogado.getEmail());
   }
 
   public void showCriaPerguntaWindow(){

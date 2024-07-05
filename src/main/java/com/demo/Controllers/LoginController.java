@@ -1,6 +1,8 @@
 package com.demo.Controllers;
 
 import com.demo.Classes.Classe;
+import com.demo.Classes.ContextoAplicacao;
+import com.demo.Classes.Professor;
 import com.demo.Classes.Usuario;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -31,6 +33,8 @@ public class LoginController implements Initializable {
       currentStage.close();
       Classe.getInstance().getView().showAlunoMenuWindow(semail);
     } else {
+      Professor professorLogado = new Professor(semail, ssenha);
+      ContextoAplicacao.getInstancia().setProfessorLogado(professorLogado);
       Stage currentStage = (Stage) loginbtn.getScene().getWindow();
       currentStage.close();
       Classe.getInstance().getView().showProfessorWindow(semail);
