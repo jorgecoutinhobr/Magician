@@ -15,6 +15,7 @@ public class ProfessoresController {
   public Text bv;
   public Button criapergunta;
 
+  //TODO - add criar aluno se necessario
   public void initialize(String email){
     criapergunta.setOnAction(event -> criadorPergunta());
     ArrayList<String> array = Busca.usuario(email);
