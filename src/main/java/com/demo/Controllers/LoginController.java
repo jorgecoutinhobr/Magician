@@ -1,5 +1,6 @@
 package com.demo.Controllers;
 
+import com.demo.Classes.Aluno;
 import com.demo.Classes.Classe;
 import com.demo.Classes.Usuario;
 import com.demo.Controllers.Alunos.AlunosMenuController;
@@ -31,7 +32,7 @@ public class LoginController implements Initializable {
     if(tipo.equals("a")) {
       Stage currentStage = (Stage) loginbtn.getScene().getWindow();
       currentStage.close();
-      Classe.getInstance().getView().showAlunoWindow();
+      Classe.getInstance().getView().showAlunoWindow(semail);
     }
   }
 }

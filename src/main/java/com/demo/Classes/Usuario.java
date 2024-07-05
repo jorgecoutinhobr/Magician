@@ -5,6 +5,7 @@ public class Usuario {
   private String email;
   private String senha;
   private String tipo;
+  private String nome;
 
   public Usuario(String email, String senha, String tipo){
     this.email = email;
@@ -24,6 +25,7 @@ public class Usuario {
   public String getTipo(){
     return tipo;
   }
+  public String getNome(){return nome; }
 
   public void setEmail(String email) {
     this.email = email;
@@ -37,10 +39,14 @@ public class Usuario {
     this.tipo = tipo;
   }
 
+  public void setNome(String nome) {
+    this.nome = nome;
+  }
+
   public static String autenticar(String email, String senha){
     ArrayList<String> dadosU = Busca.usuario(email);
     if(dadosU != null && dadosU.get(1).equals(senha)){
-      String tipoU = dadosU.get(2);
+      String tipoU = dadosU.getLast();
       if(tipoU.equals("a")){
         // Supondo que a classe Aluno espera email, senha e tipo como parâmetros
         return dadosU.getLast();

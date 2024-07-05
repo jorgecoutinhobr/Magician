@@ -30,12 +30,12 @@ public class Views {
     createStage(loader);
   }
 
-  public void showAlunoWindow() {
+  public void showAlunoWindow(String email) {
     FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/demo/AlunoMenu.fxml"));
     AlunosMenuController alunosController = new AlunosMenuController();
     loader.setController(alunosController);
     createStage(loader);
-    alunosController.initialize();
+    alunosController.initialize(email);
   }
 
   public void createStage(FXMLLoader loader){
