@@ -14,5 +14,6 @@
       <TextField fx:id="op4" layoutX="157.0" layoutY="297.0" prefHeight="26.0" prefWidth="259.0" promptText="Opcao 4" />
       <TextField fx:id="resposta" layoutX="157.0" layoutY="339.0" prefHeight="26.0" prefWidth="259.0" promptText="Nº resposta" />
       <Button fx:id="enviar" layoutX="475.0" layoutY="339.0" mnemonicParsing="false" prefWidth="100.0" style="-fx-background-color: red;" text="Enviar" textFill="WHITE" />
+      <Button fx:id="voltar" layoutX="10" layoutY="10" mnemonicParsing="false" prefWidth="100.0" style="-fx-background-color: red;" text="Voltar" textFill="WHITE" />
    </children>
 </AnchorPane>
