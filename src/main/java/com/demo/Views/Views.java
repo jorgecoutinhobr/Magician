@@ -1,6 +1,7 @@
 package com.demo.Views;
 
 import com.demo.Controllers.Alunos.AlunosMenuController;
+import com.demo.Controllers.Professores.CriarPerguntaController;
 import com.demo.Controllers.Professores.ProfessoresController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -44,6 +45,13 @@ public class Views {
     loader.setController(professoresController);
     createStage(loader);
     professoresController.initialize(nome);
+  }
+
+  public void showCriaPerguntaWindow(){
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/demo/Professor/CriarPergunta.fxml"));
+    CriarPerguntaController criarPerguntaController = new CriarPerguntaController();
+    loader.setController(criarPerguntaController);
+    createStage(loader);
   }
 
   public void createStage(FXMLLoader loader){
