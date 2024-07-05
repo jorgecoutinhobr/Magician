@@ -13,6 +13,6 @@
          </font>
       </Text>
       <Button fx:id="criapergunta" layoutX="200.0" layoutY="124.0" mnemonicParsing="false" prefWidth="200.0" style="-fx-background-color: red;" text=" Cria Pergunta" textFill="WHITE" />
-      <Button fx:id="criaaluno" layoutX="200.0" layoutY="215.0" mnemonicParsing="false" prefWidth="200.0" style="-fx-background-color: red;" text=" Cria Aluno" textFill="WHITE" />
+      <Button fx:id="criausuario" layoutX="200.0" layoutY="215.0" mnemonicParsing="false" prefWidth="200.0" style="-fx-background-color: red;" text=" Cria Aluno" textFill="WHITE" />
    </children>
 </AnchorPane>

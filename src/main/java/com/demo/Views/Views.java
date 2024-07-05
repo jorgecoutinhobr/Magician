@@ -1,6 +1,7 @@
 package com.demo.Views;
 
 import com.demo.Controllers.Alunos.AlunosMenuController;
+import com.demo.Controllers.Professores.CriaUsuarioController;
 import com.demo.Controllers.Professores.CriarPerguntaController;
 import com.demo.Controllers.Professores.ProfessoresController;
 import javafx.fxml.FXMLLoader;
@@ -54,6 +55,13 @@ public class Views {
     createStage(loader);
   }
 
+  public void showCriaUsuarioWindow() {
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/demo/Professor/CriaUsuario.fxml"));
+    CriaUsuarioController criaUsuarioController = new CriaUsuarioController();
+    loader.setController(criaUsuarioController);
+    createStage(loader);
+  }
+
   public void createStage(FXMLLoader loader){
     Scene scene = null;
     try{
@@ -66,8 +74,7 @@ public class Views {
     stage.setTitle("Magician");
     // NO ubuntu estou tendo um erro de tmanho de tela ao entrar em novas telas
     // o codigo abaixo resolve, porem sera preciso definir um tamanho padrao para todas as telas
-    //  stage.setResizable(false);
+    stage.setResizable(false);
     stage.show();
   }
-
 }

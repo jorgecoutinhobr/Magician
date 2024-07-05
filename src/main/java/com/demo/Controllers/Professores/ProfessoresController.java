@@ -14,10 +14,11 @@ public class ProfessoresController {
   @FXML
   public Text bv;
   public Button criapergunta;
+  public Button criausuario;
 
-  //TODO - add criar aluno se necessario
   public void initialize(String email){
     criapergunta.setOnAction(event -> criadorPergunta());
+    criausuario.setOnAction(ecent -> criadorUsuario());
     ArrayList<String> array = Busca.usuario(email);
     int index = array.get(2).indexOf(" ",0);
     String nome = array.get(2).substring(0,index);
@@ -28,5 +29,11 @@ public class ProfessoresController {
     Stage currentStage = (Stage) criapergunta.getScene().getWindow();
     currentStage.close();
     Classe.getInstance().getView().showCriaPerguntaWindow();
+  }
+
+  private void criadorUsuario(){
+    Stage currentStage = (Stage) criausuario.getScene().getWindow();
+    currentStage.close();
+    Classe.getInstance().getView().showCriaUsuarioWindow();
   }
 }
