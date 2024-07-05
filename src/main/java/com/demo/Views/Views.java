@@ -6,10 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.fxml.FXML;
-import javafx.scene.text.Text;
-
-import java.io.IOException;
 
 public class Views {
   // Alunos
@@ -21,7 +17,7 @@ public class Views {
     // otimizacao carregamento de telas
     if (alunoMenu == null) {
       try{
-        alunoMenu = new FXMLLoader(getClass().getResource("/com/demo/Aluno/AlunoMenu.fxml")).load();
+        alunoMenu = new FXMLLoader(getClass().getResource("/com/demo/AlunoMenu.fxml")).load();
       } catch (Exception e) {
         e.printStackTrace();
       }
@@ -35,12 +31,11 @@ public class Views {
   }
 
   public void showAlunoWindow() {
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/demo/Aluno/AlunoMenu.fxml"));
-    AlunosController alunosController = new AlunosController();
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/demo/AlunoMenu.fxml"));
+    AlunosMenuController alunosController = new AlunosMenuController();
     loader.setController(alunosController);
-    AlunosMenuController a = new AlunosMenuController();
-    a.initialize();
     createStage(loader);
+    alunosController.initialize();
   }
 
   public void createStage(FXMLLoader loader){

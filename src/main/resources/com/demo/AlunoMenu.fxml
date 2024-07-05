@@ -7,8 +7,8 @@
 
 <AnchorPane minHeight="900.0" minWidth="768.0" prefHeight="400.0" prefWidth="600.0"
             style="-fx-background-color: #d5d5d5;" xmlns="http://javafx.com/javafx/22"
-            xmlns:fx="http://javafx.com/fxml/1">
-    <Text fx:id="bemvindo" layoutX="243.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.demo.Controllers.Alunos.AlunosMenuController">
+    <Text fx:id="ui" layoutX="243.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0"
           text="Bem vindo, Jorge">
         <font>
           <Font size="35.0"/>
