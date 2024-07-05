@@ -1,10 +1,13 @@
 package com.demo.Views;
 
 import com.demo.Controllers.Alunos.AlunosController;
+import com.demo.Controllers.Alunos.AlunosMenuController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.fxml.FXML;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
 
@@ -35,6 +38,8 @@ public class Views {
     FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/demo/Aluno/AlunoMenu.fxml"));
     AlunosController alunosController = new AlunosController();
     loader.setController(alunosController);
+    AlunosMenuController a = new AlunosMenuController();
+    a.initialize();
     createStage(loader);
   }
 

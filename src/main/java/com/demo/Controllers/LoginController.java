@@ -2,6 +2,7 @@ package com.demo.Controllers;
 
 import com.demo.Classes.Classe;
 import com.demo.Classes.Usuario;
+import com.demo.Controllers.Alunos.AlunosMenuController;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
