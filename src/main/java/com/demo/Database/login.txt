@@ -1,7 +1,0 @@
-j,1,aluno
-j,1,aluno
-j,1,aluno
-j,1,aluno
-j,1,aluno
-j,1,aluno
-j,1,aluno
