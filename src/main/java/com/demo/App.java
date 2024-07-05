@@ -14,12 +14,12 @@ public class App extends Application {
   //autenticação do usuario. usado em fazerLogin()
 private Usuario autenticar(String email, String senha){
   ArrayList<String> dadosU = Busca.usuario(email);
-  if(dadosU != null && dadosU.size() > 2 && dadosU.get(1).equals(senha)){
+  if(dadosU != null && dadosU.get(1).equals(senha)){
     String tipoU = dadosU.get(2);
-    if(tipoU.equals("aluno")){
+    if(tipoU.equals("a")){
       // Supondo que a classe Aluno espera email, senha e tipo como parâmetros
       return new Aluno(dadosU.get(0), dadosU.get(1), dadosU.get(2));
-    }else if(tipoU.equals("professor")){
+    }else if(tipoU.equals("p")){
       // Supondo que a classe Professor espera email, senha e tipo como parâmetros
       return new Professor(dadosU.get(0), dadosU.get(1), dadosU.get(2));
     }
@@ -27,8 +27,9 @@ private Usuario autenticar(String email, String senha){
   return null;
 }
   //scanneia dados, os autentica e direciona pra página do tipo de usuario. usado em init()
-private void fazerLogin(){
+private int  fazerLogin(){
     System.out.println("Insira seu email: "); // Removido o System.out.print() extra
+    scanner.nextLine();
     String email = scanner.nextLine();
     System.out.println("Insira sua senha: "); // Alterado para println para consistência
     String senha = scanner.nextLine();
@@ -38,14 +39,17 @@ private void fazerLogin(){
       System.out.println("\nBem vindo!");
       if(u instanceof Aluno){
         System.out.println("Aluno");
+        return 2;
         // Implementação específica para aluno
       }else if(u instanceof Professor){
         System.out.println("Professor");
+        return 2;
         // Implementação específica para professor
       }
     }else{
       System.out.println("Falha no login.");
     }
+    return 1;
 }
 
   //exibe o menu inicial. usado em init()
@@ -58,18 +62,16 @@ private void fazerLogin(){
   }
 
   public void init(){
-    boolean on = true;
-
-    while(on){
+    int opcao = 1;
+    while(opcao == 1){
       menuInicial();
-      int opcao = scanner.nextInt();
+      opcao = scanner.nextInt();
 
       switch (opcao){
         case 1:
-          fazerLogin();
+          opcao = fazerLogin();
           break;
         case 2:
-          on = false;
           break;
         default:
           System.out.println("Tente novamente.");
