@@ -13,9 +13,13 @@ public class AlunosMenuController {
     public Text bemail;
 
  public void initialize(String email){
-      ArrayList<String> array = Busca.usuario(email);
-      int index = array.get(2).indexOf(" ",0);
-      String nome = array.get(2).substring(0,index);
+       int index = array.get(2).indexOf(" ");
+       String nome;
+       if (index != -1) {
+         nome = array.get(2).substring(0, index);
+       } else {
+         nome = array.get(2);
+       }
       bv.setText("Bem Vindo, " + nome);
       bemail.setText(email);
     }
