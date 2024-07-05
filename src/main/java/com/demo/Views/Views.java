@@ -1,7 +1,7 @@
 package com.demo.Views;
 
-import com.demo.Controllers.Alunos.AlunosController;
 import com.demo.Controllers.Alunos.AlunosMenuController;
+import com.demo.Controllers.Professores.ProfessoresController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -17,7 +17,7 @@ public class Views {
     // otimizacao carregamento de telas
     if (alunoMenu == null) {
       try{
-        alunoMenu = new FXMLLoader(getClass().getResource("/com/demo/AlunoMenu.fxml")).load();
+        alunoMenu = new FXMLLoader(getClass().getResource("/com/demo/Aluno/AlunoMenu.fxml")).load();
       } catch (Exception e) {
         e.printStackTrace();
       }
@@ -30,12 +30,20 @@ public class Views {
     createStage(loader);
   }
 
-  public void showAlunoWindow(String email) {
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/demo/AlunoMenu.fxml"));
+  public void showAlunoMenuWindow(String email) {
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/demo/Aluno/AlunoMenu.fxml"));
     AlunosMenuController alunosController = new AlunosMenuController();
     loader.setController(alunosController);
     createStage(loader);
     alunosController.initialize(email);
+  }
+
+  public void showProfessorWindow(String nome) {
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/demo/Professor/Professor.fxml"));
+    ProfessoresController professoresController = new ProfessoresController();
+    loader.setController(professoresController);
+    createStage(loader);
+    professoresController.initialize(nome);
   }
 
   public void createStage(FXMLLoader loader){
@@ -47,7 +55,10 @@ public class Views {
     }
     Stage stage = new Stage();
     stage.setScene(scene);
-    stage.setTitle("Ola");
+    stage.setTitle("Magician");
+    // NO ubuntu estou tendo um erro de tmanho de tela ao entrar em novas telas
+    // o codigo abaixo resolve, porem sera preciso definir um tamanho padrao para todas as telas
+    //  stage.setResizable(false);
     stage.show();
   }
 

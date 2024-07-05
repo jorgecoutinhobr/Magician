@@ -1,14 +1,11 @@
 package com.demo.Controllers;
 
-import com.demo.Classes.Aluno;
 import com.demo.Classes.Classe;
 import com.demo.Classes.Usuario;
-import com.demo.Controllers.Alunos.AlunosMenuController;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -32,7 +29,11 @@ public class LoginController implements Initializable {
     if(tipo.equals("a")) {
       Stage currentStage = (Stage) loginbtn.getScene().getWindow();
       currentStage.close();
-      Classe.getInstance().getView().showAlunoWindow(semail);
+      Classe.getInstance().getView().showAlunoMenuWindow(semail);
+    } else {
+      Stage currentStage = (Stage) loginbtn.getScene().getWindow();
+      currentStage.close();
+      Classe.getInstance().getView().showProfessorWindow(semail);
     }
   }
 }

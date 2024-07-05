@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import java.util.*;
 
 public class App extends Application {
-  private Scanner scanner = new Scanner(System.in);
+ // private Scanner scanner = new Scanner(System.in);
 
   //autenticação do usuario. usado em fazerLogin()
   //scanneia dados, os autentica e direciona pra página do tipo de usuario. usado em init()
@@ -42,13 +42,13 @@ public class App extends Application {
  */
 
   //exibe o menu inicial. usado em init()
-  private void menuInicial(){
-    System.out.println("\n-----MAGICIAN-----");
-    //pra testar
-    System.out.println("1 - login");
-    System.out.println("2 - sair");
-    System.out.print("Escolha uma opção: ");
-  }
+//  private void menuInicial(){
+//    System.out.println("\n-----MAGICIAN-----");
+//    //pra testar
+//    System.out.println("1 - login");
+//    System.out.println("2 - sair");
+//    System.out.print("Escolha uma opção: ");
+//  }
 
   /*public void init(){
     int opcao = 1;
@@ -70,11 +70,6 @@ public class App extends Application {
    */
   @Override
   public void start(Stage stage)  {
-//    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/demo/Login.fxml"));
-//    Scene scene = new Scene(fxmlLoader.load());
-//    stage.setScene(scene);
-//    stage.show();
-
     Views view = new Views();
     view.showLoginWindow();
   }
