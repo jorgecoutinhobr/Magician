@@ -12,29 +12,16 @@ public class App extends Application {
   private Scanner scanner = new Scanner(System.in);
 
   //autenticação do usuario. usado em fazerLogin()
-private Usuario autenticar(String email, String senha){
-  ArrayList<String> dadosU = Busca.usuario(email);
-  if(dadosU != null && dadosU.get(1).equals(senha)){
-    String tipoU = dadosU.get(2);
-    if(tipoU.equals("a")){
-      // Supondo que a classe Aluno espera email, senha e tipo como parâmetros
-      return new Aluno(dadosU.get(0), dadosU.get(1), dadosU.get(2));
-    }else if(tipoU.equals("p")){
-      // Supondo que a classe Professor espera email, senha e tipo como parâmetros
-      return new Professor(dadosU.get(0), dadosU.get(1), dadosU.get(2));
-    }
-  }
-  return null;
-}
   //scanneia dados, os autentica e direciona pra página do tipo de usuario. usado em init()
-private int  fazerLogin(){
+/*private int  fazerLogin(){
     System.out.println("Insira seu email: "); // Removido o System.out.print() extra
     scanner.nextLine();
     String email = scanner.nextLine();
     System.out.println("Insira sua senha: "); // Alterado para println para consistência
     String senha = scanner.nextLine();
 
-    Usuario u = autenticar(email, senha);
+    Usuario u = new Usuario();
+    u = u.autenticar(email,senha);
     if(u != null){
       System.out.println("\nBem vindo!");
       if(u instanceof Aluno){
@@ -52,6 +39,8 @@ private int  fazerLogin(){
     return 1;
 }
 
+ */
+
   //exibe o menu inicial. usado em init()
   private void menuInicial(){
     System.out.println("\n-----MAGICIAN-----");
@@ -61,7 +50,7 @@ private int  fazerLogin(){
     System.out.print("Escolha uma opção: ");
   }
 
-  public void init(){
+  /*public void init(){
     int opcao = 1;
     while(opcao == 1){
       menuInicial();
@@ -78,6 +67,7 @@ private int  fazerLogin(){
       }
     }
   }
+   */
   @Override
   public void start(Stage stage)  {
 //    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/demo/Login.fxml"));
@@ -85,11 +75,7 @@ private int  fazerLogin(){
 //    stage.setScene(scene);
 //    stage.show();
 
-//    Views view = new Views();
-//    view.showLoginWindow();
-
-
-    init();
-
+    Views view = new Views();
+    view.showLoginWindow();
   }
 }

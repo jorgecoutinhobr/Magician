@@ -37,4 +37,18 @@ public class Usuario {
     this.tipo = tipo;
   }
 
+  public static String autenticar(String email, String senha){
+    ArrayList<String> dadosU = Busca.usuario(email);
+    if(dadosU != null && dadosU.get(1).equals(senha)){
+      String tipoU = dadosU.get(2);
+      if(tipoU.equals("a")){
+        // Supondo que a classe Aluno espera email, senha e tipo como parâmetros
+        return dadosU.getLast();
+      }else if(tipoU.equals("p")){
+        // Supondo que a classe Professor espera email, senha e tipo como parâmetros
+        return dadosU.getLast();
+      }
+    }
+    return null;
+  }
 }

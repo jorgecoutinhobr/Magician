@@ -1,6 +1,7 @@
 package com.demo.Controllers;
 
 import com.demo.Classes.Classe;
+import com.demo.Classes.Usuario;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -22,8 +23,13 @@ public class LoginController implements Initializable {
   }
 
   private void onLogin(){
-    Stage currentStage = (Stage) loginbtn.getScene().getWindow();
-    currentStage.close();
-    Classe.getInstance().getView().showAlunoWindow();
+    String semail = email.getText();
+    String ssenha = senha.getText();
+    String tipo = Usuario.autenticar(semail, ssenha);
+    if(tipo.equals("a")) {
+      Stage currentStage = (Stage) loginbtn.getScene().getWindow();
+      currentStage.close();
+      Classe.getInstance().getView().showAlunoWindow();
+    }
   }
 }
