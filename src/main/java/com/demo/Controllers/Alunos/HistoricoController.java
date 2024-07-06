@@ -39,8 +39,6 @@ public class HistoricoController {
 
     }
 
-
-
     public void backPage(){
         Stage currentStage = (Stage) backbtn.getScene().getWindow();
         currentStage.close();
