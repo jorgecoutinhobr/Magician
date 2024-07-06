@@ -12,36 +12,44 @@ import java.util.ArrayList;
 
 public class HistoricoController {
     @FXML
-    public Label hemail;
-    public Label nivel;
-    public Label performance;
+    public Text hemail;
+    public Text nivel;
+    public Text performance;
     public Button backbtn;
 
 
-    public void initialize(String email){
-        backbtn.setOnAction(actionEvent -> backPage());
-        ArrayList<String> list = Busca.performance(email);
-        double numAcertos = Double.parseDouble(list.get(1));
-        double numRespostas = Double.parseDouble(list.get(2));
-        double porcento = numAcertos/numRespostas;
-        performance.setText(numAcertos + "/" + numRespostas + "(" + porcento + "%)");
-        nivel.setText(showNivel(email));
-        hemail.setText(email);
+    public void initialize(String email) {
+        // Verifica se os campos @FXML foram injetados corretamente
+        if (backbtn != null && performance != null && nivel != null && hemail != null) {
+            backbtn.setOnAction(actionEvent -> backPage());
+
+            ArrayList<String> list = Busca.performance(email);
+            double numAcertos = Double.parseDouble(list.get(1));
+            double numRespostas = Double.parseDouble(list.get(2));
+            double porcento = numAcertos / numRespostas;
+            performance.setText(numAcertos + "/" + numRespostas + " (" + porcento + "%)");
+            nivel.setText(showNivel(email));
+            hemail.setText(email);
+        } else {
+            System.err.println("Um ou mais campos @FXML não foram injetados corretamente.");
+        }
     }
 
-    public String showNivel(String email){
+    public String showNivel(String email) {
         ArrayList<String> list = Busca.usuario(email);
         assert list != null;
-        if(list.get(3).equals("2")){
-            return "Intermediário";
-        }else if(list.get(3).equals("3")){
-            return "Avançado";
-        }else if(list.get(3).equals("4")){
-            return "Fluente";
-        }else if(list.get(3).equals("1")){
-            return "Iniciante";
+        switch (list.get(3)) {
+            case "2":
+                return "Intermediário";
+            case "3":
+                return "Avançado";
+            case "4":
+                return "Fluente";
+            case "1":
+                return "Iniciante";
+            default:
+                return null;
         }
-        return null;
     }
 
     public void backPage(){
