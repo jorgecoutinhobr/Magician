@@ -1,9 +1,6 @@
 package com.demo.Controllers;
 
-import com.demo.Classes.Classe;
-import com.demo.Classes.ContextoAplicacao;
-import com.demo.Classes.Professor;
-import com.demo.Classes.Usuario;
+import com.demo.Classes.*;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -29,15 +26,17 @@ public class LoginController implements Initializable {
     String ssenha = senha.getText();
     String tipo = Usuario.autenticar(semail, ssenha);
     if(tipo.equals("a")) {
+      Aluno alunoLogado = new Aluno(semail,ssenha);
+      ContextoAplicacao.getInstancia().setAlunoLogado(alunoLogado);
       Stage currentStage = (Stage) loginbtn.getScene().getWindow();
       currentStage.close();
-      Classe.getInstance().getView().showAlunoMenuWindow(semail);
+      Classe.getInstance().getView().showAlunoMenuWindow();
     } else {
       Professor professorLogado = new Professor(semail, ssenha);
       ContextoAplicacao.getInstancia().setProfessorLogado(professorLogado);
       Stage currentStage = (Stage) loginbtn.getScene().getWindow();
       currentStage.close();
-      Classe.getInstance().getView().showProfessorWindow(semail);
+      Classe.getInstance().getView().showProfessorWindow();
     }
   }
 }

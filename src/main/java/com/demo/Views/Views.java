@@ -1,8 +1,9 @@
 package com.demo.Views;
 
+import com.demo.Classes.Aluno;
 import com.demo.Classes.ContextoAplicacao;
 import com.demo.Classes.Professor;
-import com.demo.Controllers.Alunos.AlunosMenuController;
+import com.demo.Controllers.Alunos.AlunosController;
 import com.demo.Controllers.Professores.CriaUsuarioController;
 import com.demo.Controllers.Professores.CriarPerguntaController;
 import com.demo.Controllers.Professores.ProfessoresController;
@@ -34,15 +35,16 @@ public class Views {
     createStage(loader);
   }
 
-  public void showAlunoMenuWindow(String email) {
+  public void showAlunoMenuWindow() {
     FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/demo/Aluno/AlunoMenu.fxml"));
-    AlunosMenuController alunosController = new AlunosMenuController();
+    AlunosController alunosController = new AlunosController();
     loader.setController(alunosController);
     createStage(loader);
-    alunosController.initialize(email);
+    Aluno alunoLogado = ContextoAplicacao.getInstancia().getAlunoLogado();
+    alunosController.initialize(alunoLogado.getEmail());
   }
 
-  public void showProfessorWindow(String nome) {
+  public void showProfessorWindow() {
     FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/demo/Professor/Professor.fxml"));
     ProfessoresController professoresController = new ProfessoresController();
     loader.setController(professoresController);

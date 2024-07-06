@@ -3,6 +3,7 @@ package com.demo.Classes;
 public class ContextoAplicacao {
   private static ContextoAplicacao instancia;
   private Professor professorLogado;
+  private Aluno alunoLogado;
 
   private ContextoAplicacao() {}
 
@@ -19,5 +20,13 @@ public class ContextoAplicacao {
 
   public Professor getProfessorLogado() {
     return professorLogado;
+  }
+
+  public void setAlunoLogado(Aluno aluno) {
+    this.alunoLogado = aluno;
+  }
+
+  public Aluno getAlunoLogado() {
+    return alunoLogado;
   }
 }

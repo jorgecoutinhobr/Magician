@@ -4,14 +4,13 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #d5d5d5;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextField fx:id="uemail" layoutX="201.0" layoutY="69.0" prefWidth="200.0" promptText="Email" />
       <TextField fx:id="senha" layoutX="200.0" layoutY="110.0" prefWidth="200.0" promptText="Senha" />
       <TextField fx:id="nome" layoutX="201.0" layoutY="149.0" prefWidth="200.0" promptText="Nome" />
       <TextField fx:id="tipo" layoutX="200.0" layoutY="187.0" prefWidth="200.0" promptText="Tipo" />
-      <Button fx:id="criar" layoutX="201.0" layoutY="232.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="105.0" style="-fx-background-color: red;" text="Criar" textFill="WHITE" />
+      <Button fx:id="criar" layoutX="247.0" layoutY="232.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="105.0" style="-fx-background-color: red;" text="Criar" textFill="WHITE" />
       <Button fx:id="voltar" layoutX="10" layoutY="10" mnemonicParsing="false" prefWidth="100.0" style="-fx-background-color: red;" text="Voltar" textFill="WHITE" />
    </children>
 </AnchorPane>
