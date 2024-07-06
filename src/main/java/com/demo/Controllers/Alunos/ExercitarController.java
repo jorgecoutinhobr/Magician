@@ -37,6 +37,7 @@ public class ExercitarController {
       mensagemresposta.setText("Selecione uma das alternativas");
     }
     else {
+      mensagemresposta.setText("");
     if((radioButton.getId().substring(2,3)).equals(perguntas.get(perguntas.size()-2))){
       System.out.println("resposta certa");
     }

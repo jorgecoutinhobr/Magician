@@ -33,17 +33,29 @@ public class CriaUsuarioController {
       FileWriter fw = new FileWriter(PATH_USUARIOS, true);
       BufferedWriter bw = new BufferedWriter(fw);
       PrintWriter out = new PrintWriter(bw);
-
-      String dados = String.format("%s,%s,%s,%s\n",
-              uemail.getText().toLowerCase(),
-              senha.getText(),
-              nome.getText(),
-              tipo.getText());
-
-      out.print(dados);
+      if(tipo.getText().equals("a")){
+        String dados = String.format("%s,%s,%s,1,%s\n",
+                uemail.getText().toLowerCase(),
+                senha.getText(),
+                nome.getText(),
+                tipo.getText());
+        out.print(dados);
+        limparCampos();
+      }
+      else if(tipo.getText().equals("p")) {
+        String dados = String.format("%s,%s,%s,%s\n",
+                uemail.getText().toLowerCase(),
+                senha.getText(),
+                nome.getText(),
+                tipo.getText());
+        out.print(dados);
+        limparCampos();
+      }
+      else {
+        System.out.println("Tipo não reconhecido.");
+      }
       out.close();
 
-      limparCampos();
 
     } catch (IOException e) {
       e.printStackTrace();
