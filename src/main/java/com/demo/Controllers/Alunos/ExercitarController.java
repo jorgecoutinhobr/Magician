@@ -44,7 +44,7 @@ public class ExercitarController {
         System.out.println("resposta certa");
         certa = true;
       }
-      Performance.addResposta(email, certa,perguntas.getLast());
+      Performance.addResposta(email, certa, perguntas.getLast());
     }
   }
 

@@ -6,50 +6,54 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
-    <children>
-        <Label fx:id="head" layoutX="231.0" layoutY="25.0" text="Histórico">
-            <font>
-                <Font size="35.0" />
-            </font>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0"
+            prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <Label fx:id="head" layoutX="231.0" layoutY="25.0" text="Histórico">
+      <font>
+        <Font size="35.0"/>
+      </font>
+    </Label>
+    <Label fx:id="nivelTitle" layoutX="278.0" layoutY="127.0" text="Nível" underline="true">
+      <font>
+        <Font size="20.0"/>
+      </font>
+    </Label>
+    <Label fx:id="performanceTitle" layoutX="244.0" layoutY="216.0" text="Performance" underline="true">
+      <font>
+        <Font size="20.0"/>
+      </font>
+    </Label>
+    <Button fx:id="backbtn" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" styleClass="button-sm"
+            stylesheets="@../Style/style.css" text="Voltar" textFill="WHITE"/>
+    <VBox alignment="CENTER" layoutX="250.0" layoutY="150.0" prefHeight="30.0" prefWidth="100.0">
+      <children>
+        <Label fx:id="nivel" text="Iniciante">
+          <font>
+            <Font size="16.0"/>
+          </font>
         </Label>
-        <Label fx:id="nivelTitle" layoutX="278.0" layoutY="127.0" text="Nível" underline="true">
-            <font>
-                <Font size="20.0" />
-            </font>
+      </children>
+    </VBox>
+    <VBox alignment="TOP_CENTER" layoutY="248.0" prefHeight="151.0" prefWidth="600.0">
+      <children>
+        <Label fx:id="performance" alignment="TOP_CENTER" prefHeight="143.0" prefWidth="241.0" text="c / t (p%)"
+               textAlignment="CENTER">
+          <font>
+            <Font size="16.0"/>
+          </font>
         </Label>
-        <Label fx:id="performanceTitle" layoutX="244.0" layoutY="216.0" text="Performance" underline="true">
-            <font>
-                <Font size="20.0" />
-            </font>
+      </children>
+    </VBox>
+    <VBox alignment="CENTER" layoutY="69.0" prefHeight="30.0" prefWidth="600.0">
+      <children>
+        <Label fx:id="hemail" alignment="TOP_CENTER" prefHeight="40.0" prefWidth="94.0" text="email@com"
+               textAlignment="CENTER">
+          <font>
+            <Font size="16.0"/>
+          </font>
         </Label>
-        <Button fx:id="backbtn" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" styleClass="button-sm" stylesheets="@../Style/style.css" text="Voltar" textFill="WHITE" />
-      <VBox alignment="CENTER" layoutX="250.0" layoutY="150.0" prefHeight="30.0" prefWidth="100.0">
-         <children>
-              <Label fx:id="nivel" text="Iniciante">
-                  <font>
-                      <Font size="16.0" />
-                  </font>
-              </Label>
-         </children>
-      </VBox>
-      <VBox alignment="TOP_CENTER" layoutY="248.0" prefHeight="151.0" prefWidth="600.0">
-         <children>
-              <Label fx:id="performance" alignment="TOP_CENTER" prefHeight="143.0" prefWidth="241.0" text="c / t (p%)" textAlignment="CENTER">
-                  <font>
-                      <Font size="16.0" />
-                  </font>
-              </Label>
-         </children>
-      </VBox>
-      <VBox alignment="CENTER" layoutY="69.0" prefHeight="30.0" prefWidth="600.0">
-         <children>
-              <Label fx:id="hemail" alignment="TOP_CENTER" prefHeight="40.0" prefWidth="94.0" text="email@com" textAlignment="CENTER">
-                  <font>
-                      <Font size="16.0" />
-                  </font>
-              </Label>
-         </children>
-      </VBox>
-    </children>
+      </children>
+    </VBox>
+  </children>
 </AnchorPane>

@@ -36,15 +36,15 @@ public class CriaUsuarioController {
 
   private void salvaUsuario() {
     if (tipo.getText().equals("a") && (uemail.getText().isEmpty() || nivel.getValue() == null || senha.getText().isEmpty() || nome.getText().isEmpty() || tipo.getText().isEmpty())) {
-        mensagemresposta.setFill(Color.RED);
-        mensagemresposta.setText("Todos os campos devem ser preenchidos");
-        return;
+      mensagemresposta.setFill(Color.RED);
+      mensagemresposta.setText("Todos os campos devem ser preenchidos");
+      return;
     }
 
     if (tipo.getText().equals("p") && (uemail.getText().isEmpty() || senha.getText().isEmpty() || nome.getText().isEmpty() || tipo.getText().isEmpty())) {
-        mensagemresposta.setFill(Color.RED);
-        mensagemresposta.setText("Todos os campos devem ser preenchidos");
-        return;
+      mensagemresposta.setFill(Color.RED);
+      mensagemresposta.setText("Todos os campos devem ser preenchidos");
+      return;
     }
 
     if (!tipo.getText().equals("a") && !tipo.getText().equals("p")) {
@@ -63,7 +63,7 @@ public class CriaUsuarioController {
          BufferedWriter bw = new BufferedWriter(fw);
          PrintWriter out = new PrintWriter(bw)) {
 
-      if(tipo.getText().equals("a")){
+      if (tipo.getText().equals("a")) {
         String dados = String.format("%s,%s,%s,%s,%s\n",
                 uemail.getText().toLowerCase(),
                 senha.getText(),
@@ -74,8 +74,7 @@ public class CriaUsuarioController {
         mensagemresposta.setFill(Color.BLACK);
         mensagemresposta.setText("Usuário cadastrado com sucesso");
         limparCampos();
-      }
-      else if(tipo.getText().equals("p")) {
+      } else if (tipo.getText().equals("p")) {
         String dados = String.format("%s,%s,%s,%s\n",
                 uemail.getText().toLowerCase(),
                 senha.getText(),
