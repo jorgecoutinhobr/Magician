@@ -7,13 +7,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Busca {
-  private Busca(){}
-  public static ArrayList<String> usuario(String email){
+  private Busca() {
+  }
+
+  public static ArrayList<String> usuario(String email) {
     final String PATH_USUARIOS = "src/main/java/com/demo/Database/usuarios.csv";
     ArrayList<String> resultado = new ArrayList<>();
     try (BufferedReader reader = new BufferedReader(new FileReader(PATH_USUARIOS))) {
       String linha;
-      while ((linha = reader.readLine())!= null) {
+      while ((linha = reader.readLine()) != null) {
         String[] campos = linha.split(",");
         if (campos.length >= 2 && campos[0].equals(email)) {
           resultado.addAll(Arrays.asList(campos));
@@ -26,21 +28,21 @@ public class Busca {
     return null;
   }
 
-  public static ArrayList<String> pergunta(String nivel){
-    final String PATH_PERGUNTAS = "src/main/java/com/demo/Database/nivel" + nivel +  ".csv";
+  public static ArrayList<String> pergunta(String nivel) {
+    final String PATH_PERGUNTAS = "src/main/java/com/demo/Database/nivel" + nivel + ".csv";
     ArrayList<String> resultado = new ArrayList<>();
     try (BufferedReader reader = new BufferedReader(new FileReader(PATH_PERGUNTAS))) {
       String linha;
       int codigo = (int) (Math.random() * tamanhoArquivo(PATH_PERGUNTAS) + 1);
-      while ((linha = reader.readLine())!= null) {
+      while ((linha = reader.readLine()) != null) {
         String[] campos = linha.split(";");
-        if (Integer.parseInt(campos[campos.length-1]) == codigo) {
+        if (Integer.parseInt(campos[campos.length - 1]) == codigo) {
           resultado.addAll(Arrays.asList(campos));
           return resultado;
         }
       }
-      if(resultado.size() == 0){
-        throw(new Exception("Não existem perguntas desse nivel."));
+      if (resultado.size() == 0) {
+        throw (new Exception("Não existem perguntas desse nivel."));
       }
     } catch (Exception e) {
       System.out.println(e.getMessage());
@@ -48,11 +50,11 @@ public class Busca {
     return resultado;
   }
 
-  public static int tamanhoArquivo(String PATH){
+  public static int tamanhoArquivo(String PATH) {
     int tamanho = 0;
     try (BufferedReader reader = new BufferedReader(new FileReader(PATH))) {
       String linha;
-      while ((linha = reader.readLine())!= null) {
+      while ((linha = reader.readLine()) != null) {
         tamanho++;
       }
     } catch (IOException e) {

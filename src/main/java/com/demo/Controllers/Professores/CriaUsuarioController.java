@@ -26,7 +26,7 @@ public class CriaUsuarioController {
   public Button voltar;
   public Text mensagemresposta;
 
-  public void initialize(){
+  public void initialize() {
     criar.setOnAction(event -> salvaUsuario());
     voltar.setOnAction(event -> voltarTela());
   }
@@ -79,7 +79,7 @@ public class CriaUsuarioController {
     tipo.clear();
   }
 
-  private void voltarTela(){
+  private void voltarTela() {
     Stage stage = (Stage) voltar.getScene().getWindow();
     stage.close();
     Classe.getInstance().getView().showProfessorWindow();
