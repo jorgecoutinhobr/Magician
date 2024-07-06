@@ -14,7 +14,7 @@ public class Performance {
     performaceAluno = performancelist.getFirst() +
             "," + performancelist.get(1) +
             "," + performancelist.get(2) +
-            "," + performancelist.getLast().substring(0, performancelist.getLast().length() - 1) + ";" + idpergunta + "]";
+            "," + performancelist.getLast().substring(0, performancelist.getLast().length() - 1) + idpergunta + ";" + "]";
     salvaPerformance(performaceAluno, performancelist.getFirst());
   }
 
