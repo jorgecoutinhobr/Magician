@@ -53,7 +53,7 @@ public class CriarPerguntaController {
     try (BufferedReader br = new BufferedReader(new FileReader(PATH_PERGUNTAS))) {
       String line;
       while ((line = br.readLine()) != null) {
-        if (line.contains(";" + pergunta.getText() + ";")) {
+        if (line.contains(intro.getText() + ";" + pergunta.getText() + ";")) {
           mensagemresposta.setFill(Color.RED);
           mensagemresposta.setText("Erro: A pergunta já existe.");
           return;
