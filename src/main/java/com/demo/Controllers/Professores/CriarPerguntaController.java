@@ -11,10 +11,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 
 public class CriarPerguntaController {
 
@@ -38,7 +35,6 @@ public class CriarPerguntaController {
   }
 
   private void salvaPergunta(){
-    try {
       if(     intro.getText().equals("") ||
               pergunta.getText().equals("") ||
               op1.getText().equals("") ||
@@ -50,9 +46,26 @@ public class CriarPerguntaController {
       {
         mensagemresposta.setFill(Color.RED);
         mensagemresposta.setText("Erro: prencha todo os campos");
+        return;
       }
-      else {
-        String PATH_PERGUNTAS = "src/main/java/com/demo/Database/nivel" + nivel.getValue() + ".csv";
+
+       String PATH_PERGUNTAS = "src/main/java/com/demo/Database/nivel" + nivel.getValue() + ".csv";
+       
+      try (BufferedReader br = new BufferedReader(new FileReader(PATH_PERGUNTAS))) {
+        String line;
+        while ((line = br.readLine()) != null) {
+            if (line.contains(";" + pergunta.getText() + ";")) {
+                mensagemresposta.setFill(Color.RED);
+                mensagemresposta.setText("Erro: A pergunta já existe.");
+                return;
+            }
+        }
+      } catch (IOException e) {
+          e.printStackTrace();
+      }
+
+      try {
+      
         FileWriter fw = new FileWriter(PATH_PERGUNTAS, true);
         BufferedWriter bw = new BufferedWriter(fw);
         PrintWriter out = new PrintWriter(bw);
@@ -72,10 +85,9 @@ public class CriarPerguntaController {
         mensagemresposta.setFill(Color.BLACK);
         mensagemresposta.setText("Pergunta enviada");
         limparCampos();
+      } catch (IOException e) {
+        e.printStackTrace();
       }
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
   }
 
   private void limparCampos() {
