@@ -37,7 +37,7 @@ public class LoginController implements Initializable {
       ContextoAplicacao.getInstancia().setProfessorLogado(professorLogado);
       Stage currentStage = (Stage) loginbtn.getScene().getWindow();
       currentStage.close();
-      Classe.getInstance().getView().showProfessorWindow(semail);
+      Classe.getInstance().getView().showProfessorWindow();
     }
   }
 }

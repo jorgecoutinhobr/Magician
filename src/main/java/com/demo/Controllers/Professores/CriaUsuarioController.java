@@ -60,6 +60,6 @@ public class CriaUsuarioController {
   private void voltarTela(){
     Stage stage = (Stage) voltar.getScene().getWindow();
     stage.close();
-    Classe.getInstance().getView().showProfessorWindow("/com/demo/Professor/Professor.fxml");
+    Classe.getInstance().getView().showProfessorWindow();
   }
 }

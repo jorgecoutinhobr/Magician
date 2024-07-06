@@ -68,6 +68,6 @@ public class CriarPerguntaController {
   private void voltarParaProfessores(){
     Stage stage = (Stage) voltar.getScene().getWindow();
     stage.close();
-    Classe.getInstance().getView().showProfessorWindow("/com/demo/Professor/Professor.fxml");
+    Classe.getInstance().getView().showProfessorWindow();
   }
 }

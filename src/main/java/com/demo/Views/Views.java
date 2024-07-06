@@ -42,7 +42,7 @@ public class Views {
     alunosController.initialize(email);
   }
 
-  public void showProfessorWindow(String nome) {
+  public void showProfessorWindow() {
     FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/demo/Professor/Professor.fxml"));
     ProfessoresController professoresController = new ProfessoresController();
     loader.setController(professoresController);
