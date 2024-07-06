@@ -4,6 +4,7 @@ import com.demo.Classes.Aluno;
 import com.demo.Classes.ContextoAplicacao;
 import com.demo.Classes.Professor;
 import com.demo.Controllers.Alunos.AlunosController;
+import com.demo.Controllers.Alunos.ExercitarController;
 import com.demo.Controllers.Professores.CriaUsuarioController;
 import com.demo.Controllers.Professores.CriarPerguntaController;
 import com.demo.Controllers.Professores.ProfessoresController;
@@ -64,6 +65,13 @@ public class Views {
     FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/demo/Professor/CriaUsuario.fxml"));
     CriaUsuarioController criaUsuarioController = new CriaUsuarioController();
     loader.setController(criaUsuarioController);
+    createStage(loader);
+  }
+
+  public void showExercitarWindow() {
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/demo/Aluno/Exercitar.fxml"));
+    ExercitarController exercitarController = new ExercitarController();
+    loader.setController(exercitarController);
     createStage(loader);
   }
 

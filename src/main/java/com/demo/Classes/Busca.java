@@ -26,4 +26,39 @@ public class Busca {
     return null;
   }
 
+  public static ArrayList<String> pergunta(String nivel){
+    final String PATH_PERGUNTAS = "src/main/java/com/demo/Database/usuarios/nivel" + nivel +  ".csv";
+    ArrayList<String> resultado = new ArrayList<>();
+    try (BufferedReader reader = new BufferedReader(new FileReader(PATH_PERGUNTAS))) {
+      String linha;
+      int codigo = (int) (Math.random() * tamanhoArquivo(PATH_PERGUNTAS) + 1);
+      while ((linha = reader.readLine())!= null) {
+        String[] campos = linha.split(";");
+        if (Integer.parseInt(campos[campos.length-1]) == codigo) {
+          resultado.addAll(Arrays.asList(campos));
+          return resultado;
+        }
+      }
+      if(resultado.size() == 0){
+        throw(new Exception("Não existem perguntas desse nivel."));
+      }
+    } catch (Exception e) {
+      System.out.println(e.getMessage());
+    }
+    return resultado;
+  }
+
+  private static int tamanhoArquivo(String PATH){
+    int tamanho = 0;
+    try (BufferedReader reader = new BufferedReader(new FileReader(PATH))) {
+      String linha;
+      while ((linha = reader.readLine())!= null) {
+        tamanho++;
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    return tamanho;
+  }
+
 }

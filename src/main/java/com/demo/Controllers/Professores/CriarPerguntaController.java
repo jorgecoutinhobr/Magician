@@ -32,8 +32,8 @@ public class CriarPerguntaController {
 
   public void initialize(){
     nivel.getItems().addAll("1","2","3","4");
-    enviar.setOnAction(e -> salvaPergunta());
-    voltar.setOnAction(e -> voltarParaProfessores());
+    enviar.setOnAction(event -> salvaPergunta());
+    voltar.setOnAction(event -> voltarParaProfessores());
   }
 
   private void salvaPergunta(){

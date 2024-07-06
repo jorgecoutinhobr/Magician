@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Aluno {
   // melhorar esse metodo p/ fazer so uma chamada da funcao aluno
-  private int nivel;
+  private String nivel;
   private String email;
   private String senha;
 
@@ -31,5 +31,13 @@ public class Aluno {
 
   public void setSenha(String senha) {
     this.senha = senha;
+  }
+
+  public String getNivel(){
+    return nivel;
+  }
+
+  public void setNivel(String nivel) {
+    this.nivel = nivel;
   }
 }

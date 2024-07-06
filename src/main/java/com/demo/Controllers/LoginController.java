@@ -22,7 +22,7 @@ public class LoginController implements Initializable {
   }
 
   private void onLogin(){
-    String semail = email.getText();
+    String semail = email.getText().toLowerCase();
     String ssenha = senha.getText();
     String tipo = Usuario.autenticar(semail, ssenha);
     if(tipo.equals("a")) {

@@ -35,7 +35,7 @@ public class CriaUsuarioController {
       PrintWriter out = new PrintWriter(bw);
 
       String dados = String.format("%s,%s,%s,%s\n",
-              uemail.getText(),
+              uemail.getText().toLowerCase(),
               senha.getText(),
               nome.getText(),
               tipo.getText());

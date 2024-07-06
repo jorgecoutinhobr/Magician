@@ -18,7 +18,7 @@ public class ProfessoresController {
 
   public void initialize(String email){
     criapergunta.setOnAction(event -> criadorPergunta());
-    criausuario.setOnAction(ecent -> criadorUsuario());
+    criausuario.setOnAction(event -> criadorUsuario());
     ArrayList<String> array = Busca.usuario(email);
     int index = array.get(2).indexOf(" ");
     String nome;
