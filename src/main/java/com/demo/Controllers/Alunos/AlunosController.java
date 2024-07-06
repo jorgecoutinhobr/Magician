@@ -21,7 +21,7 @@ public class AlunosController {
    public void initialize(String email){
      exercitar.setOnAction(event -> exercitarPergunta());
      btnSair.setOnAction(event -> retornarLogin());
-     historico.setOnAction(actionEvent -> historicoClicked());
+     historico.setOnAction(event -> historicoClicked());
 
      ArrayList<String> array = Busca.usuario(email);
      String nomeCompleto = array.get(2);

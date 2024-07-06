@@ -3,6 +3,7 @@ package com.demo.Controllers.Alunos;
 import com.demo.Classes.Busca;
 import com.demo.Classes.Classe;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
@@ -19,14 +20,16 @@ public class HistoricoController {
 
 
     public void initialize(String email){
-        backbtn.setOnAction(actionEvent -> backPage());
+        backbtn.setOnAction(event -> backPage());
         ArrayList<String> list = Busca.performance(email);
         double numAcertos = Double.parseDouble(list.get(1));
         double numRespostas = Double.parseDouble(list.get(2));
         double porcento = numAcertos/numRespostas;
+
         performance.setText(numAcertos + "/" + numRespostas + "(" + porcento + "%)");
         nivel.setText(showNivel(email));
         hemail.setText(email);
+
     }
 
     public String showNivel(String email){
@@ -49,4 +52,6 @@ public class HistoricoController {
         currentStage.close();
         Classe.getInstance().getView().showAlunoMenuWindow();
     }
+
+
 }
