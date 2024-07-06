@@ -18,4 +18,21 @@ public class Performance {
         //append list em performance.csv (sobrescrever)
     }
 
+    public static String showNivel(String email) {
+        ArrayList<String> list = Busca.usuario(email);
+        assert list != null;
+        switch (list.get(3)) {
+            case "2":
+                return "Intermediário";
+            case "3":
+                return "Avançado";
+            case "4":
+                return "Fluente";
+            case "1":
+                return "Iniciante";
+            default:
+                return null;
+        }
+    }
+
 }
