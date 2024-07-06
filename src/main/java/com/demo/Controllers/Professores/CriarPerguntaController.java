@@ -64,7 +64,6 @@ public class CriarPerguntaController {
     }
 
     try {
-
       FileWriter fw = new FileWriter(PATH_PERGUNTAS, true);
       BufferedWriter bw = new BufferedWriter(fw);
       PrintWriter out = new PrintWriter(bw);
