@@ -5,25 +5,30 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="500.0" maxWidth="700.0" minHeight="500.0" minWidth="700.0" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #d5d5d5;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
-    <Text fx:id="bv" layoutX="168.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem vindo, Jorge" textOrigin="CENTER">
-        <font>
-          <Font size="48.0" />
-        </font>
-    </Text>
-    <Text fx:id="bemail" layoutX="278.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="jorge/@email" textOrigin="CENTER">
-        <font>
-          <Font size="24.0" />
-        </font>
-    </Text>
-   <Button fx:id="exercitar" alignment="CENTER" contentDisplay="CENTER" layoutX="250.0" layoutY="250.0" mnemonicParsing="false" prefWidth="200.0" style="-fx-border-radius: 3; -fx-background-color: red;" text="EXERCITAR" textFill="WHITE">
+<AnchorPane maxHeight="500.0" maxWidth="900.0" minHeight="500.0" minWidth="900.0" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #d5d5d5;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+   <Button fx:id="exercitar" alignment="CENTER" contentDisplay="CENTER" layoutX="576.0" layoutY="135.0" mnemonicParsing="false" prefWidth="200.0" stylesheets="@../Style/style.css" text="EXERCITAR" textFill="WHITE">
       <font>
          <Font size="18.0" />
       </font>
    </Button>
-   <Button fx:id="historico" alignment="CENTER" contentDisplay="CENTER" layoutX="250.0" layoutY="346.0" mnemonicParsing="false" prefWidth="200.0" style="-fx-border-radius: 3; -fx-background-color: red;" text="HISTÓRICO" textFill="WHITE">
+   <Button fx:id="historico" alignment="CENTER" contentDisplay="CENTER" layoutX="576.0" layoutY="228.0" mnemonicParsing="false" prefWidth="200.0" stylesheets="@../Style/style.css" text="HISTÓRICO" textFill="WHITE">
       <font>
          <Font size="18.0" />
       </font>
    </Button>
+   <AnchorPane layoutY="-4.0" prefHeight="506.0" prefWidth="442.0" style="-fx-background-color: red;">
+      <children>
+          <Text fx:id="bv" fill="WHITE" layoutX="23.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem vindo, Aluno" textOrigin="CENTER">
+              <font>
+                <Font size="44.0" />
+              </font>
+          </Text>
+          <Text fx:id="bemail" fill="WHITE" layoutX="143.0" layoutY="480.0" strokeType="OUTSIDE" strokeWidth="0.0" text="example@email" textOrigin="CENTER" wrappingWidth="187.02401733398438">
+              <font>
+                <Font size="17.0" />
+              </font>
+          </Text>
+         <Button fx:id="btnSair" layoutX="96.0" layoutY="210.0" mnemonicParsing="false" styleClass="button-white" stylesheets="@../Style/style.css" text="Sair" />
+      </children>
+   </AnchorPane>
 </AnchorPane>

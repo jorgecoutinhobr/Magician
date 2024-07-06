@@ -16,19 +16,17 @@ public class AlunosController {
     public Text bemail;
     public Button exercitar;
     public Button historico;
+    public Button btnSair;
 
    public void initialize(String email){
      exercitar.setOnAction(event -> exercitarPergunta());
-     historico.setOnAction(actionEvent -> historicoClicked());
+     btnSair.setOnAction(event -> retornarLogin());
+
      ArrayList<String> array = Busca.usuario(email);
-     int index = array.get(2).indexOf(" ");
-     String nome;
-     if (index != -1) {
-       nome = array.get(2).substring(0, index);
-     } else {
-       nome = array.get(2);
-     }
-     bv.setText("Bem Vindo, " + nome);
+     String nomeCompleto = array.get(2);
+     String[] partesNome = nomeCompleto.split(" ");
+     String nome = partesNome[0];
+     bv.setText("Bem vindo, " + nome);
      bemail.setText(email);
    }
 
@@ -38,10 +36,9 @@ public class AlunosController {
       Classe.getInstance().getView().showExercitarWindow();
    }
 
-    private void historicoClicked(){
-        Stage currentStage = (Stage) historico.getScene().getWindow();
-        currentStage.close();
-        Classe.getInstance().getView().showHistoricoWindow();
-    }
-
+  private void retornarLogin() {
+    Stage currentStage = (Stage) btnSair.getScene().getWindow();
+    currentStage.close();
+    Classe.getInstance().getView().showLoginWindow();
+  }
 }

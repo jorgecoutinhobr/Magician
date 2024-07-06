@@ -27,13 +27,9 @@ public class ProfessoresController {
     criausuario.setOnAction(event -> criadorUsuario());
     btnSair.setOnAction(event -> retornarLogin());
     ArrayList<String> array = Busca.usuario(email);
-    int index = array.get(2).indexOf(" ");
-    String nome;
-    if (index != -1) {
-      nome = array.get(2).substring(0, index);
-    } else {
-      nome = array.get(2);
-    }
+    String nomeCompleto = array.get(2);
+    String[] partesNome = nomeCompleto.split(" ");
+    String nome = partesNome[0];
     bv.setText("Bem Vindo, " + nome);
   }
 

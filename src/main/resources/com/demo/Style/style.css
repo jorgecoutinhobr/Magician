@@ -19,3 +19,12 @@
     -fx-background-radius : 3;
     -fx-cursor: HAND;
 }
+
+.button-white {
+    -fx-background-color : #FFFFFF;
+    -fx-background-radius : 3;
+    -fx-pref-height: 40;
+    -fx-pref-width: 200;
+    -fx-font-size: 20;
+    -fx-text-fill: #FF0000;
+}
