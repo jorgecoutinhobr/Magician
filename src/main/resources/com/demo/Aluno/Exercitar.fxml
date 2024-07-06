@@ -12,8 +12,8 @@
       <AnchorPane layoutY="-4.0" prefHeight="508.0" prefWidth="474.0" style="-fx-background-color: red;">
          <children>
             <Text fx:id="nivel" fill="WHITE" layoutX="166.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nivel" />
-            <Text fx:id="intro" fill="WHITE" layoutX="195.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Intro" />
-            <Text fx:id="pergunta" fill="WHITE" layoutX="189.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pergunta" />
+            <Text fx:id="intro" fill="WHITE" layoutX="174.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Intro" />
+            <Text fx:id="pergunta" fill="WHITE" layoutX="166.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pergunta" />
             <Button fx:id="voltar" layoutX="128.0" layoutY="425.0" mnemonicParsing="false" prefWidth="100.0" styleClass="button-white" stylesheets="@../Style/style.css" text="Voltar" textFill="WHITE" />
          </children>
       </AnchorPane>
