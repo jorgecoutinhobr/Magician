@@ -52,7 +52,6 @@ public class ExercitarController {
   private ArrayList<String> atualizarPerguntas(String nivel){
     this.nivel.setText("Questão de nível " + nivel);
     ArrayList<String> perguntas = Busca.pergunta(nivel);
-    System.out.println(perguntas);
     intro.setText(perguntas.getFirst());
     pergunta.setText(perguntas.get(1));
     op1.setText(perguntas.get(2));
