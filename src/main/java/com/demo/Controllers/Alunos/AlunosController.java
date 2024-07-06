@@ -11,31 +11,31 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class AlunosController {
-    @FXML
-    public Text bv;
-    public Text bemail;
-    public Button exercitar;
-    public Button historico;
-    public Button btnSair;
+  @FXML
+  public Text bv;
+  public Text bemail;
+  public Button exercitar;
+  public Button historico;
+  public Button btnSair;
 
-   public void initialize(String email){
-     exercitar.setOnAction(event -> exercitarPergunta());
-     btnSair.setOnAction(event -> retornarLogin());
-     historico.setOnAction(event -> historicoClicked());
+  public void initialize(String email) {
+    exercitar.setOnAction(event -> exercitarPergunta());
+    btnSair.setOnAction(event -> retornarLogin());
+    historico.setOnAction(event -> historicoClicked());
 
-     ArrayList<String> array = Busca.usuario(email);
-     String nomeCompleto = array.get(2);
-     String[] partesNome = nomeCompleto.split(" ");
-     String nome = partesNome[0];
-     bv.setText("Bem vindo, " + nome);
-     bemail.setText(email);
-   }
+    ArrayList<String> array = Busca.usuario(email);
+    String nomeCompleto = array.get(2);
+    String[] partesNome = nomeCompleto.split(" ");
+    String nome = partesNome[0];
+    bv.setText("Bem vindo, " + nome);
+    bemail.setText(email);
+  }
 
-   private void exercitarPergunta(){
-      Stage currentStage = (Stage) exercitar.getScene().getWindow();
-      currentStage.close();
-      Classe.getInstance().getView().showExercitarWindow();
-   }
+  private void exercitarPergunta() {
+    Stage currentStage = (Stage) exercitar.getScene().getWindow();
+    currentStage.close();
+    Classe.getInstance().getView().showExercitarWindow();
+  }
 
   private void retornarLogin() {
     Stage currentStage = (Stage) btnSair.getScene().getWindow();
@@ -43,11 +43,11 @@ public class AlunosController {
     Classe.getInstance().getView().showLoginWindow();
   }
 
-    private void historicoClicked(){
-        Stage currentStage = (Stage) historico.getScene().getWindow();
-        currentStage.close();
-        Classe.getInstance().getView().showHistoricoWindow();
-    }
+  private void historicoClicked() {
+    Stage currentStage = (Stage) historico.getScene().getWindow();
+    currentStage.close();
+    Classe.getInstance().getView().showHistoricoWindow();
+  }
 
 
 }

@@ -10,11 +10,11 @@ public class Performance {
     ArrayList<String> performancelist = Busca.performance(email);
     String performaceAluno;
     performancelist.set(2, String.valueOf(Integer.parseInt(performancelist.get(2)) + 1));
-    if (certa) performancelist.set(1, String.valueOf(Integer.parseInt(performancelist.get(2)) + 1));
+    if (certa) performancelist.set(1, String.valueOf(Integer.parseInt(performancelist.get(1)) + 1));
     performaceAluno = performancelist.getFirst() +
             "," + performancelist.get(1) +
             "," + performancelist.get(2) +
-            "," + performancelist.getLast().substring(0, performancelist.getLast().length() - 1) + ";" + idpergunta + "]";
+            "," + performancelist.getLast().substring(0, performancelist.getLast().length() - 1) + idpergunta + ";" + "]";
     salvaPerformance(performaceAluno, performancelist.getFirst());
   }
 

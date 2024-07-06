@@ -46,8 +46,12 @@ public class CriarPerguntaController {
       mensagemresposta.setFill(Color.RED);
       mensagemresposta.setText("Erro: prencha todo os campos");
       return;
+    } else if (Integer.parseInt(resposta.getText()) < 1 || Integer.parseInt(resposta.getText()) > 4 )
+    {
+      mensagemresposta.setFill(Color.RED);
+      mensagemresposta.setText("Erro: número da resposta inválido");
+      return;
     }
-
     String PATH_PERGUNTAS = "src/main/java/com/demo/Database/nivel" + nivel.getValue() + ".csv";
 
     try (BufferedReader br = new BufferedReader(new FileReader(PATH_PERGUNTAS))) {
@@ -64,7 +68,6 @@ public class CriarPerguntaController {
     }
 
     try {
-
       FileWriter fw = new FileWriter(PATH_PERGUNTAS, true);
       BufferedWriter bw = new BufferedWriter(fw);
       PrintWriter out = new PrintWriter(bw);
