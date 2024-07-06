@@ -2,6 +2,7 @@ package com.demo.Controllers.Alunos;
 
 import com.demo.Classes.Busca;
 import com.demo.Classes.Classe;
+import com.demo.Classes.Performance;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
@@ -26,30 +27,34 @@ public class ExercitarController {
   public Button voltar;
   public Text mensagemresposta;
 
-  public void initialize(String nivel, String email){
+  public void initialize(String nivel, String email) {
     ArrayList<String> perguntas = atualizarPerguntas(nivel);
     responder.setOnAction(event -> responderPergunta(perguntas, email));
     voltar.setOnAction(event -> voltarParaAlunos());
   }
-  private  void responderPergunta(ArrayList<String> perguntas, String email){
+
+  private void responderPergunta(ArrayList<String> perguntas, String email) {
+    boolean certa = false;
     RadioButton radioButton = (RadioButton) group.getSelectedToggle();
-    if(radioButton == null){
+    if (radioButton == null) {
       mensagemresposta.setText("Selecione uma das alternativas");
-    }
-    else {
+    } else {
       mensagemresposta.setText("");
-    if((radioButton.getId().substring(2,3)).equals(perguntas.get(perguntas.size()-2))){
-      System.out.println("resposta certa");
-    }
+      if ((radioButton.getId().substring(2, 3)).equals(perguntas.get(perguntas.size() - 2))) {
+        System.out.println("resposta certa");
+        certa = true;
+      }
+      Performance.addResposta(email, certa,perguntas.getLast());
     }
   }
-  private void voltarParaAlunos(){
+
+  private void voltarParaAlunos() {
     Stage stage = (Stage) voltar.getScene().getWindow();
     stage.close();
     Classe.getInstance().getView().showAlunoMenuWindow();
   }
 
-  private ArrayList<String> atualizarPerguntas(String nivel){
+  private ArrayList<String> atualizarPerguntas(String nivel) {
     this.nivel.setText("Questão de nível " + nivel);
     ArrayList<String> perguntas = Busca.pergunta(nivel);
     intro.setText(perguntas.getFirst());
