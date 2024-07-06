@@ -8,9 +8,10 @@ public class Aluno {
   private String email;
   private String senha;
 
-  public Aluno(String email, String senha) {
+  public Aluno(String email, String senha, String nivel) {
     this.email = email;
     this.senha = senha;
+    this.nivel = nivel;
   }
 /*  private static ArrayList<String> busca_dados_aluno(String email){
     return Busca.usuario(email);

@@ -73,6 +73,8 @@ public class Views {
     ExercitarController exercitarController = new ExercitarController();
     loader.setController(exercitarController);
     createStage(loader);
+    Aluno alunoLogado = ContextoAplicacao.getInstancia().getAlunoLogado();
+    exercitarController.initialize(alunoLogado.getNivel());
   }
 
   public void createStage(FXMLLoader loader){

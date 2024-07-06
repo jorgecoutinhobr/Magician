@@ -27,7 +27,7 @@ public class Busca {
   }
 
   public static ArrayList<String> pergunta(String nivel){
-    final String PATH_PERGUNTAS = "src/main/java/com/demo/Database/usuarios/nivel" + nivel +  ".csv";
+    final String PATH_PERGUNTAS = "src/main/java/com/demo/Database/nivel" + nivel +  ".csv";
     ArrayList<String> resultado = new ArrayList<>();
     try (BufferedReader reader = new BufferedReader(new FileReader(PATH_PERGUNTAS))) {
       String linha;
@@ -48,7 +48,7 @@ public class Busca {
     return resultado;
   }
 
-  private static int tamanhoArquivo(String PATH){
+  public static int tamanhoArquivo(String PATH){
     int tamanho = 0;
     try (BufferedReader reader = new BufferedReader(new FileReader(PATH))) {
       String linha;

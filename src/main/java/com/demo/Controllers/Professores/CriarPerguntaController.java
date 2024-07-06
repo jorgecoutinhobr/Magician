@@ -1,5 +1,6 @@
 package com.demo.Controllers.Professores;
 
+import com.demo.Classes.Busca;
 import com.demo.Classes.Classe;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -45,7 +46,7 @@ public class CriarPerguntaController {
               op3.getText().equals("") ||
               op4.getText().equals("") ||
               resposta.getText().equals("") ||
-              nivel == null)
+              nivel.getValue() == null)
       {
         mensagemresposta.setFill(Color.RED);
         mensagemresposta.setText("Erro: prencha todo os campos");
@@ -55,15 +56,16 @@ public class CriarPerguntaController {
         FileWriter fw = new FileWriter(PATH_PERGUNTAS, true);
         BufferedWriter bw = new BufferedWriter(fw);
         PrintWriter out = new PrintWriter(bw);
-        String dados = String.format("%s,%s,%s,%s,%s,%s,%s\n",
+        int tamanho = Busca.tamanhoArquivo(PATH_PERGUNTAS) + 1;
+        String dados = String.format("%s;%s;%s;%s;%s;%s;%s;%s\n",
                 intro.getText(),
                 pergunta.getText(),
                 op1.getText(),
                 op2.getText(),
                 op3.getText(),
                 op4.getText(),
-                resposta.getText());
-        nivel.getValue();
+                resposta.getText(),
+                String.valueOf(tamanho));
 
         out.print(dados);
         out.close();
