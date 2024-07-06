@@ -5,6 +5,7 @@ import com.demo.Classes.ContextoAplicacao;
 import com.demo.Classes.Professor;
 import com.demo.Controllers.Alunos.AlunosController;
 import com.demo.Controllers.Alunos.ExercitarController;
+import com.demo.Controllers.Alunos.HistoricoController;
 import com.demo.Controllers.Professores.CriaUsuarioController;
 import com.demo.Controllers.Professores.CriarPerguntaController;
 import com.demo.Controllers.Professores.ProfessoresController;
@@ -74,7 +75,16 @@ public class Views {
     loader.setController(exercitarController);
     createStage(loader);
     Aluno alunoLogado = ContextoAplicacao.getInstancia().getAlunoLogado();
-    exercitarController.initialize(alunoLogado.getNivel());
+    exercitarController.initialize(alunoLogado.getNivel(), alunoLogado.getEmail());
+  }
+
+  public void showHistoricoWindow() {
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/demo/Aluno/Historico.fxml"));
+    HistoricoController historicoController = new HistoricoController();
+    loader.setController(historicoController);
+    createStage(loader);
+    Aluno alunoLogado = ContextoAplicacao.getInstancia().getAlunoLogado();
+    historicoController.initialize(alunoLogado.getEmail());
   }
 
   public void createStage(FXMLLoader loader){

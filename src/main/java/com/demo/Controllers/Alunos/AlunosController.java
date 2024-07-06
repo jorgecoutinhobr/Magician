@@ -19,6 +19,7 @@ public class AlunosController {
 
    public void initialize(String email){
      exercitar.setOnAction(event -> exercitarPergunta());
+     historico.setOnAction(actionEvent -> historicoClicked());
      ArrayList<String> array = Busca.usuario(email);
      int index = array.get(2).indexOf(" ");
      String nome;
@@ -36,4 +37,11 @@ public class AlunosController {
       currentStage.close();
       Classe.getInstance().getView().showExercitarWindow();
    }
+
+    private void historicoClicked(){
+        Stage currentStage = (Stage) historico.getScene().getWindow();
+        currentStage.close();
+        Classe.getInstance().getView().showHistoricoWindow();
+    }
+
 }

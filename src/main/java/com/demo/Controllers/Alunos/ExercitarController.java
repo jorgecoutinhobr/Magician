@@ -26,12 +26,12 @@ public class ExercitarController {
   public Button voltar;
   public Text mensagemresposta;
 
-  public void initialize(String nivel){
+  public void initialize(String nivel, String email){
     ArrayList<String> perguntas = atualizarPerguntas(nivel);
-    responder.setOnAction(event -> responderPergunta(perguntas));
+    responder.setOnAction(event -> responderPergunta(perguntas, email));
     voltar.setOnAction(event -> voltarParaAlunos());
   }
-  private  void responderPergunta(ArrayList<String> perguntas){
+  private  void responderPergunta(ArrayList<String> perguntas, String email){
     RadioButton radioButton = (RadioButton) group.getSelectedToggle();
     if(radioButton == null){
       mensagemresposta.setText("Selecione uma das alternativas");
