@@ -1,0 +1,21 @@
+.button {
+    -fx-background-color : #FF0000;
+    -fx-background-radius : 3;
+    -fx-pref-height: 40;
+    -fx-pref-width: 200;
+    -fx-font-size: 20;
+}
+
+.button-sm {
+    -fx-background-color : #FF0000;
+    -fx-background-radius : 3;
+    -fx-pref-height: 15;
+    -fx-pref-width: 100;
+    -fx-font-size: 13;
+}
+
+.button:hover, .button-sm:hover {
+    -fx-background-color : #B30000;
+    -fx-background-radius : 3;
+    -fx-cursor: HAND;
+}
