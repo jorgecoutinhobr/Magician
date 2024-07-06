@@ -21,6 +21,7 @@ public class AlunosController {
    public void initialize(String email){
      exercitar.setOnAction(event -> exercitarPergunta());
      btnSair.setOnAction(event -> retornarLogin());
+     historico.setOnAction(actionEvent -> historicoClicked());
 
      ArrayList<String> array = Busca.usuario(email);
      String nomeCompleto = array.get(2);
@@ -41,4 +42,12 @@ public class AlunosController {
     currentStage.close();
     Classe.getInstance().getView().showLoginWindow();
   }
+
+    private void historicoClicked(){
+        Stage currentStage = (Stage) historico.getScene().getWindow();
+        currentStage.close();
+        Classe.getInstance().getView().showHistoricoWindow();
+    }
+
+
 }
