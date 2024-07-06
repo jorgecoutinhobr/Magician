@@ -5,55 +5,48 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Performance {
-    private static String emailAluno;
-    private static int respCertas;
-    private static int respTotais;
-    private static String pergungtasRespondidas;
 
-    public static void addResposta(String email, boolean certa, String idpergunta) {
-        ArrayList<String> performancelist = Busca.performance(email);
-        String teste;
-        emailAluno = performancelist.getFirst();
-        respCertas = Integer.parseInt(performancelist.get(1));
-        respTotais = Integer.parseInt(performancelist.get(2));
-        pergungtasRespondidas = performancelist.getLast();
-        pergungtasRespondidas = pergungtasRespondidas.substring(0,performancelist.size()) + ";" + idpergunta + "]";
-        System.out.println(pergungtasRespondidas);
-        respTotais++;
-        if(certa) respCertas++;
-        teste = emailAluno +
-                "," + String.valueOf(respCertas) +
-                "," + String.valueOf(respTotais) +
-                "," + pergungtasRespondidas;
-        performancelist.clear();
-        performancelist.add(emailAluno);
-        performancelist.add(String.valueOf(respCertas));
-        performancelist.add(String.valueOf(respTotais));
-        performancelist.add(pergungtasRespondidas);
-        System.out.println(teste);
-        salvaPerformance(teste,performancelist.getFirst());
-        //append list em performance.csv (sobrescrever)
-    }
+  public static void addResposta(String email, boolean certa, String idpergunta) {
+    ArrayList<String> performancelist = Busca.performance(email);
+    String performaceAluno;
+    performancelist.set(2, String.valueOf(Integer.parseInt(performancelist.get(2)) + 1));
+    if (certa) performancelist.set(1, String.valueOf(Integer.parseInt(performancelist.get(2)) + 1));
+    performaceAluno = performancelist.getFirst() +
+            "," + performancelist.get(1) +
+            "," + performancelist.get(2) +
+            "," + performancelist.getLast().substring(0, performancelist.getLast().length() - 1) + ";" + idpergunta + "]";
+    salvaPerformance(performaceAluno, performancelist.getFirst());
+  }
 
-    private static void salvaPerformance(String performancelist, String email){
-        final String PATH_PERFORMANCE = "src/main/java/com/demo/Database/performance.csv";
-        try (BufferedReader reader = new BufferedReader(new FileReader(PATH_PERFORMANCE));
-             BufferedWriter writer = new BufferedWriter(new FileWriter(PATH_PERFORMANCE))) {
-            String linha;
-            int linhan = 1;
-            while ((linha = reader.readLine())!= null) {
-                String[] campos = linha.split(",");
-                if (campos[0].equals(email)) {
-                    writer.write(performancelist);
-                    System.out.println(linhan);
-                    System.out.println("bla");
-                    break;
-                }
-                linhan++;
-                writer.newLine();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+  private static void salvaPerformance(String performancelist, String email) {
+    final String PATH_PERFORMANCE = "src/main/java/com/demo/Database/performance.csv";
+    ArrayList<String> linhas = new ArrayList<>();
+    boolean encontrouEmail = false;
+
+    try (BufferedReader reader = new BufferedReader(new FileReader(PATH_PERFORMANCE))) {
+      String linha;
+      while ((linha = reader.readLine()) != null) {
+        String[] campos = linha.split(",");
+        if (campos[0].equals(email)) {
+          linhas.add(performancelist);
+          encontrouEmail = true;
+        } else {
+          linhas.add(linha);
         }
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
     }
+
+    if (encontrouEmail) {
+      try (BufferedWriter writer = new BufferedWriter(new FileWriter(PATH_PERFORMANCE))) {
+        for (String linhaAtualizada : linhas) {
+          writer.write(linhaAtualizada);
+          writer.newLine();
+        }
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+    }
+  }
 }
