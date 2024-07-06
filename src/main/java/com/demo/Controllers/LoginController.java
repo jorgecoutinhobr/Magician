@@ -22,13 +22,13 @@ public class LoginController implements Initializable {
     loginbtn.setOnAction(actionEvent -> onLogin());
   }
 
-  private void onLogin(){
+  private void onLogin() {
     String semail = email.getText().toLowerCase();
     String ssenha = senha.getText();
     String[] niveltipo = Usuario.autenticar(semail, ssenha);
-    if(niveltipo != null){
-      if(niveltipo[1].equals("a")) {
-        Aluno alunoLogado = new Aluno(semail,ssenha,niveltipo[0]);
+    if (niveltipo != null) {
+      if (niveltipo[1].equals("a")) {
+        Aluno alunoLogado = new Aluno(semail, ssenha, niveltipo[0]);
         ContextoAplicacao.getInstancia().setAlunoLogado(alunoLogado);
         Stage currentStage = (Stage) loginbtn.getScene().getWindow();
         currentStage.close();
@@ -40,8 +40,7 @@ public class LoginController implements Initializable {
         currentStage.close();
         Classe.getInstance().getView().showProfessorWindow();
       }
-    }
-    else {
+    } else {
       errormessage.setText("Erro: Verifique se os campos foram digitados corretamente");
     }
   }
