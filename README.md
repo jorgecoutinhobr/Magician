@@ -5,17 +5,23 @@ Localizadas em `src/main/java/com/demo/Classes/`.
 
 - [`Aluno`](src/main/java/com/demo/Classes/Aluno.java)
 - [`Classe`](src/main/java/com/demo/Classes/Classe.java)
-- [`Busca`](src/main/java/com/demo/Busca.java) 
-
+- [`Busca`](src/main/java/com/demo/Classes/Busca.java) 
+- [`ContextoAplicacao`](src/main/java/com/demo/Classes/Classe.java)
+- [`Performance`](src/main/java/com/demo/Classes/Performance.java)
+- [`Professor`](src/main/java/com/demo/Classes/Professor.java)
+- [`Usuario`](src/main/java/com/demo/Classes/Usuario.java)
+- 
 ## Controllers
 Localizados em `src/main/java/com/demo/Controllers/`.
 
-### Alunos
+### [`LoginController`](src/main/java/com/demo/Controllers/LoginController.java)
+
+### Alunos/
 - [`AlunosController`](src/main/java/com/demo/Controllers/Alunos/AlunosController.java)
 - [`ExercitarController`](src/main/java/com/demo/Controllers/Alunos/ExercitarController.java) 
 - [`HistoricoController`](src/main/java/com/demo/Controllers/Alunos/HistoricoController.java) 
 
-### Professores
+### Professores/
 - [`CriaUsuarioController`](src/main/java/com/demo/Controllers/Professores/CriaUsuarioController.java)
 - [`CriarPerguntaController`](src/main/java/com/demo/Controllers/Professores/CriarPerguntaController.java)
 - [`ProfessoresController`](src/main/java/com/demo/Controllers/Professores/ProfessoresController.java)
@@ -24,7 +30,8 @@ Localizados em `src/main/java/com/demo/Controllers/`.
 Arquivos CSV localizados em `src/main/java/com/demo/Database/`.
 
 - `usuarios.csv`
-- `nivel[n].csv` (onde `[n]` representa o nível da pergunta)
+- `nivel[n].csv`
+- `performance.csv`
 
 ## Views
 Localizadas em `src/main/java/com/demo/Views/`.
@@ -33,3 +40,11 @@ Localizadas em `src/main/java/com/demo/Views/`.
 
 ## Resources
 Localizados em `src/main/resources/com/demo/`.
+
+- `Login.fxml`
+- `AlunosMenu.fxml`
+- `Exercitar.fxml`
+- `Historico.fxml`
+- `Professor.fxml`
+- `CriaUsuario.fxml`
+- `CriaPergunta.fxml`
