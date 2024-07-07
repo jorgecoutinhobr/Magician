@@ -56,7 +56,7 @@ public class ExercitarController {
 
   private ArrayList<String> atualizarPerguntas(String nivel, String email) {
     this.nivel.setText("Exercício - " + Performance.showNivel(email));
-    ArrayList<String> perguntas = Busca.pergunta(nivel);
+    ArrayList<String> perguntas = Busca.pergunta(nivel, email);
     intro.setText(perguntas.getFirst());
     pergunta.setText(perguntas.get(1));
     op1.setText(perguntas.get(2));
