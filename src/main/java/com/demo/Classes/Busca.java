@@ -48,7 +48,6 @@ public class Busca {
           }
         }
       if (resultado.size() == 0) {
-        System.out.println("erro");
         return null;
       }
     } catch (Exception e) {

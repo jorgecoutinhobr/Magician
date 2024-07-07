@@ -26,33 +26,36 @@ public class ExercitarController {
   public Button responder;
   public Button voltar;
   public Text mensagemresposta;
-  public int count;
-  public String eemail;
-  public String pperformance;
-  double numAcertos = 0;
-  double numRespostas = 0;;
+  private int count = 0;
+  private String anivel;
+  private String aemail;
+  private double numAcertos = 0;
+  private double numRespostas = 0;
+  private ArrayList<String> aperguntas;
 
   public void initialize(String nivel, String email) {
-    ArrayList<String> perguntas = atualizarPerguntas(nivel, email);
-    eemail = email;
-    responder.setOnAction(event -> {++count;responderPergunta(perguntas, email);perguntas.clear();perguntas.addAll(atualizarPerguntas(nivel,email));});
+    aemail = email;
+    anivel = nivel;;
+    aperguntas = atualizarPerguntas();
+    responder.setOnAction(event -> {++count;responderPergunta();
+      aperguntas.clear();
+      aperguntas.addAll(atualizarPerguntas());});
     voltar.setOnAction(event -> voltarParaAlunos());
   }
 
-  private void responderPergunta(ArrayList<String> perguntas, String email) {
+  private void responderPergunta() {
     boolean certa = false;
     RadioButton radioButton = (RadioButton) grupoop.getSelectedToggle();
     if (radioButton == null) {
       mensagemresposta.setText("Selecione uma das alternativas");
     } else {
       mensagemresposta.setText("");
-      if ((radioButton.getId().substring(2, 3)).equals(perguntas.get(perguntas.size() - 2))) {
-        System.out.println("resposta certa");
+      if ((radioButton.getId().substring(2, 3)).equals(aperguntas.get(aperguntas.size() - 2))) {
         certa = true;
         numAcertos++;
       }
       radioButton.setSelected(false);
-      Performance.addResposta(email, certa, perguntas.getLast());
+      Performance.addResposta(aemail, certa, aperguntas.getLast());
       numRespostas++;
       verificaTotalPeguntas();
     }
@@ -78,9 +81,9 @@ public class ExercitarController {
     }
   }
 
-  private ArrayList<String> atualizarPerguntas(String nivel, String email) {
-    this.nivel.setText("Exercício - " + Performance.showNivel(email));
-    ArrayList<String> perguntas = Busca.pergunta(nivel, email);
+  private ArrayList<String> atualizarPerguntas() {
+    this.nivel.setText("Exercício - " + Performance.showNivel(aemail));
+    ArrayList<String> perguntas = Busca.pergunta(anivel, aemail);
     if(perguntas == null){
       voltarParaAlunos();
     }
@@ -97,7 +100,6 @@ public class ExercitarController {
   }
 
   private void verificaTotalPeguntas(){
-    System.out.println(count);
     if(this.count == 5){
       voltarParaAlunos();
     }
