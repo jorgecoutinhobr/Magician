@@ -2,6 +2,7 @@ package com.demo.Controllers.Alunos;
 
 import com.demo.Classes.Busca;
 import com.demo.Classes.Classe;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
@@ -18,13 +19,16 @@ public class AlunosController {
   public Button historico;
   public Button btnSair;
 
+  private ArrayList<String> aluno;
+  private String aemail;
+
   public void initialize(String email) {
     exercitar.setOnAction(event -> exercitarPergunta());
     btnSair.setOnAction(event -> retornarLogin());
     historico.setOnAction(event -> historicoClicked());
-
-    ArrayList<String> array = Busca.usuario(email);
-    String nomeCompleto = array.get(2);
+    aemail = email;
+    aluno = Busca.usuario(aemail);
+    String nomeCompleto = aluno.get(2);
     String[] partesNome = nomeCompleto.split(" ");
     String nome = partesNome[0];
     bv.setText("Bem vindo, " + nome);
@@ -32,9 +36,20 @@ public class AlunosController {
   }
 
   private void exercitarPergunta() {
-    Stage currentStage = (Stage) exercitar.getScene().getWindow();
-    currentStage.close();
-    Classe.getInstance().getView().showExercitarWindow();
+    ArrayList<String> pergunta = Busca.pergunta(aluno.get(3),aemail);
+    System.out.println(aluno.get(3));
+    if(pergunta == null){
+      Alert alerta = new Alert(Alert.AlertType.WARNING);
+      alerta.setTitle("");
+      alerta.setHeaderText("Erro");
+      alerta.setContentText("Não foi possível encontrar mais perguntas do seu nível!");
+      alerta.showAndWait();
+    }
+    else {
+      Stage currentStage = (Stage) exercitar.getScene().getWindow();
+      currentStage.close();
+      Classe.getInstance().getView().showExercitarWindow();
+    }
   }
 
   private void retornarLogin() {

@@ -76,12 +76,6 @@ public class ExercitarController {
       alerta.setHeaderText("Resultados");
       alerta.setContentText("Pontuação: " + (int) numAcertos + "/" + (int) numRespostas + "\n" + String.format("%.1f", (numAcertos / numRespostas) * 100) + "%");
       alerta.showAndWait();
-    } else {
-      Alert alerta = new Alert(Alert.AlertType.WARNING);
-      alerta.setTitle("");
-      alerta.setHeaderText("Erro");
-      alerta.setContentText("Não foi possível encontrar mais perguntas do seu nível!");
-      alerta.showAndWait();
     }
   }
 
