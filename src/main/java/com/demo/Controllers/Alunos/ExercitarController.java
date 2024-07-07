@@ -39,11 +39,7 @@ public class ExercitarController {
     anivel = nivel;
     ;
     aperguntas = atualizarPerguntas();
-    responder.setOnAction(event -> {
-      ++count;
-      responderPergunta();
-      aperguntas.clear();
-      aperguntas.addAll(atualizarPerguntas());
+    responder.setOnAction(event -> {responderPergunta();
     });
     voltar.setOnAction(event -> voltarParaAlunos());
   }
@@ -62,6 +58,9 @@ public class ExercitarController {
       radioButton.setSelected(false);
       Performance.addResposta(aemail, certa, aperguntas.getLast());
       numRespostas++;
+      count++;
+      aperguntas.clear();
+      aperguntas.addAll(atualizarPerguntas());
       verificaTotalPeguntas();
     }
   }

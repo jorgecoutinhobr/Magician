@@ -4,10 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.IntStream;
 
 public class Busca {
   public static ArrayList<String> usuario(String email) {
@@ -35,11 +33,12 @@ public class Busca {
       ArrayList<String> performanceList = Busca.performance(email);
       BufferedReader reader = new BufferedReader(new FileReader(PATH_PERGUNTAS));
       String linha;
+      String[] respondidas = performanceList.getLast().substring(1, performanceList.getLast().length() - 1).split(";");
+      int codigo = randomnumero(nivel,respondidas,PATH_PERGUNTAS);
       while ((linha = reader.readLine()) != null) {
         String[] campos = linha.split(";");
         String idPergunta = campos[campos.length - 1];
-
-        if (!performanceList.getLast().contains(idPergunta)) {
+        if ((!Arrays.asList(respondidas).contains(idPergunta)) && Integer.parseInt(campos[campos.length - 1]) == codigo) {
           resultado.addAll(Arrays.asList(campos));
           return resultado;
         }
@@ -66,7 +65,7 @@ public class Busca {
     return tamanho;
   }
 
-  public static <e> ArrayList<String> performance(String email) {
+  public static ArrayList<String> performance(String email) {
     final String PATH_PERFORMANCE = "src/main/java/com/demo/Database/performance.csv";
     ArrayList<String> resultado = new ArrayList<>();
     try (BufferedReader reader = new BufferedReader(new FileReader(PATH_PERFORMANCE))) {
@@ -92,4 +91,26 @@ public class Busca {
     return null;
   }
 
+  private static int randomnumero(String nivel, String[] respondidas, String PATH) {
+    int codigo = 0;
+    Arrays.sort(respondidas, (a,b) -> Integer.parseInt(a) - Integer.parseInt(b));
+    try {
+      Random random = new Random();
+      int tamanho = tamanhoArquivo(PATH);
+      if (respondidas.length - 1 == 0) {
+        codigo = 1 + random.nextInt(tamanho);
+      } else {
+        codigo = 1 + random.nextInt(tamanho - respondidas.length);
+        for (String r : respondidas) {
+          if (codigo < Integer.parseInt(r)) {
+            break;
+          }
+          codigo++;
+        }
+      }
+      return codigo;
+    } catch (Exception e) {
+      return codigo;
+    }
+  }
 }
