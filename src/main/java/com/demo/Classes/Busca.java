@@ -49,7 +49,7 @@ public class Busca {
         }
       if (resultado.size() == 0) {
         System.out.println("erro");
-        throw (new Exception("Não existem perguntas desse nível ou todas já foram respondidas."));
+        return null;
       }
     } catch (Exception e) {
       System.out.println(e.getMessage());
