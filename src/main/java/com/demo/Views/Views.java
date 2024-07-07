@@ -18,22 +18,22 @@ public class Views {
   // Alunos
   private AnchorPane alunoMenu;
 
-  public Views(){}
+  public Views() {
+  }
 
   public AnchorPane getAlunoMenu() {
-    // otimizacao carregamento de telas
     if (alunoMenu == null) {
-      try{
+      try {
         alunoMenu = new FXMLLoader(getClass().getResource("/com/demo/Aluno/AlunoMenu.fxml")).load();
       } catch (Exception e) {
         e.printStackTrace();
       }
     }
-    return  alunoMenu;
+    return alunoMenu;
   }
 
-  public void showLoginWindow(){
-    FXMLLoader loader = new FXMLLoader( getClass().getResource("/com/demo/Login.fxml"));
+  public void showLoginWindow() {
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/demo/Login.fxml"));
     createStage(loader);
   }
 
@@ -55,7 +55,7 @@ public class Views {
     professoresController.initialize(professorLogado.getEmail());
   }
 
-  public void showCriaPerguntaWindow(){
+  public void showCriaPerguntaWindow() {
     FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/demo/Professor/CriarPergunta.fxml"));
     CriarPerguntaController criarPerguntaController = new CriarPerguntaController();
     loader.setController(criarPerguntaController);
@@ -87,9 +87,9 @@ public class Views {
     historicoController.initialize(alunoLogado.getEmail());
   }
 
-  public void createStage(FXMLLoader loader){
+  public void createStage(FXMLLoader loader) {
     Scene scene = null;
-    try{
+    try {
       scene = new Scene(loader.load());
     } catch (Exception e) {
       e.printStackTrace();
@@ -97,8 +97,6 @@ public class Views {
     Stage stage = new Stage();
     stage.setScene(scene);
     stage.setTitle("Magician");
-    // NO ubuntu estou tendo um erro de tmanho de tela ao entrar em novas telas
-    // o codigo abaixo resolve, porem sera preciso definir um tamanho padrao para todas as telas
     stage.setResizable(false);
     stage.show();
   }

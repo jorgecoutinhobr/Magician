@@ -6,7 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class  Professor {
+public class Professor {
   private String email;
   private String senha;
 
@@ -19,7 +19,7 @@ public class  Professor {
     return email;
   }
 
-  public String getSenha(){
+  public String getSenha() {
     return senha;
   }
 

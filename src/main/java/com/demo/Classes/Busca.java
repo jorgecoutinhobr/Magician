@@ -10,9 +10,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Busca {
-  private Busca() {
-  }
-
   public static ArrayList<String> usuario(String email) {
     final String PATH_USUARIOS = "src/main/java/com/demo/Database/usuarios.csv";
     ArrayList<String> resultado = new ArrayList<>();
@@ -43,10 +40,10 @@ public class Busca {
         String idPergunta = campos[campos.length - 1];
 
         if (!performanceList.getLast().contains(idPergunta)) {
-            resultado.addAll(Arrays.asList(campos));
-            return resultado;
-          }
+          resultado.addAll(Arrays.asList(campos));
+          return resultado;
         }
+      }
       if (resultado.size() == 0) {
         return null;
       }

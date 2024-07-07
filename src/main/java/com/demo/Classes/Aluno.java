@@ -13,10 +13,6 @@ public class Aluno {
     this.senha = senha;
     this.nivel = nivel;
   }
-/*  private static ArrayList<String> busca_dados_aluno(String email){
-    return Busca.usuario(email);
-  }
-*/
 
   public String getEmail() {
     return email;
