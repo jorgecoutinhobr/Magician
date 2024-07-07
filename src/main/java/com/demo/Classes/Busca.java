@@ -35,28 +35,22 @@ public class Busca {
     final String PATH_PERGUNTAS = "src/main/java/com/demo/Database/nivel" + nivel + ".csv";
     ArrayList<String> resultado = new ArrayList<>();
     try {
-
       ArrayList<String> performanceList = Busca.performance(email);
-
-      String[] respondidas = performanceList.getLast().split(";");
-      System.out.println(respondidas[0]);
-      Set<String> perguntasRespondidas = new HashSet<>(Arrays.asList(respondidas));
-
+      System.out.println(performanceList.getLast());
       BufferedReader reader = new BufferedReader(new FileReader(PATH_PERGUNTAS));
       String linha;
       while ((linha = reader.readLine()) != null) {
         String[] campos = linha.split(";");
         String idPergunta = campos[campos.length - 1];
 
-        if (!perguntasRespondidas.contains(idPergunta)) {
-          int codigo = (int) (Math.random() * tamanhoArquivo(PATH_PERGUNTAS) + 1);
-          if (Integer.parseInt(campos[campos.length - 1]) == codigo) {
+        if (!performanceList.getLast().contains(idPergunta)) {
             resultado.addAll(Arrays.asList(campos));
+          System.out.println(resultado);
             return resultado;
           }
         }
-      }
       if (resultado.size() == 0) {
+        System.out.println("erro");
         throw (new Exception("Não existem perguntas desse nível ou todas já foram respondidas."));
       }
     } catch (Exception e) {
