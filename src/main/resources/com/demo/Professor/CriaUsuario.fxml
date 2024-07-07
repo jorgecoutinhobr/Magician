@@ -21,7 +21,7 @@
       </font>
     </Text>
     <ChoiceBox fx:id="nivel" layoutX="293.0" layoutY="327.0" prefWidth="150.0" />
-    <Text layoutX="315.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nivel" wrappingWidth="36.52400207519531">
+    <Text layoutX="303.0" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nivel" wrappingWidth="56.52400207519531">
       <font>
         <Font size="16.0" />
       </font>
