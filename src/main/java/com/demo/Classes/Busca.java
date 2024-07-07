@@ -36,7 +36,6 @@ public class Busca {
     ArrayList<String> resultado = new ArrayList<>();
     try {
       ArrayList<String> performanceList = Busca.performance(email);
-      System.out.println(performanceList.getLast());
       BufferedReader reader = new BufferedReader(new FileReader(PATH_PERGUNTAS));
       String linha;
       while ((linha = reader.readLine()) != null) {
@@ -45,7 +44,6 @@ public class Busca {
 
         if (!performanceList.getLast().contains(idPergunta)) {
             resultado.addAll(Arrays.asList(campos));
-          System.out.println(resultado);
             return resultado;
           }
         }

@@ -3,6 +3,7 @@ package com.demo.Controllers.Alunos;
 import com.demo.Classes.Busca;
 import com.demo.Classes.Classe;
 import com.demo.Classes.Performance;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
@@ -29,7 +30,7 @@ public class ExercitarController {
 
   public void initialize(String nivel, String email) {
     ArrayList<String> perguntas = atualizarPerguntas(nivel, email);
-    responder.setOnAction(event -> responderPergunta(perguntas, email));
+    responder.setOnAction(event -> {responderPergunta(perguntas, email);perguntas.clear();perguntas.addAll(atualizarPerguntas(nivel,email));});
     voltar.setOnAction(event -> voltarParaAlunos());
   }
 
@@ -44,6 +45,7 @@ public class ExercitarController {
         System.out.println("resposta certa");
         certa = true;
       }
+      radioButton.setSelected(false);
       Performance.addResposta(email, certa, perguntas.getLast());
     }
   }
