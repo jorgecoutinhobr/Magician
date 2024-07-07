@@ -8,45 +8,43 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="500.0" maxWidth="900.0" minHeight="500.0" minWidth="900.0" prefHeight="500.0" prefWidth="900.0"
-            style="-fx-background-color: red;" stylesheets="@../Style/style.css" xmlns="http://javafx.com/javafx/22"
-            xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="500.0" maxWidth="900.0" minHeight="500.0" minWidth="900.0" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #900020;" stylesheets="@../Style/style.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
   <children>
-    <Button fx:id="criapergunta" layoutX="558.0" layoutY="183.0" mnemonicParsing="false" styleClass="button-white"
-            stylesheets="@../Style/style.css" text=" Cria Pergunta" textFill="WHITE"/>
-    <Button fx:id="criausuario" layoutX="558.0" layoutY="314.0" mnemonicParsing="false" prefHeight="40.0"
-            prefWidth="200.0" styleClass="button-white" stylesheets="@../Style/style.css" text=" Cria Usuário"
-            textFill="WHITE"/>
-    <AnchorPane prefHeight="500.0" prefWidth="455.0" style="-fx-background-color: #d5d5d5;">
+    <Button fx:id="criapergunta" layoutX="558.0" layoutY="173.0" mnemonicParsing="false" styleClass="button-white" stylesheets="@../Style/style.css" text=" Criar Questão" textFill="WHITE" />
+    <Button fx:id="criausuario" layoutX="558.0" layoutY="301.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" styleClass="button-white" stylesheets="@../Style/style.css" text="Adicionar Usuário" textFill="WHITE" />
+    <AnchorPane prefHeight="500.0" prefWidth="455.0" style="-fx-background-color: #E9DDD4;">
       <children>
-        <Button fx:id="btnSair" layoutX="128.0" layoutY="397.0" stylesheets="@../Style/style.css" text="Sair"
-                textFill="WHITE"/>
+        <Button fx:id="btnSair" layoutX="128.0" layoutY="386.0" stylesheets="@../Style/style.css" text="Sair" textFill="WHITE" />
         <VBox alignment="CENTER" layoutX="4.0" layoutY="61.0" prefHeight="57.0" prefWidth="448.0">
           <children>
-            <Text fx:id="bv" fill="#f52727" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem vindo, Professor"
-                  textAlignment="CENTER" wrappingWidth="441.876953125">
+            <Text fx:id="bv" fill="#900020" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem vindo, Professor" textAlignment="CENTER" wrappingWidth="441.876953125">
               <font>
-                <Font size="30.0"/>
+                <Font name="Wingdings" size="30.0" />
               </font>
             </Text>
           </children>
         </VBox>
-        <ImageView fitHeight="200.0" fitWidth="152.0" layoutX="152.0" layoutY="150.0">
-          <image>
-            <Image url="@../Imgs/logo.png"/>
-          </image>
-        </ImageView>
+            <ImageView fitHeight="214.0" fitWidth="200.0" layoutX="128.0" layoutY="143.0">
+               <image>
+                  <Image url="@../Imgs/prof.png" />
+               </image>
+            </ImageView>
       </children>
     </AnchorPane>
-    <ImageView fitHeight="40.0" fitWidth="38.0" layoutX="766.0" layoutY="316.0">
-      <image>
-        <Image url="@../Imgs/user.png"/>
-      </image>
-    </ImageView>
-    <ImageView fitHeight="40.0" fitWidth="38.0" layoutX="766.0" layoutY="185.0">
-      <image>
-        <Image url="@../Imgs/pergunta.png"/>
-      </image>
-    </ImageView>
+      <ImageView fitHeight="44.0" fitWidth="42.0" layoutX="765.0" layoutY="301.0">
+         <image>
+            <Image url="@../Imgs/newuser.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="44.0" fitWidth="42.0" layoutX="765.0" layoutY="173.0">
+         <image>
+            <Image url="@../Imgs/pergunta.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="9.0" fitWidth="9.0" layoutX="782.0" layoutY="319.0">
+         <image>
+            <Image url="@../Imgs/simbolo-de-adicao-de-espessura.png" />
+         </image>
+      </ImageView>
   </children>
 </AnchorPane>

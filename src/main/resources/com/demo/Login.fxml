@@ -10,24 +10,38 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="500.0" maxWidth="700.0" minHeight="500.0" minWidth="900.0" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.demo.Controllers.LoginController">
-  <VBox alignment="CENTER" prefHeight="500.0" prefWidth="383.0" style="-fx-background-color: pink;">
+<AnchorPane maxHeight="500.0" maxWidth="700.0" minHeight="500.0" minWidth="900.0" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #E9DDD4;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.demo.Controllers.LoginController">
+  <VBox alignment="CENTER" prefHeight="500.0" prefWidth="383.0" style="-fx-background-color: #900020;">
     <ImageView fitHeight="348.0" fitWidth="288.0" pickOnBounds="true" preserveRatio="true">
       <image>
         <Image url="@Imgs/logo.png" />
       </image>
     </ImageView>
   </VBox>
-  <TextField fx:id="email" layoutX="485.0" layoutY="159.0" prefHeight="34.0" prefWidth="229.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: red; -fx-border-width: 0px 0px 2px 0px;">
+  <TextField fx:id="email" layoutX="536.0" layoutY="192.0" prefHeight="34.0" prefWidth="229.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: red; -fx-border-width: 0px 0px 2px 0px;">
     <font>
       <Font size="14.0" />
     </font>
   </TextField>
-  <PasswordField fx:id="senha" layoutX="485.0" layoutY="256.0" prefHeight="34.0" prefWidth="229.0" promptText="Senha" style="-fx-background-color: transparent; -fx-border-color: red; -fx-border-width: 0px 0px 2px 0px;">
+  <PasswordField fx:id="senha" layoutX="536.0" layoutY="268.0" prefHeight="34.0" prefWidth="229.0" promptText="Senha" style="-fx-background-color: transparent; -fx-border-color: red; -fx-border-width: 0px 0px 2px 0px;">
     <font>
       <Font size="14.0" />
     </font>
   </PasswordField>
-  <Button fx:id="loginbtn" layoutX="550.0" layoutY="336.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="98.0" styleClass="button-sm" stylesheets="@Style/style.css" text="Login" textFill="WHITE" />
-  <Text fx:id="errormessage" fill="RED" layoutX="342.0" layoutY="416.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+  <Button fx:id="loginbtn" layoutX="601.0" layoutY="344.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="119.0" styleClass="button-sm" stylesheets="@Style/style.css" text="Login" textFill="WHITE" />
+   <Text fill="#900020" layoutX="602.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Log In">
+      <font>
+         <Font name="Wingdings" size="38.0" />
+      </font>
+   </Text>
+   <ImageView fitHeight="53.0" fitWidth="51.0" layoutX="625.0" layoutY="71.0">
+      <image>
+         <Image url="@Imgs/login.png" />
+      </image>
+   </ImageView>
+   <VBox alignment="TOP_CENTER" layoutX="403.0" layoutY="408.0" prefHeight="34.0" prefWidth="496.0">
+      <children>
+        <Text fx:id="errormessage" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="493.0" />
+      </children>
+   </VBox>
 </AnchorPane>
