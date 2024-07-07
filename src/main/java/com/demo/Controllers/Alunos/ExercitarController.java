@@ -3,7 +3,6 @@ package com.demo.Controllers.Alunos;
 import com.demo.Classes.Busca;
 import com.demo.Classes.Classe;
 import com.demo.Classes.Performance;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
@@ -15,7 +14,7 @@ import java.util.ArrayList;
 
 public class ExercitarController {
   @FXML
-  public ToggleGroup group;
+  public ToggleGroup grupoop;
   public String resposta;
   public Text nivel;
   public Text intro;
@@ -27,16 +26,17 @@ public class ExercitarController {
   public Button responder;
   public Button voltar;
   public Text mensagemresposta;
+  public int count;
 
   public void initialize(String nivel, String email) {
     ArrayList<String> perguntas = atualizarPerguntas(nivel, email);
-    responder.setOnAction(event -> {responderPergunta(perguntas, email);perguntas.clear();perguntas.addAll(atualizarPerguntas(nivel,email));});
+    responder.setOnAction(event -> {++count;responderPergunta(perguntas, email);perguntas.clear();perguntas.addAll(atualizarPerguntas(nivel,email));});
     voltar.setOnAction(event -> voltarParaAlunos());
   }
 
   private void responderPergunta(ArrayList<String> perguntas, String email) {
     boolean certa = false;
-    RadioButton radioButton = (RadioButton) group.getSelectedToggle();
+    RadioButton radioButton = (RadioButton) grupoop.getSelectedToggle();
     if (radioButton == null) {
       mensagemresposta.setText("Selecione uma das alternativas");
     } else {
@@ -47,6 +47,7 @@ public class ExercitarController {
       }
       radioButton.setSelected(false);
       Performance.addResposta(email, certa, perguntas.getLast());
+      verificaTotalPeguntas();
     }
   }
 
@@ -66,5 +67,14 @@ public class ExercitarController {
     op3.setText(perguntas.get(4));
     op4.setText(perguntas.get(5));
     return perguntas;
+  }
+
+  private void verificaTotalPeguntas(){
+    System.out.println(count);
+    if(this.count == 5){
+      voltarParaAlunos();
+      // aqui tem que jogar um popup avisando que ele ja atingiu o numero de exercicios de uma vez so
+      // e mostrar a pontuação dele no popup
+    }
   }
 }
