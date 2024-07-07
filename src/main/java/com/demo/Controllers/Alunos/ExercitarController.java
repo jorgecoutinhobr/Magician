@@ -26,7 +26,7 @@ public class ExercitarController {
   public Button responder;
   public Button voltar;
   public Text mensagemresposta;
-  
+
   private int count = 0;
   private String anivel;
   private String aemail;

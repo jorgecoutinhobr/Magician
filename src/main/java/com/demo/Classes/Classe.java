@@ -7,7 +7,7 @@ import javax.swing.text.View;
 public class Classe {
   private final Views view;
   private static Classe classe;
-  // singleton pattern
+
   private Classe() {
     this.view = new Views();
   }

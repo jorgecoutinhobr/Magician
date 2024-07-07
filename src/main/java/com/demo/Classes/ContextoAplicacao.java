@@ -5,7 +5,8 @@ public class ContextoAplicacao {
   private Professor professorLogado;
   private Aluno alunoLogado;
 
-  private ContextoAplicacao() {}
+  private ContextoAplicacao() {
+  }
 
   public static ContextoAplicacao getInstancia() {
     if (instancia == null) {
