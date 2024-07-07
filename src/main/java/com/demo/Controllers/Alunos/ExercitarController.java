@@ -36,11 +36,15 @@ public class ExercitarController {
 
   public void initialize(String nivel, String email) {
     aemail = email;
-    anivel = nivel;;
+    anivel = nivel;
+    ;
     aperguntas = atualizarPerguntas();
-    responder.setOnAction(event -> {++count;responderPergunta();
+    responder.setOnAction(event -> {
+      ++count;
+      responderPergunta();
       aperguntas.clear();
-      aperguntas.addAll(atualizarPerguntas());});
+      aperguntas.addAll(atualizarPerguntas());
+    });
     voltar.setOnAction(event -> voltarParaAlunos());
   }
 
@@ -66,14 +70,13 @@ public class ExercitarController {
     Stage stage = (Stage) voltar.getScene().getWindow();
     stage.close();
     Classe.getInstance().getView().showAlunoMenuWindow();
-    if(count > 0) {
+    if (count > 0) {
       Alert alerta = new Alert(Alert.AlertType.INFORMATION);
       alerta.setTitle("");
       alerta.setHeaderText("Resultados");
-      alerta.setContentText("Pontuação: " + (int) numAcertos + "/" + (int) numRespostas + "\n" + String.format("%.1f",(numAcertos/numRespostas)*100) + "%");
+      alerta.setContentText("Pontuação: " + (int) numAcertos + "/" + (int) numRespostas + "\n" + String.format("%.1f", (numAcertos / numRespostas) * 100) + "%");
       alerta.showAndWait();
-    }
-    else {
+    } else {
       Alert alerta = new Alert(Alert.AlertType.WARNING);
       alerta.setTitle("");
       alerta.setHeaderText("Erro");
@@ -85,10 +88,9 @@ public class ExercitarController {
   private ArrayList<String> atualizarPerguntas() {
     this.nivel.setText("Exercício - " + Performance.showNivel(aemail));
     ArrayList<String> perguntas = Busca.pergunta(anivel, aemail);
-    if(perguntas == null){
+    if (perguntas == null) {
       voltarParaAlunos();
-    }
-    else {
+    } else {
       intro.setText(perguntas.getFirst());
       pergunta.setText(perguntas.get(1));
       op1.setText(perguntas.get(2));
@@ -100,8 +102,8 @@ public class ExercitarController {
     return new ArrayList<>();
   }
 
-  private void verificaTotalPeguntas(){
-    if(this.count == 5){
+  private void verificaTotalPeguntas() {
+    if (this.count == 5) {
       voltarParaAlunos();
     }
   }
