@@ -21,6 +21,7 @@ public class AlunosController {
 
   private ArrayList<String> aluno;
   private String aemail;
+  private String anivel;
 
   public void initialize(String email) {
     exercitar.setOnAction(event -> exercitarPergunta());
@@ -28,6 +29,7 @@ public class AlunosController {
     historico.setOnAction(event -> historicoClicked());
     aemail = email;
     aluno = Busca.usuario(aemail);
+    anivel = aluno.get(3);
     String nomeCompleto = aluno.get(2);
     String[] partesNome = nomeCompleto.split(" ");
     String nome = partesNome[0];
@@ -36,8 +38,7 @@ public class AlunosController {
   }
 
   private void exercitarPergunta() {
-    ArrayList<String> pergunta = Busca.pergunta(aluno.get(3),aemail);
-    System.out.println(aluno.get(3));
+    ArrayList<String> pergunta = Busca.pergunta(anivel,aemail);
     if(pergunta == null){
       Alert alerta = new Alert(Alert.AlertType.WARNING);
       alerta.setTitle("");
