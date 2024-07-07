@@ -46,7 +46,7 @@ public class CriarPerguntaController {
       mensagemresposta.setFill(Color.RED);
       mensagemresposta.setText("Erro: prencha todo os campos");
       return;
-    } else if (Integer.parseInt(resposta.getText()) < 1 || Integer.parseInt(resposta.getText()) > 4 )
+    } else if (Integer.parseInt(resposta.getText()) < 1 || Integer.parseInt(resposta.getText()) > 4  )
     {
       mensagemresposta.setFill(Color.RED);
       mensagemresposta.setText("Erro: número da resposta inválido");

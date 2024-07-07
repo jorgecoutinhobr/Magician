@@ -2,58 +2,56 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0"
-            prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="500.0" maxWidth="900.0" minHeight="500.0" minWidth="900.0" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
   <children>
-    <Label fx:id="head" layoutX="231.0" layoutY="25.0" text="Histórico">
+    <Label fx:id="nivelTitle" layoutX="648.0" layoutY="144.0" text="Nível" underline="true">
       <font>
-        <Font size="35.0"/>
+        <Font size="20.0" />
       </font>
     </Label>
-    <Label fx:id="nivelTitle" layoutX="278.0" layoutY="127.0" text="Nível" underline="true">
+    <Label fx:id="performanceTitle" layoutX="622.0" layoutY="251.0" text="Performance" underline="true">
       <font>
-        <Font size="20.0"/>
+        <Font size="20.0" />
       </font>
     </Label>
-    <Label fx:id="performanceTitle" layoutX="244.0" layoutY="216.0" text="Performance" underline="true">
+    <VBox alignment="CENTER" layoutX="250.0" layoutY="150.0" prefHeight="30.0" prefWidth="100.0" />
+    <VBox alignment="TOP_CENTER" layoutY="248.0" prefHeight="151.0" prefWidth="600.0" />
+    <VBox alignment="CENTER" layoutY="69.0" prefHeight="30.0" prefWidth="600.0" />
+  <Label fx:id="nivel" alignment="TOP_CENTER" layoutX="610.0" layoutY="180.0" prefHeight="68.0" prefWidth="129.0" text="Iniciante" textAlignment="CENTER">
+    <font>
+      <Font size="16.0" />
+    </font>
+  </Label>
+  <Label fx:id="performance" alignment="TOP_CENTER" layoutX="563.0" layoutY="297.0" prefHeight="143.0" prefWidth="241.0" text="c / t (p%)" textAlignment="CENTER">
+    <font>
+      <Font size="16.0" />
+    </font>
+  </Label>
+      <AnchorPane layoutX="-6.0" layoutY="-3.0" prefHeight="507.0" prefWidth="461.0" style="-fx-background-color: red;">
+         <children>
+            <ImageView fitHeight="261.0" fitWidth="277.0" layoutX="123.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imgs/logo2.png" />
+               </image>
+            </ImageView>
+          <Button fx:id="backbtn" layoutX="131.0" layoutY="339.0" mnemonicParsing="false" styleClass="button-white" stylesheets="@../Style/style.css" text="Voltar" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+    <Label fx:id="head" layoutX="598.0" layoutY="33.0" text="Histórico" textFill="#1e1d1d">
       <font>
-        <Font size="20.0"/>
+        <Font size="38.0" />
       </font>
     </Label>
-    <Button fx:id="backbtn" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" styleClass="button-sm"
-            stylesheets="@../Style/style.css" text="Voltar" textFill="WHITE"/>
-    <VBox alignment="CENTER" layoutX="250.0" layoutY="150.0" prefHeight="30.0" prefWidth="100.0">
-      <children>
-        <Label fx:id="nivel" text="Iniciante">
-          <font>
-            <Font size="16.0"/>
-          </font>
-        </Label>
-      </children>
-    </VBox>
-    <VBox alignment="TOP_CENTER" layoutY="248.0" prefHeight="151.0" prefWidth="600.0">
-      <children>
-        <Label fx:id="performance" alignment="TOP_CENTER" prefHeight="143.0" prefWidth="241.0" text="c / t (p%)"
-               textAlignment="CENTER">
-          <font>
-            <Font size="16.0"/>
-          </font>
-        </Label>
-      </children>
-    </VBox>
-    <VBox alignment="CENTER" layoutY="69.0" prefHeight="30.0" prefWidth="600.0">
-      <children>
-        <Label fx:id="hemail" alignment="TOP_CENTER" prefHeight="40.0" prefWidth="94.0" text="email@com"
-               textAlignment="CENTER">
-          <font>
-            <Font size="16.0"/>
-          </font>
-        </Label>
-      </children>
-    </VBox>
+  <Label fx:id="hemail" alignment="TOP_CENTER" layoutX="625.0" layoutY="88.0" prefHeight="40.0" prefWidth="94.0" text="email@com" textAlignment="CENTER" textFill="#1e1d1d">
+    <font>
+      <Font size="16.0" />
+    </font>
+  </Label>
   </children>
 </AnchorPane>

@@ -4,6 +4,7 @@ import com.demo.Classes.Busca;
 import com.demo.Classes.Classe;
 import com.demo.Classes.Performance;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
@@ -14,8 +15,7 @@ import java.util.ArrayList;
 
 public class ExercitarController {
   @FXML
-  public ToggleGroup group;
-  public String resposta;
+  public ToggleGroup grupoop;
   public Text nivel;
   public Text intro;
   public Text pergunta;
@@ -26,25 +26,43 @@ public class ExercitarController {
   public Button responder;
   public Button voltar;
   public Text mensagemresposta;
+  
+  private int count = 0;
+  private String anivel;
+  private String aemail;
+  private double numAcertos = 0;
+  private double numRespostas = 0;
+  private ArrayList<String> aperguntas;
 
   public void initialize(String nivel, String email) {
-    ArrayList<String> perguntas = atualizarPerguntas(nivel, email);
-    responder.setOnAction(event -> responderPergunta(perguntas, email));
+    aemail = email;
+    anivel = nivel;
+    ;
+    aperguntas = atualizarPerguntas();
+    responder.setOnAction(event -> {
+      ++count;
+      responderPergunta();
+      aperguntas.clear();
+      aperguntas.addAll(atualizarPerguntas());
+    });
     voltar.setOnAction(event -> voltarParaAlunos());
   }
 
-  private void responderPergunta(ArrayList<String> perguntas, String email) {
+  private void responderPergunta() {
     boolean certa = false;
-    RadioButton radioButton = (RadioButton) group.getSelectedToggle();
+    RadioButton radioButton = (RadioButton) grupoop.getSelectedToggle();
     if (radioButton == null) {
       mensagemresposta.setText("Selecione uma das alternativas");
     } else {
       mensagemresposta.setText("");
-      if ((radioButton.getId().substring(2, 3)).equals(perguntas.get(perguntas.size() - 2))) {
-        System.out.println("resposta certa");
+      if ((radioButton.getId().substring(2, 3)).equals(aperguntas.get(aperguntas.size() - 2))) {
         certa = true;
+        numAcertos++;
       }
-      Performance.addResposta(email, certa, perguntas.getLast());
+      radioButton.setSelected(false);
+      Performance.addResposta(aemail, certa, aperguntas.getLast());
+      numRespostas++;
+      verificaTotalPeguntas();
     }
   }
 
@@ -52,17 +70,41 @@ public class ExercitarController {
     Stage stage = (Stage) voltar.getScene().getWindow();
     stage.close();
     Classe.getInstance().getView().showAlunoMenuWindow();
+    if (count > 0) {
+      Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+      alerta.setTitle("");
+      alerta.setHeaderText("Resultados");
+      alerta.setContentText("Pontuação: " + (int) numAcertos + "/" + (int) numRespostas + "\n" + String.format("%.1f", (numAcertos / numRespostas) * 100) + "%");
+      alerta.showAndWait();
+    } else {
+      Alert alerta = new Alert(Alert.AlertType.WARNING);
+      alerta.setTitle("");
+      alerta.setHeaderText("Erro");
+      alerta.setContentText("Não foi possível encontrar mais perguntas do seu nível!");
+      alerta.showAndWait();
+    }
   }
 
-  private ArrayList<String> atualizarPerguntas(String nivel, String email) {
-    this.nivel.setText("Exercício - " + Performance.showNivel(email));
-    ArrayList<String> perguntas = Busca.pergunta(nivel);
-    intro.setText(perguntas.getFirst());
-    pergunta.setText(perguntas.get(1));
-    op1.setText(perguntas.get(2));
-    op2.setText(perguntas.get(3));
-    op3.setText(perguntas.get(4));
-    op4.setText(perguntas.get(5));
-    return perguntas;
+  private ArrayList<String> atualizarPerguntas() {
+    this.nivel.setText("Exercício - " + Performance.showNivel(aemail));
+    ArrayList<String> perguntas = Busca.pergunta(anivel, aemail);
+    if (perguntas == null) {
+      voltarParaAlunos();
+    } else {
+      intro.setText(perguntas.getFirst());
+      pergunta.setText(perguntas.get(1));
+      op1.setText(perguntas.get(2));
+      op2.setText(perguntas.get(3));
+      op3.setText(perguntas.get(4));
+      op4.setText(perguntas.get(5));
+      return perguntas;
+    }
+    return new ArrayList<>();
+  }
+
+  private void verificaTotalPeguntas() {
+    if (this.count == 5) {
+      voltarParaAlunos();
+    }
   }
 }
