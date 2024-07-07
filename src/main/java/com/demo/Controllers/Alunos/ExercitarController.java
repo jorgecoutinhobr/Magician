@@ -37,10 +37,8 @@ public class ExercitarController {
   public void initialize(String nivel, String email) {
     aemail = email;
     anivel = nivel;
-    ;
     aperguntas = atualizarPerguntas();
-    responder.setOnAction(event -> {responderPergunta();
-    });
+    responder.setOnAction(event -> responderPergunta());
     voltar.setOnAction(event -> voltarParaAlunos());
   }
 
