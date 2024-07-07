@@ -23,47 +23,47 @@
             </Text>
           </children>
         </VBox>
-        <VBox alignment="CENTER" layoutX="49.0" layoutY="131.0" prefHeight="94.0" prefWidth="406.0">
+        <VBox alignment="CENTER" layoutX="36.0" layoutY="113.0" prefHeight="94.0" prefWidth="430.0">
           <children>
-            <Text fx:id="intro" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Intro" textAlignment="CENTER">
+            <Text fx:id="intro" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Intro" textAlignment="CENTER" wrappingWidth="430.0">
               <font>
-                <Font name="Arial" size="20.0" />
+                <Font name="Arial" size="14.0" />
               </font>
             </Text>
           </children>
         </VBox>
         <VBox alignment="TOP_CENTER" layoutX="32.0" layoutY="262.0" prefHeight="61.0" prefWidth="440.0">
           <children>
-            <Text fx:id="pergunta" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Pergunta" textAlignment="CENTER" underline="true">
+            <Text fx:id="pergunta" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Pergunta" textAlignment="CENTER" underline="true" wrappingWidth="430.0">
               <font>
-                <Font name="Arial Black" size="20.0" />
+                <Font name="Arial Black" size="16.0" />
               </font>
             </Text>
           </children>
         </VBox>
       </children>
     </AnchorPane>
-    <RadioButton fx:id="op1" layoutX="603.0" layoutY="145.0" mnemonicParsing="false" text="RadioButton">
+    <RadioButton fx:id="op1" layoutX="530.0" layoutY="40.0" mnemonicParsing="false" style="-fx-wrap-text: true; -fx-max-width: 350;" text="RadioButton">
       <toggleGroup>
         <ToggleGroup fx:id="grupoop" />
       </toggleGroup>
       <font>
-        <Font size="20.0" />
+        <Font size="14.0" />
       </font>
     </RadioButton>
-    <RadioButton fx:id="op2" layoutX="603.0" layoutY="192.0" mnemonicParsing="false" text="RadioButton" toggleGroup="$grupoop">
+    <RadioButton fx:id="op2" layoutX="530.0" layoutY="140.0" mnemonicParsing="false" style="-fx-wrap-text: true; -fx-max-width: 350;" text="RadioButton" toggleGroup="$grupoop">
       <font>
-        <Font size="20.0" />
+        <Font size="14.0" />
       </font>
     </RadioButton>
-    <RadioButton fx:id="op3" layoutX="603.0" layoutY="241.0" mnemonicParsing="false" text="RadioButton" toggleGroup="$grupoop">
+    <RadioButton fx:id="op3" layoutX="530.0" layoutY="240.0" mnemonicParsing="false" style="-fx-wrap-text: true; -fx-max-width: 350;" text="RadioButton" toggleGroup="$grupoop">
       <font>
-        <Font size="20.0" />
+        <Font size="14.0" />
       </font>
     </RadioButton>
-    <RadioButton fx:id="op4" layoutX="603.0" layoutY="293.0" mnemonicParsing="false" text="RadioButton" toggleGroup="$grupoop">
+    <RadioButton fx:id="op4" layoutX="530.0" layoutY="340.0" mnemonicParsing="false" style="-fx-wrap-text: true; -fx-max-width: 350;" text="RadioButton" toggleGroup="$grupoop">
       <font>
-        <Font size="20.0" />
+        <Font size="14.0" />
       </font>
     </RadioButton>
     <Text fx:id="mensagemresposta" fill="RED" layoutX="783.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="56.6150016784668" />

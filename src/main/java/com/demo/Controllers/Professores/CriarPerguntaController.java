@@ -5,6 +5,7 @@ import com.demo.Classes.Classe;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -18,7 +19,7 @@ public class CriarPerguntaController {
   @FXML
   public Text mensagemresposta;
   public ChoiceBox<String> nivel;
-  public TextField intro;
+  public TextArea intro;
   public TextField pergunta;
   public TextField op1;
   public TextField op2;

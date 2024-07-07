@@ -33,7 +33,7 @@ public class HistoricoController {
     int a = (int) numAcertos;
     int qf = (int) numRespostas;
 
-    performance.setText("Acertos: " + a + "\nQuestões feitas: " + qf + "\n(" + String.format("%.1f", porcento * 100) + "%)");
+    performance.setText("Questões respondidas: " + qf + "\nAcertos: " + a + "\n(" + String.format("%.1f", porcento * 100) + "%)");
     nivel.setText(Performance.showNivel(email));
     hemail.setText(email);
 
