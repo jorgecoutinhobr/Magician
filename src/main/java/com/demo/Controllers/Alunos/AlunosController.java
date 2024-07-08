@@ -1,7 +1,7 @@
 package com.demo.Controllers.Alunos;
 
 import com.demo.Models.Busca;
-import com.demo.Models.GerenciadorDeView;
+import com.demo.Managers.GerenciadorDeView;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.fxml.FXML;

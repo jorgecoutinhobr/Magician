@@ -1,7 +1,7 @@
 package com.demo.Controllers.Professores;
 
 import com.demo.Models.Busca;
-import com.demo.Models.GerenciadorDeView;
+import com.demo.Managers.GerenciadorDeView;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;

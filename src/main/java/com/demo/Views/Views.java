@@ -1,7 +1,7 @@
 package com.demo.Views;
 
 import com.demo.Models.Aluno;
-import com.demo.Models.GerenciadorDeUsuario;
+import com.demo.Managers.GerenciadorDeUsuario;
 import com.demo.Models.Professor;
 import com.demo.Controllers.Alunos.AlunosController;
 import com.demo.Controllers.Alunos.ExercitarController;
@@ -12,7 +12,6 @@ import com.demo.Controllers.Professores.CriarPerguntaController;
 import com.demo.Controllers.Professores.ProfessoresController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class Views {

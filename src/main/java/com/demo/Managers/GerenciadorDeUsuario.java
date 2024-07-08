@@ -1,4 +1,7 @@
-package com.demo.Models;
+package com.demo.Managers;
+
+import com.demo.Models.Aluno;
+import com.demo.Models.Professor;
 
 public class GerenciadorDeUsuario {
   private static GerenciadorDeUsuario instancia;

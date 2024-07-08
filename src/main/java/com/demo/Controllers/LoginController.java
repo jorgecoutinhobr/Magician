@@ -1,5 +1,7 @@
 package com.demo.Controllers;
 
+import com.demo.Managers.GerenciadorDeUsuario;
+import com.demo.Managers.GerenciadorDeView;
 import com.demo.Models.*;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;

@@ -1,7 +1,7 @@
 package com.demo.Controllers.Alunos;
 
 import com.demo.Models.Busca;
-import com.demo.Models.GerenciadorDeView;
+import com.demo.Managers.GerenciadorDeView;
 import com.demo.Models.Performance;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
