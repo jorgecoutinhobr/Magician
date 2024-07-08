@@ -2,6 +2,7 @@ package com.demo.Controllers.Professores;
 
 import com.demo.Models.Busca;
 import com.demo.Models.GerenciadorDeView;
+import com.demo.Models.Performance;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -33,9 +34,10 @@ public class CriaUsuarioController {
   public Text nivelText;
   public Text tipoText;
   private String atipo = "";
+  private String anivel;
 
   public void initialize() {
-    nivel.getItems().addAll("1", "2", "3", "4");
+    nivel.getItems().addAll("Aprendiz", "Feiticeiro", "Bruxo", "Mago");
     tipo.getItems().addAll("Aluno", "Professor");
     nivelText.setMouseTransparent(true);
     tipoText.setMouseTransparent(true);
@@ -74,8 +76,11 @@ public class CriaUsuarioController {
   }
 
   private void adicionaUsuario() {
-    if (tipo.getValue() == "Aluno")
+    if (tipo.getValue() == "Aluno" && nivel.getValue() != null) {
       atipo = "a";
+      anivel = Performance.numNivel(nivel.getValue());
+      System.out.println(anivel);
+    }
     else if (tipo.getValue() == "Professor")
       atipo = "p";
     if (atipo.equals("a") && (uemail.getText().isEmpty() || nivel.getValue() == null || senha.getText().isEmpty() || nome.getText().isEmpty() || atipo.isEmpty())) {
@@ -111,7 +116,7 @@ public class CriaUsuarioController {
                 uemail.getText().toLowerCase(),
                 senha.getText(),
                 nome.getText(),
-                nivel.getValue(),
+                anivel,
                 atipo);
         out.print(dados);
         mensagemresposta.setFill(Color.BLACK);
@@ -141,10 +146,12 @@ public class CriaUsuarioController {
     uemail.clear();
     senha.clear();
     nome.clear();
-    tipo.setValue("");
-    nivel.setValue("");
+    tipo.setValue(null);
+    nivel.setValue(null);
+    anivel = "";
+    atipo = "";
     tipoText.setVisible(true);
-    nivelText.setVisible(true);
+    nivelText.setVisible(false);
   }
 
   private void voltarTela() {

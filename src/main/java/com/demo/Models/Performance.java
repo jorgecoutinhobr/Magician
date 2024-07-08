@@ -2,7 +2,6 @@ package com.demo.Models;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Performance {
   private static final String PATH_PERFORMANCE = "src/main/java/com/demo/Database/performance.csv";
@@ -54,7 +53,11 @@ public class Performance {
   public static String showNivel(String email) {
     ArrayList<String> list = Busca.usuario(email);
     assert list != null;
-    switch (list.get(3)) {
+    return stringNivel(list.get(3));
+  }
+
+  public static String stringNivel(String a) {
+    switch (a) {
       case "2":
         return "Feiticeiro";
       case "3":
@@ -67,5 +70,18 @@ public class Performance {
         return null;
     }
   }
-
+    public static String numNivel(String a){
+      switch (a) {
+        case "Feiticeiro":
+          return "2";
+        case "Bruxo":
+          return "3";
+        case "Mago":
+          return "4";
+        case "Aprendiz":
+          return "1";
+        default:
+          return null;
+      }
+    }
 }
