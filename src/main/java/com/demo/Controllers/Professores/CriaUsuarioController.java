@@ -23,16 +23,19 @@ public class CriaUsuarioController {
   @FXML
   public TextField uemail;
   public TextField senha;
-  public TextField nome;
-  public TextField tipo;
+  public TextField nome;;
   public Button criar;
   public Button voltar;
-  public Text mensagemresposta;
+  public ChoiceBox<String> tipo;
   public ChoiceBox<String> nivel;
+  public Text mensagemresposta;
   public Text nivelText;
+  public Text tipoText;
+  private String atipo = "";
 
   public void initialize() {
     nivel.getItems().addAll("1", "2", "3", "4");
+    tipo.getItems().addAll("Aluno","Professor");
     nivel.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
       @Override
       public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
@@ -41,26 +44,38 @@ public class CriaUsuarioController {
         }
       }
     });
+    tipo.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+      @Override
+      public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+        if(t1 != null){
+          tipoText.setVisible(false);
+        }
+      }
+    });
     criar.setOnAction(event -> adicionaUsuario());
     voltar.setOnAction(event -> voltarTela());
   }
 
   private void adicionaUsuario() {
-    if (tipo.getText().equals("a") && (uemail.getText().isEmpty() || nivel.getValue() == null || senha.getText().isEmpty() || nome.getText().isEmpty() || tipo.getText().isEmpty())) {
+    if(tipo.getValue() == "Aluno")
+      atipo = "a";
+    else if (tipo.getValue() == "Professor")
+      atipo = "p";
+    if (atipo.equals("a") && (uemail.getText().isEmpty() || nivel.getValue() == null || senha.getText().isEmpty() || nome.getText().isEmpty() || atipo.isEmpty())) {
       mensagemresposta.setFill(Color.RED);
       mensagemresposta.setText("Todos os campos devem ser preenchidos");
       return;
     }
 
-    if (tipo.getText().equals("p") && (uemail.getText().isEmpty() || senha.getText().isEmpty() || nome.getText().isEmpty() || tipo.getText().isEmpty())) {
+    if (atipo.equals("p") && (uemail.getText().isEmpty() || senha.getText().isEmpty() || nome.getText().isEmpty() || atipo.isEmpty())) {
       mensagemresposta.setFill(Color.RED);
       mensagemresposta.setText("Todos os campos devem ser preenchidos");
       return;
     }
 
-    if (!tipo.getText().equals("a") && !tipo.getText().equals("p")) {
+    if(atipo.isEmpty()){
       mensagemresposta.setFill(Color.RED);
-      mensagemresposta.setText("Tipo não reconhecido");
+      mensagemresposta.setText("Todos os campos devem ser preenchidos");
       return;
     }
 
@@ -74,23 +89,23 @@ public class CriaUsuarioController {
          BufferedWriter bw = new BufferedWriter(fw);
          PrintWriter out = new PrintWriter(bw)) {
 
-      if (tipo.getText().equals("a")) {
+      if (atipo.equals("a")) {
         String dados = String.format("%s,%s,%s,%s,%s\n",
                 uemail.getText().toLowerCase(),
                 senha.getText(),
                 nome.getText(),
                 nivel.getValue(),
-                tipo.getText());
+                atipo);
         out.print(dados);
         mensagemresposta.setFill(Color.BLACK);
         mensagemresposta.setText("Usuário cadastrado com sucesso");
         limparCampos();
-      } else if (tipo.getText().equals("p")) {
+      } else if (atipo.equals("p")) {
         String dados = String.format("%s,%s,%s,%s\n",
                 uemail.getText().toLowerCase(),
                 senha.getText(),
                 nome.getText(),
-                tipo.getText());
+                atipo);
         out.print(dados);
         mensagemresposta.setFill(Color.BLACK);
         mensagemresposta.setText("Usuário cadastrado com sucesso");
@@ -109,7 +124,7 @@ public class CriaUsuarioController {
     uemail.clear();
     senha.clear();
     nome.clear();
-    tipo.clear();
+    tipo.setVisible(true);
     nivel.setVisible(true);
   }
 
