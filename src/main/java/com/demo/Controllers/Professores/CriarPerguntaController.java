@@ -2,6 +2,8 @@ package com.demo.Controllers.Professores;
 
 import com.demo.Models.Busca;
 import com.demo.Models.GerenciadorDeView;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -27,11 +29,18 @@ public class CriarPerguntaController {
   public TextField resposta;
   public Button enviar;
   public Button voltar;
+  public Text nivelText;
 
   public void initialize() {
     nivel.getItems().addAll("1", "2", "3", "4");
     enviar.setOnAction(event -> salvaPergunta());
     voltar.setOnAction(event -> voltarParaProfessores());
+    nivel.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+      @Override
+      public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+        nivelText.setVisible(t1 == null);
+      }
+    });
   }
 
   private void salvaPergunta() {
@@ -46,8 +55,7 @@ public class CriarPerguntaController {
       mensagemresposta.setFill(Color.RED);
       mensagemresposta.setText("Erro: prencha todo os campos");
       return;
-    } else if (Integer.parseInt(resposta.getText()) < 1 || Integer.parseInt(resposta.getText()) > 4  )
-    {
+    } else if (Integer.parseInt(resposta.getText()) < 1 || Integer.parseInt(resposta.getText()) > 4) {
       mensagemresposta.setFill(Color.RED);
       mensagemresposta.setText("Erro: número da resposta inválido");
       return;
@@ -101,6 +109,7 @@ public class CriarPerguntaController {
     op4.clear();
     resposta.clear();
     nivel.setValue("");
+    nivelText.setVisible(true);
   }
 
   private void voltarParaProfessores() {

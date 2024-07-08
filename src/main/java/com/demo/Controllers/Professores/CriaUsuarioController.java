@@ -23,7 +23,8 @@ public class CriaUsuarioController {
   @FXML
   public TextField uemail;
   public TextField senha;
-  public TextField nome;;
+  public TextField nome;
+  ;
   public Button criar;
   public Button voltar;
   public ChoiceBox<String> tipo;
@@ -35,13 +36,25 @@ public class CriaUsuarioController {
 
   public void initialize() {
     nivel.getItems().addAll("1", "2", "3", "4");
-    tipo.getItems().addAll("Aluno","Professor");
+    tipo.getItems().addAll("Aluno", "Professor");
     nivelText.setMouseTransparent(true);
     tipoText.setMouseTransparent(true);
+    tipo.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+      @Override
+      public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+        if ("Aluno".equals(newValue)) {
+          nivel.setVisible(true);
+          nivelText.setVisible(true);
+        } else {
+          nivel.setVisible(false);
+          nivelText.setVisible(false);
+        }
+      }
+    });
     nivel.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
       @Override
       public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-        if(t1 != null){
+        if (t1 != null) {
           nivelText.setVisible(false);
         }
       }
@@ -49,7 +62,7 @@ public class CriaUsuarioController {
     tipo.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
       @Override
       public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-        if(t1 != null){
+        if (t1 != null) {
           tipoText.setVisible(false);
         }
       }
@@ -59,7 +72,7 @@ public class CriaUsuarioController {
   }
 
   private void adicionaUsuario() {
-    if(tipo.getValue() == "Aluno")
+    if (tipo.getValue() == "Aluno")
       atipo = "a";
     else if (tipo.getValue() == "Professor")
       atipo = "p";
@@ -75,7 +88,7 @@ public class CriaUsuarioController {
       return;
     }
 
-    if(atipo.isEmpty()){
+    if (atipo.isEmpty()) {
       mensagemresposta.setFill(Color.RED);
       mensagemresposta.setText("Todos os campos devem ser preenchidos");
       return;
