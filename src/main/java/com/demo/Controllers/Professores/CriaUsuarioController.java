@@ -39,6 +39,8 @@ public class CriaUsuarioController {
     tipo.getItems().addAll("Aluno", "Professor");
     nivelText.setMouseTransparent(true);
     tipoText.setMouseTransparent(true);
+    nivel.setVisible(false);
+    nivelText.setVisible(false);
     tipo.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
       @Override
       public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
