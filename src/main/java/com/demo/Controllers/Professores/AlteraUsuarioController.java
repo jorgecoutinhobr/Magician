@@ -4,6 +4,7 @@ import com.demo.Models.Busca;
 import com.demo.Models.Usuario;
 import com.demo.Support.SingletonView;
 import com.demo.Models.Performance;
+import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -35,8 +36,10 @@ public class AlteraUsuarioController {
   private String usenha;
   private String unome;
   private String anivel = "";
+  private String admemail;
 
-  public void initialize() {
+  public void initialize(String email) {
+    admemail = email;
     subirNivel.setVisible(false);
     descerNivel.setVisible(false);
     alterar.setVisible(false);
@@ -77,7 +80,6 @@ public class AlteraUsuarioController {
       } else {
         mostraProfessor();
       }
-      deletar.setVisible(true);
     }
   }
 
@@ -144,6 +146,7 @@ public class AlteraUsuarioController {
     performanceTitle.setVisible(true);
     nivelTitle.setVisible(true);
     alterar.setVisible(true);
+    deletar.setVisible(true);
     nivelText.setText(Performance.showNivel(uemail));
     if (Integer.parseInt(anivel) < 4)
       subirNivel.setVisible(true);
@@ -175,16 +178,19 @@ public class AlteraUsuarioController {
     nomeText.setVisible(true);
     senhaText.setVisible(true);
     alterar.setVisible(true);
-    deletar.setVisible(true);
     subirNivel.setVisible(false);
     descerNivel.setVisible(false);
     performanceText.setVisible(false);
     nivelText.setVisible(false);
     performanceTitle.setVisible(false);
     nivelTitle.setVisible(false);
+    if(emailText.getText().equals(admemail))
+        deletar.setVisible(false);
+    else deletar.setVisible(true);
   }
 
   private void limparCampos() {
+    emailText.setText("");
     nomeText.setVisible(false);
     senhaText.setVisible(false);
     alterar.setVisible(false);

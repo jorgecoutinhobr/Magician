@@ -22,15 +22,6 @@ public class ViewsManager {
     createStage(loader);
   }
 
-  public void showAlunoMenuWindow() {
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/demo/Aluno/AlunoMenu.fxml"));
-    AlunosController alunosController = new AlunosController();
-    loader.setController(alunosController);
-    createStage(loader);
-    Aluno alunoLogado = SingletonUsuario.getInstancia().getAlunoLogado();
-    alunosController.initialize(alunoLogado.getEmail());
-  }
-
   public void showProfessorWindow() {
     FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/demo/Professor/Professor.fxml"));
     ProfessoresController professoresController = new ProfessoresController();
@@ -54,6 +45,24 @@ public class ViewsManager {
     createStage(loader);
   }
 
+  public void showAlteraUsuarioWindow() {
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/demo/Professor/AlteraUsuario.fxml"));
+    AlteraUsuarioController alteraUsuarioController = new AlteraUsuarioController();
+    loader.setController(alteraUsuarioController);
+    createStage(loader);
+    Professor professorLogado = SingletonUsuario.getInstancia().getProfessorLogado();
+    alteraUsuarioController.initialize(professorLogado.getEmail());
+  }
+
+  public void showAlunoMenuWindow() {
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/demo/Aluno/AlunoMenu.fxml"));
+    AlunosController alunosController = new AlunosController();
+    loader.setController(alunosController);
+    createStage(loader);
+    Aluno alunoLogado = SingletonUsuario.getInstancia().getAlunoLogado();
+    alunosController.initialize(alunoLogado.getEmail());
+  }
+
   public void showExercitarWindow() {
     FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/demo/Aluno/Exercitar.fxml"));
     ExercitarController exercitarController = new ExercitarController();
@@ -70,13 +79,6 @@ public class ViewsManager {
     createStage(loader);
     Aluno alunoLogado = SingletonUsuario.getInstancia().getAlunoLogado();
     historicoController.initialize(alunoLogado.getEmail());
-  }
-
-  public void showAlteraUsuarioWindow() {
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/demo/Professor/AlteraUsuario.fxml"));
-    AlteraUsuarioController alteraUsuarioController = new AlteraUsuarioController();
-    loader.setController(alteraUsuarioController);
-    createStage(loader);
   }
 
   private void createStage(FXMLLoader loader) {
