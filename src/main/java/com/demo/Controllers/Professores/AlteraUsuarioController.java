@@ -19,16 +19,17 @@ public class AlteraUsuarioController {
   public Button voltar;
   public Button alterar;
   public Button buscar;
+  public Button subirNivel;
+  public Button descerNivel;
+  public Button deletar;
   public TextField emailText;
   public TextField nomeText;
   public TextField senhaText;
+  public Text mensagemresposta;
   public Label nivelText;
   public Label performanceText;
   public Label nivelTitle;
   public Label performanceTitle;
-  public Button subirNivel;
-  public Button descerNivel;
-  public Text mensagemresposta;
   private ArrayList<String> usuario;
   private ArrayList<String> aperformance;
   private String uemail;
@@ -46,11 +47,13 @@ public class AlteraUsuarioController {
     performanceText.setVisible(false);
     nivelTitle.setVisible(false);
     performanceTitle.setVisible(false);
+    deletar.setVisible(false);
     voltar.setOnAction(event -> voltarParaProfessores());
     buscar.setOnAction(event -> buscarUsuario());
     alterar.setOnAction(event -> alteraUsuario());
     subirNivel.setOnAction(event -> sobeNivel());
     descerNivel.setOnAction(event -> desceNivel());
+    deletar.setOnAction(event -> deletarUsuario());
   }
 
   private void voltarParaProfessores() {
@@ -63,8 +66,11 @@ public class AlteraUsuarioController {
     usuario = Busca.usuario(emailText.getText().toLowerCase().trim());
     if (usuario == null) {
       mensagemresposta.setFill(Color.RED);
+      mensagemresposta.setVisible(true);
       mensagemresposta.setText("Usuário não encontrado");
+      limparCampos();
     } else {
+      mensagemresposta.setVisible(false);
       uemail = emailText.getText().toLowerCase().trim();
       aperformance = Busca.performance(uemail);
       if (usuario.getLast().equals("a")) {
@@ -72,7 +78,17 @@ public class AlteraUsuarioController {
       } else {
         mostraProfessor();
       }
+      deletar.setVisible(true);
     }
+  }
+
+  private void deletarUsuario(){
+    Performance.salvaPerformance("",uemail);
+    alteraUsuario("0");
+    usuario = null;
+    limparCampos();
+    mensagemresposta.setVisible(true);
+    mensagemresposta.setText("Usuário Apagado!");
   }
 
   private void alteraUsuario(String... nivel) {
@@ -88,7 +104,8 @@ public class AlteraUsuarioController {
       while ((linha = reader.readLine()) != null) {
         String[] campos = linha.split(",");
         if (campos[0].equals(uemail)) {
-          if (anivel != "")
+          if(anivel == "0"){}
+          else if(anivel != "")
             linhas.add(uemail +
                     "," +
                     usenha +
@@ -99,13 +116,13 @@ public class AlteraUsuarioController {
                     ",a"
             );
           else linhas.add(uemail +
-                  "," +
-                  usenha +
-                  "," +
-                  unome +
-                  "," +
-                  "p"
-          );
+                    "," +
+                    usenha +
+                    "," +
+                    unome +
+                    "," +
+                    "p"
+            );
           encontrouEmail = true;
         } else {
           linhas.add(linha);
@@ -121,6 +138,7 @@ public class AlteraUsuarioController {
           writer.write(linhaAtualizada);
           writer.newLine();
         }
+        mensagemresposta.setVisible(true);
         mensagemresposta.setFill(Color.BLACK);
         mensagemresposta.setText("Alteração realizada com sucesso!");
       } catch (IOException e) {
@@ -190,10 +208,26 @@ public class AlteraUsuarioController {
     nomeText.setVisible(true);
     senhaText.setVisible(true);
     alterar.setVisible(true);
+    deletar.setVisible(true);
     subirNivel.setVisible(false);
+    descerNivel.setVisible(false);
     performanceText.setVisible(false);
     nivelText.setVisible(false);
     performanceTitle.setVisible(false);
     nivelTitle.setVisible(false);
   }
+
+  private void limparCampos() {
+    nomeText.setVisible(false);
+    senhaText.setVisible(false);
+    alterar.setVisible(false);
+    subirNivel.setVisible(false);
+    descerNivel.setVisible(false);
+    deletar.setVisible(false);
+    performanceText.setVisible(false);
+    nivelText.setVisible(false);
+    performanceTitle.setVisible(false);
+    nivelTitle.setVisible(false);
+  }
+
 }

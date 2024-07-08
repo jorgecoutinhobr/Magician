@@ -2,8 +2,10 @@ package com.demo.Models;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Performance {
+    private static final String PATH_PERFORMANCE = "src/main/java/com/demo/Database/performance.csv";
 
     public static void addResposta(String email, boolean certa, String idpergunta) {
         ArrayList<String> performancelist = Busca.performance(email);
@@ -18,7 +20,6 @@ public class Performance {
     }
 
     public static void salvaPerformance(String performancelist, String email) {
-        final String PATH_PERFORMANCE = "src/main/java/com/demo/Database/performance.csv";
         ArrayList<String> linhas = new ArrayList<>();
         boolean encontrouEmail = false;
 
@@ -27,7 +28,8 @@ public class Performance {
             while ((linha = reader.readLine()) != null) {
                 String[] campos = linha.split(",");
                 if (campos[0].equals(email)) {
-                    linhas.add(performancelist);
+                    if(performancelist != "")
+                        linhas.add(performancelist);
                     encontrouEmail = true;
                 } else {
                     linhas.add(linha);

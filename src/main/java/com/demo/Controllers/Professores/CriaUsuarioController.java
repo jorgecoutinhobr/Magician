@@ -2,6 +2,8 @@ package com.demo.Controllers.Professores;
 
 import com.demo.Models.Busca;
 import com.demo.Models.GerenciadorDeView;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -27,9 +29,18 @@ public class CriaUsuarioController {
   public Button voltar;
   public Text mensagemresposta;
   public ChoiceBox<String> nivel;
+  public Text nivelText;
 
   public void initialize() {
     nivel.getItems().addAll("1", "2", "3", "4");
+    nivel.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+      @Override
+      public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+        if(t1 != null){
+          nivelText.setVisible(false);
+        }
+      }
+    });
     criar.setOnAction(event -> adicionaUsuario());
     voltar.setOnAction(event -> voltarTela());
   }
@@ -99,6 +110,7 @@ public class CriaUsuarioController {
     senha.clear();
     nome.clear();
     tipo.clear();
+    nivel.setVisible(true);
   }
 
   private void voltarTela() {
@@ -107,3 +119,4 @@ public class CriaUsuarioController {
     GerenciadorDeView.getInstance().getView().showProfessorWindow();
   }
 }
+
