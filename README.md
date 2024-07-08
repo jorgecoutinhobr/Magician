@@ -26,8 +26,8 @@ Localizados em `src/main/java/com/demo/Controllers/`.
 - [`AlteraUsuarioController`](src/main/java/com/demo/Controllers/Professores/AlteraUsuarioController.java)
 
 ## Managers
-- [`GerenciadorDeView`](src/main/java/com/demo/Managers/GerenciadorDeView.java)
-- [`GerenciadorDeUsuario`](src/main/java/com/demo/Managers/GerenciadorDeUsuario.java)
+- [`GerenciadorDeView`](src/main/java/com/demo/Support/GerenciadorDeView.java)
+- [`GerenciadorDeUsuario`](src/main/java/com/demo/Support/GerenciadorDeUsuario.java)
 
 ## Database
 Arquivos CSV localizados em `src/main/java/com/demo/Database/`.

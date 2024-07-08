@@ -10,6 +10,5 @@ module com.demo {
     exports com.demo.Controllers.Alunos;
     exports com.demo.Controllers.Professores;
     exports com.demo.Models;
-    exports com.demo.Views;
-  exports com.demo.Managers;
+    exports com.demo.Support;
 }

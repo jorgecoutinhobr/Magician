@@ -1,7 +1,7 @@
 package com.demo.Controllers.Professores;
 
 import com.demo.Models.Busca;
-import com.demo.Managers.GerenciadorDeView;
+import com.demo.Support.SingletonView;
 import com.demo.Models.Performance;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -59,7 +59,7 @@ public class AlteraUsuarioController {
   private void voltarParaProfessores() {
     Stage stage = (Stage) voltar.getScene().getWindow();
     stage.close();
-    GerenciadorDeView.getInstance().getView().showProfessorWindow();
+    SingletonView.getInstance().getView().showProfessorWindow();
   }
 
   private void buscarUsuario() {

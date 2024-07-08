@@ -1,7 +1,7 @@
 package com.demo.Controllers.Professores;
 
 import com.demo.Models.Busca;
-import com.demo.Managers.GerenciadorDeView;
+import com.demo.Support.SingletonView;
 import com.demo.Models.Performance;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -157,7 +157,7 @@ public class CriaUsuarioController {
   private void voltarTela() {
     Stage stage = (Stage) voltar.getScene().getWindow();
     stage.close();
-    GerenciadorDeView.getInstance().getView().showProfessorWindow();
+    SingletonView.getInstance().getView().showProfessorWindow();
   }
 }
 

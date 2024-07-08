@@ -1,13 +1,13 @@
 package com.demo;
 
-import com.demo.Views.Views;
+import com.demo.Support.ViewsManager;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
 public class App extends Application {
   @Override
   public void start(Stage stage) {
-    Views view = new Views();
+    ViewsManager view = new ViewsManager();
     view.showLoginWindow();
   }
 }

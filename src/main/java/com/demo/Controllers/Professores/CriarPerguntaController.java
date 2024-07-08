@@ -1,7 +1,7 @@
 package com.demo.Controllers.Professores;
 
 import com.demo.Models.Busca;
-import com.demo.Managers.GerenciadorDeView;
+import com.demo.Support.SingletonView;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -115,6 +115,6 @@ public class CriarPerguntaController {
   private void voltarParaProfessores() {
     Stage stage = (Stage) voltar.getScene().getWindow();
     stage.close();
-    GerenciadorDeView.getInstance().getView().showProfessorWindow();
+    SingletonView.getInstance().getView().showProfessorWindow();
   }
 }

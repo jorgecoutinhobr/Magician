@@ -1,7 +1,6 @@
-package com.demo.Views;
+package com.demo.Support;
 
 import com.demo.Models.Aluno;
-import com.demo.Managers.GerenciadorDeUsuario;
 import com.demo.Models.Professor;
 import com.demo.Controllers.Alunos.AlunosController;
 import com.demo.Controllers.Alunos.ExercitarController;
@@ -14,8 +13,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Views {
-  public Views() {
+public class ViewsManager {
+  public ViewsManager() {
   }
 
   public void showLoginWindow() {
@@ -28,7 +27,7 @@ public class Views {
     AlunosController alunosController = new AlunosController();
     loader.setController(alunosController);
     createStage(loader);
-    Aluno alunoLogado = GerenciadorDeUsuario.getInstancia().getAlunoLogado();
+    Aluno alunoLogado = SingletonUsuario.getInstancia().getAlunoLogado();
     alunosController.initialize(alunoLogado.getEmail());
   }
 
@@ -37,7 +36,7 @@ public class Views {
     ProfessoresController professoresController = new ProfessoresController();
     loader.setController(professoresController);
     createStage(loader);
-    Professor professorLogado = GerenciadorDeUsuario.getInstancia().getProfessorLogado();
+    Professor professorLogado = SingletonUsuario.getInstancia().getProfessorLogado();
     professoresController.initialize(professorLogado.getEmail());
   }
 
@@ -60,7 +59,7 @@ public class Views {
     ExercitarController exercitarController = new ExercitarController();
     loader.setController(exercitarController);
     createStage(loader);
-    Aluno alunoLogado = GerenciadorDeUsuario.getInstancia().getAlunoLogado();
+    Aluno alunoLogado = SingletonUsuario.getInstancia().getAlunoLogado();
     exercitarController.initialize(alunoLogado.getNivel(), alunoLogado.getEmail());
   }
 
@@ -69,7 +68,7 @@ public class Views {
     HistoricoController historicoController = new HistoricoController();
     loader.setController(historicoController);
     createStage(loader);
-    Aluno alunoLogado = GerenciadorDeUsuario.getInstancia().getAlunoLogado();
+    Aluno alunoLogado = SingletonUsuario.getInstancia().getAlunoLogado();
     historicoController.initialize(alunoLogado.getEmail());
   }
 

@@ -1,7 +1,7 @@
 package com.demo.Controllers.Alunos;
 
 import com.demo.Models.Busca;
-import com.demo.Managers.GerenciadorDeView;
+import com.demo.Support.SingletonView;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.fxml.FXML;
@@ -48,20 +48,20 @@ public class AlunosController {
     else {
       Stage currentStage = (Stage) exercitar.getScene().getWindow();
       currentStage.close();
-      GerenciadorDeView.getInstance().getView().showExercitarWindow();
+      SingletonView.getInstance().getView().showExercitarWindow();
     }
   }
 
   private void retornarLogin() {
     Stage currentStage = (Stage) btnSair.getScene().getWindow();
     currentStage.close();
-    GerenciadorDeView.getInstance().getView().showLoginWindow();
+    SingletonView.getInstance().getView().showLoginWindow();
   }
 
   private void historicoClicked() {
     Stage currentStage = (Stage) historico.getScene().getWindow();
     currentStage.close();
-    GerenciadorDeView.getInstance().getView().showHistoricoWindow();
+    SingletonView.getInstance().getView().showHistoricoWindow();
   }
 
 

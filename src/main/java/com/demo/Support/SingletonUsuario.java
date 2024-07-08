@@ -1,19 +1,19 @@
-package com.demo.Managers;
+package com.demo.Support;
 
 import com.demo.Models.Aluno;
 import com.demo.Models.Professor;
 
-public class GerenciadorDeUsuario {
-  private static GerenciadorDeUsuario instancia;
+public class SingletonUsuario {
+  private static SingletonUsuario instancia;
   private Professor professorLogado;
   private Aluno alunoLogado;
 
-  private GerenciadorDeUsuario() {
+  private SingletonUsuario() {
   }
 
-  public static GerenciadorDeUsuario getInstancia() {
+  public static SingletonUsuario getInstancia() {
     if (instancia == null) {
-      instancia = new GerenciadorDeUsuario();
+      instancia = new SingletonUsuario();
     }
     return instancia;
   }

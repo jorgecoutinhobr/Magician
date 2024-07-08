@@ -1,7 +1,7 @@
 package com.demo.Controllers.Professores;
 
 import com.demo.Models.Busca;
-import com.demo.Managers.GerenciadorDeView;
+import com.demo.Support.SingletonView;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
@@ -32,25 +32,25 @@ public class ProfessoresController {
   private void criadorPergunta() {
     Stage currentStage = (Stage) criapergunta.getScene().getWindow();
     currentStage.close();
-    GerenciadorDeView.getInstance().getView().showCriaPerguntaWindow();
+    SingletonView.getInstance().getView().showCriaPerguntaWindow();
   }
 
   private void criadorUsuario() {
     Stage currentStage = (Stage) criausuario.getScene().getWindow();
     currentStage.close();
-    GerenciadorDeView.getInstance().getView().showCriaUsuarioWindow();
+    SingletonView.getInstance().getView().showCriaUsuarioWindow();
   }
 
   private void retornarLogin() {
     Stage currentStage = (Stage) btnSair.getScene().getWindow();
     currentStage.close();
-    GerenciadorDeView.getInstance().getView().showLoginWindow();
+    SingletonView.getInstance().getView().showLoginWindow();
   }
 
   private void alteradorUsuario(){
     Stage currentStage = (Stage) alterausuario.getScene().getWindow();
     currentStage.close();
-    GerenciadorDeView.getInstance().getView().showAlteraUsuarioWindow();
+    SingletonView.getInstance().getView().showAlteraUsuarioWindow();
   }
 
 }
