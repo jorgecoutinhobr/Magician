@@ -26,7 +26,7 @@
             <Font name="Wingdings" size="40.0" />
          </font>
       </Text>
-      <Text fx:id="tipoText" layoutX="303.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo" wrappingWidth="23.723953247070312" />
-    <Text fx:id="nivelText" layoutX="466.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nivel" wrappingWidth="30.124099731445312" />
+      <Text fx:id="tipoText" layoutX="303.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo" wrappingWidth="30.124099731445312" />
+    <Text fx:id="nivelText" layoutX="470.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nivel" wrappingWidth="39.12409973144531" />
   </children>
 </AnchorPane>
