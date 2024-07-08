@@ -14,15 +14,11 @@
     <TextField fx:id="nome" layoutX="293.0" layoutY="237.0" prefHeight="26.0" prefWidth="313.0" promptText="Nome" />
     <Button fx:id="criar" layoutX="506.0" layoutY="326.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="105.0" styleClass="button-sm" stylesheets="@../Style/style.css" text="Criar" textFill="WHITE" />
     <Button fx:id="voltar" layoutX="10" layoutY="10" mnemonicParsing="false" prefWidth="100.0" styleClass="button-sm" stylesheets="@../Style/style.css" text="Voltar" textFill="WHITE" />
+      <ChoiceBox fx:id="tipo" layoutX="294.0" layoutY="283.0" prefWidth="150.0" />
+    <ChoiceBox fx:id="nivel" layoutX="457.0" layoutY="283.0" prefWidth="150.0" />
     <Text fx:id="mensagemresposta" fill="RED" layoutX="14.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="206.0">
       <font>
         <Font size="20.0" />
-      </font>
-    </Text>
-    <ChoiceBox fx:id="nivel" layoutX="457.0" layoutY="283.0" prefWidth="150.0" />
-    <Text fx:id="nivelText" layoutX="466.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nivel" wrappingWidth="56.52400207519531">
-      <font>
-        <Font size="16.0" />
       </font>
     </Text>
       <Text layoutX="303.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adicionar Usuário" textAlignment="CENTER">
@@ -30,11 +26,7 @@
             <Font name="Wingdings" size="40.0" />
          </font>
       </Text>
-      <ChoiceBox fx:id="tipo" layoutX="294.0" layoutY="283.0" prefWidth="150.0" />
-      <Text fx:id="tipoText" layoutX="303.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo" wrappingWidth="56.52400207519531">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Text>
+      <Text fx:id="tipoText" layoutX="303.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo" wrappingWidth="23.723953247070312" />
+    <Text fx:id="nivelText" layoutX="466.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nivel" wrappingWidth="30.124099731445312" />
   </children>
 </AnchorPane>

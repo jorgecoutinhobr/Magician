@@ -36,6 +36,8 @@ public class CriaUsuarioController {
   public void initialize() {
     nivel.getItems().addAll("1", "2", "3", "4");
     tipo.getItems().addAll("Aluno","Professor");
+    nivelText.setMouseTransparent(true);
+    tipoText.setMouseTransparent(true);
     nivel.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
       @Override
       public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
@@ -124,8 +126,10 @@ public class CriaUsuarioController {
     uemail.clear();
     senha.clear();
     nome.clear();
-    tipo.setVisible(true);
-    nivel.setVisible(true);
+    tipo.setValue("");
+    nivel.setValue("");
+    tipoText.setVisible(true);
+    nivelText.setVisible(true);
   }
 
   private void voltarTela() {
