@@ -82,8 +82,8 @@ public class AlteraUsuarioController {
     }
   }
 
-  private void deletarUsuario(){
-    Performance.salvaPerformance("",uemail);
+  private void deletarUsuario() {
+    Performance.salvaPerformance("", uemail);
     alteraUsuario("0");
     usuario = null;
     limparCampos();
@@ -104,8 +104,8 @@ public class AlteraUsuarioController {
       while ((linha = reader.readLine()) != null) {
         String[] campos = linha.split(",");
         if (campos[0].equals(uemail)) {
-          if(anivel == "0"){}
-          else if(anivel != "")
+          if (anivel == "0") {
+          } else if (anivel != "")
             linhas.add(uemail +
                     "," +
                     usenha +
