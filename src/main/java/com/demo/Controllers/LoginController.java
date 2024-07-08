@@ -28,22 +28,22 @@ public class LoginController implements Initializable {
     String semail = email.getText().toLowerCase().trim();
     String ssenha = senha.getText();
     String[] niveltipo = Usuario.autentica(semail, ssenha);
-    if (niveltipo != null) {
-      if (niveltipo[1].equals("a")) {
-        Aluno alunoLogado = new Aluno(semail, ssenha, niveltipo[0]);
-        SingletonUsuario.getInstancia().setAlunoLogado(alunoLogado);
-        Stage currentStage = (Stage) loginbtn.getScene().getWindow();
-        currentStage.close();
-        SingletonView.getInstance().getView().showAlunoMenuWindow();
-      } else {
-        Professor professorLogado = new Professor(semail, ssenha);
-        SingletonUsuario.getInstancia().setProfessorLogado(professorLogado);
-        Stage currentStage = (Stage) loginbtn.getScene().getWindow();
-        currentStage.close();
-        SingletonView.getInstance().getView().showProfessorWindow();
-      }
-    } else {
+    if (niveltipo == null) {
       errormessage.setText("Erro: Verifique se os campos foram digitados corretamente");
+      return;
+    }
+
+    Stage currentStage = (Stage) loginbtn.getScene().getWindow();
+    currentStage.close();
+
+    if ("a".equals(niveltipo[1])) {
+      Aluno alunoLogado = new Aluno(semail, ssenha, niveltipo[0]);
+      SingletonUsuario.getInstancia().setAlunoLogado(alunoLogado);
+      SingletonView.getInstance().getView().showAlunoMenuWindow();
+    } else {
+      Professor professorLogado = new Professor(semail, ssenha);
+      SingletonUsuario.getInstancia().setProfessorLogado(professorLogado);
+      SingletonView.getInstance().getView().showProfessorWindow();
     }
   }
 }
