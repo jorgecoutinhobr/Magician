@@ -1,16 +1,16 @@
-package com.demo.Classes;
+package com.demo.Models;
 
-public class ContextoAplicacao {
-  private static ContextoAplicacao instancia;
+public class GerenciadorDeUsuario {
+  private static GerenciadorDeUsuario instancia;
   private Professor professorLogado;
   private Aluno alunoLogado;
 
-  private ContextoAplicacao() {
+  private GerenciadorDeUsuario() {
   }
 
-  public static ContextoAplicacao getInstancia() {
+  public static GerenciadorDeUsuario getInstancia() {
     if (instancia == null) {
-      instancia = new ContextoAplicacao();
+      instancia = new GerenciadorDeUsuario();
     }
     return instancia;
   }

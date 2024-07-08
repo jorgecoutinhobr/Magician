@@ -1,8 +1,8 @@
 package com.demo.Views;
 
-import com.demo.Classes.Aluno;
-import com.demo.Classes.ContextoAplicacao;
-import com.demo.Classes.Professor;
+import com.demo.Models.Aluno;
+import com.demo.Models.GerenciadorDeUsuario;
+import com.demo.Models.Professor;
 import com.demo.Controllers.Alunos.AlunosController;
 import com.demo.Controllers.Alunos.ExercitarController;
 import com.demo.Controllers.Alunos.HistoricoController;
@@ -43,7 +43,7 @@ public class Views {
     AlunosController alunosController = new AlunosController();
     loader.setController(alunosController);
     createStage(loader);
-    Aluno alunoLogado = ContextoAplicacao.getInstancia().getAlunoLogado();
+    Aluno alunoLogado = GerenciadorDeUsuario.getInstancia().getAlunoLogado();
     alunosController.initialize(alunoLogado.getEmail());
   }
 
@@ -52,7 +52,7 @@ public class Views {
     ProfessoresController professoresController = new ProfessoresController();
     loader.setController(professoresController);
     createStage(loader);
-    Professor professorLogado = ContextoAplicacao.getInstancia().getProfessorLogado();
+    Professor professorLogado = GerenciadorDeUsuario.getInstancia().getProfessorLogado();
     professoresController.initialize(professorLogado.getEmail());
   }
 
@@ -75,7 +75,7 @@ public class Views {
     ExercitarController exercitarController = new ExercitarController();
     loader.setController(exercitarController);
     createStage(loader);
-    Aluno alunoLogado = ContextoAplicacao.getInstancia().getAlunoLogado();
+    Aluno alunoLogado = GerenciadorDeUsuario.getInstancia().getAlunoLogado();
     exercitarController.initialize(alunoLogado.getNivel(), alunoLogado.getEmail());
   }
 
@@ -84,7 +84,7 @@ public class Views {
     HistoricoController historicoController = new HistoricoController();
     loader.setController(historicoController);
     createStage(loader);
-    Aluno alunoLogado = ContextoAplicacao.getInstancia().getAlunoLogado();
+    Aluno alunoLogado = GerenciadorDeUsuario.getInstancia().getAlunoLogado();
     historicoController.initialize(alunoLogado.getEmail());
   }
 

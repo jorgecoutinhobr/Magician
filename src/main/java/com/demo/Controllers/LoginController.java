@@ -1,6 +1,6 @@
 package com.demo.Controllers;
 
-import com.demo.Classes.*;
+import com.demo.Models.*;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -29,16 +29,16 @@ public class LoginController implements Initializable {
     if (niveltipo != null) {
       if (niveltipo[1].equals("a")) {
         Aluno alunoLogado = new Aluno(semail, ssenha, niveltipo[0]);
-        ContextoAplicacao.getInstancia().setAlunoLogado(alunoLogado);
+        GerenciadorDeUsuario.getInstancia().setAlunoLogado(alunoLogado);
         Stage currentStage = (Stage) loginbtn.getScene().getWindow();
         currentStage.close();
-        Classe.getInstance().getView().showAlunoMenuWindow();
+        GerenciadorDeView.getInstance().getView().showAlunoMenuWindow();
       } else {
         Professor professorLogado = new Professor(semail, ssenha);
-        ContextoAplicacao.getInstancia().setProfessorLogado(professorLogado);
+        GerenciadorDeUsuario.getInstancia().setProfessorLogado(professorLogado);
         Stage currentStage = (Stage) loginbtn.getScene().getWindow();
         currentStage.close();
-        Classe.getInstance().getView().showProfessorWindow();
+        GerenciadorDeView.getInstance().getView().showProfessorWindow();
       }
     } else {
       errormessage.setText("Erro: Verifique se os campos foram digitados corretamente");

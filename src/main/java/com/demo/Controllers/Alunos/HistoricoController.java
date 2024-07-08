@@ -1,8 +1,8 @@
 package com.demo.Controllers.Alunos;
 
-import com.demo.Classes.Busca;
-import com.demo.Classes.Classe;
-import com.demo.Classes.Performance;
+import com.demo.Models.Busca;
+import com.demo.Models.GerenciadorDeView;
+import com.demo.Models.Performance;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
@@ -42,7 +42,7 @@ public class HistoricoController {
   public void backPage() {
     Stage currentStage = (Stage) backbtn.getScene().getWindow();
     currentStage.close();
-    Classe.getInstance().getView().showAlunoMenuWindow();
+    GerenciadorDeView.getInstance().getView().showAlunoMenuWindow();
   }
 
 

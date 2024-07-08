@@ -1,7 +1,7 @@
 package com.demo.Controllers.Professores;
 
-import com.demo.Classes.Busca;
-import com.demo.Classes.Classe;
+import com.demo.Models.Busca;
+import com.demo.Models.GerenciadorDeView;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -9,7 +9,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -107,6 +106,6 @@ public class CriarPerguntaController {
   private void voltarParaProfessores() {
     Stage stage = (Stage) voltar.getScene().getWindow();
     stage.close();
-    Classe.getInstance().getView().showProfessorWindow();
+    GerenciadorDeView.getInstance().getView().showProfessorWindow();
   }
 }

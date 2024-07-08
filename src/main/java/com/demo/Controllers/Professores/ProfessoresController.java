@@ -1,18 +1,12 @@
 package com.demo.Controllers.Professores;
 
-import com.demo.Classes.Busca;
-import com.demo.Classes.Classe;
-import javafx.event.ActionEvent;
+import com.demo.Models.Busca;
+import com.demo.Models.GerenciadorDeView;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.awt.*;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class ProfessoresController {
@@ -38,25 +32,25 @@ public class ProfessoresController {
   private void criadorPergunta() {
     Stage currentStage = (Stage) criapergunta.getScene().getWindow();
     currentStage.close();
-    Classe.getInstance().getView().showCriaPerguntaWindow();
+    GerenciadorDeView.getInstance().getView().showCriaPerguntaWindow();
   }
 
   private void criadorUsuario() {
     Stage currentStage = (Stage) criausuario.getScene().getWindow();
     currentStage.close();
-    Classe.getInstance().getView().showCriaUsuarioWindow();
+    GerenciadorDeView.getInstance().getView().showCriaUsuarioWindow();
   }
 
   private void retornarLogin() {
     Stage currentStage = (Stage) btnSair.getScene().getWindow();
     currentStage.close();
-    Classe.getInstance().getView().showLoginWindow();
+    GerenciadorDeView.getInstance().getView().showLoginWindow();
   }
 
   private void alteradorUsuario(){
     Stage currentStage = (Stage) alterausuario.getScene().getWindow();
     currentStage.close();
-    Classe.getInstance().getView().showAlteraUsuarioWindow();
+    GerenciadorDeView.getInstance().getView().showAlteraUsuarioWindow();
   }
 
 }

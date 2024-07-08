@@ -1,6 +1,4 @@
-package com.demo.Classes;
-
-import java.util.ArrayList;
+package com.demo.Models;
 
 public class Aluno {
   // melhorar esse metodo p/ fazer so uma chamada da funcao aluno

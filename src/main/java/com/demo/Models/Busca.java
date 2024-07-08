@@ -1,11 +1,10 @@
-package com.demo.Classes;
+package com.demo.Models;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
-import java.util.stream.IntStream;
 
 public class Busca {
   public static ArrayList<String> usuario(String email) {

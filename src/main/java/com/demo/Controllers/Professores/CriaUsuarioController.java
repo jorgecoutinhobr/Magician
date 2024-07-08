@@ -1,7 +1,7 @@
 package com.demo.Controllers.Professores;
 
-import com.demo.Classes.Busca;
-import com.demo.Classes.Classe;
+import com.demo.Models.Busca;
+import com.demo.Models.GerenciadorDeView;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -104,6 +104,6 @@ public class CriaUsuarioController {
   private void voltarTela() {
     Stage stage = (Stage) voltar.getScene().getWindow();
     stage.close();
-    Classe.getInstance().getView().showProfessorWindow();
+    GerenciadorDeView.getInstance().getView().showProfessorWindow();
   }
 }

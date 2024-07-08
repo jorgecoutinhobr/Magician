@@ -1,14 +1,13 @@
 package com.demo.Controllers.Alunos;
 
-import com.demo.Classes.Busca;
-import com.demo.Classes.Classe;
+import com.demo.Models.Busca;
+import com.demo.Models.GerenciadorDeView;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.awt.*;
 import java.util.ArrayList;
 
 public class AlunosController {
@@ -49,20 +48,20 @@ public class AlunosController {
     else {
       Stage currentStage = (Stage) exercitar.getScene().getWindow();
       currentStage.close();
-      Classe.getInstance().getView().showExercitarWindow();
+      GerenciadorDeView.getInstance().getView().showExercitarWindow();
     }
   }
 
   private void retornarLogin() {
     Stage currentStage = (Stage) btnSair.getScene().getWindow();
     currentStage.close();
-    Classe.getInstance().getView().showLoginWindow();
+    GerenciadorDeView.getInstance().getView().showLoginWindow();
   }
 
   private void historicoClicked() {
     Stage currentStage = (Stage) historico.getScene().getWindow();
     currentStage.close();
-    Classe.getInstance().getView().showHistoricoWindow();
+    GerenciadorDeView.getInstance().getView().showHistoricoWindow();
   }
 
 

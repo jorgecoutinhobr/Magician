@@ -1,8 +1,8 @@
 package com.demo.Controllers.Alunos;
 
-import com.demo.Classes.Busca;
-import com.demo.Classes.Classe;
-import com.demo.Classes.Performance;
+import com.demo.Models.Busca;
+import com.demo.Models.GerenciadorDeView;
+import com.demo.Models.Performance;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -66,7 +66,7 @@ public class ExercitarController {
   private void voltarParaAlunos() {
     Stage stage = (Stage) voltar.getScene().getWindow();
     stage.close();
-    Classe.getInstance().getView().showAlunoMenuWindow();
+    GerenciadorDeView.getInstance().getView().showAlunoMenuWindow();
     if (count > 0) {
       Alert alerta = new Alert(Alert.AlertType.INFORMATION);
       alerta.setTitle("");

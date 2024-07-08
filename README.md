@@ -3,13 +3,13 @@
 ## Classes
 Localizadas em `src/main/java/com/demo/Classes/`.
 
-- [`Aluno`](src/main/java/com/demo/Classes/Aluno.java)
-- [`Classe`](src/main/java/com/demo/Classes/Classe.java)
-- [`Busca`](src/main/java/com/demo/Classes/Busca.java) 
-- [`ContextoAplicacao`](src/main/java/com/demo/Classes/Classe.java)
-- [`Performance`](src/main/java/com/demo/Classes/Performance.java)
-- [`Professor`](src/main/java/com/demo/Classes/Professor.java)
-- [`Usuario`](src/main/java/com/demo/Classes/Usuario.java)
+- [`Aluno`](src/main/java/com/demo/Models/Aluno.java)
+- [`Classe`](src/main/java/com/demo/Models/Classe.java)
+- [`Busca`](src/main/java/com/demo/Models/Busca.java) 
+- [`ContextoAplicacao`](src/main/java/com/demo/Models/Classe.java)
+- [`Performance`](src/main/java/com/demo/Models/Performance.java)
+- [`Professor`](src/main/java/com/demo/Models/Professor.java)
+- [`Usuario`](src/main/java/com/demo/Models/Usuario.java)
 - 
 ## Controllers
 Localizados em `src/main/java/com/demo/Controllers/`.

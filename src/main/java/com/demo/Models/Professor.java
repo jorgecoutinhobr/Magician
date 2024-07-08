@@ -1,10 +1,4 @@
-package com.demo.Classes;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
+package com.demo.Models;
 
 public class Professor {
   private String email;

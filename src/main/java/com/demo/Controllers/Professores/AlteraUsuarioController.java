@@ -1,8 +1,8 @@
 package com.demo.Controllers.Professores;
 
-import com.demo.Classes.Busca;
-import com.demo.Classes.Classe;
-import com.demo.Classes.Performance;
+import com.demo.Models.Busca;
+import com.demo.Models.GerenciadorDeView;
+import com.demo.Models.Performance;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -57,7 +57,7 @@ public class AlteraUsuarioController {
   private void voltarParaProfessores() {
     Stage stage = (Stage) voltar.getScene().getWindow();
     stage.close();
-    Classe.getInstance().getView().showProfessorWindow();
+    GerenciadorDeView.getInstance().getView().showProfessorWindow();
   }
 
   private void buscarUsuario() {
