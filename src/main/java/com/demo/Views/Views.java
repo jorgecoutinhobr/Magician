@@ -16,21 +16,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class Views {
-  // Alunos
-  private AnchorPane alunoMenu;
-
   public Views() {
-  }
-
-  public AnchorPane getAlunoMenu() {
-    if (alunoMenu == null) {
-      try {
-        alunoMenu = new FXMLLoader(getClass().getResource("/com/demo/Aluno/AlunoMenu.fxml")).load();
-      } catch (Exception e) {
-        e.printStackTrace();
-      }
-    }
-    return alunoMenu;
   }
 
   public void showLoginWindow() {
@@ -88,13 +74,14 @@ public class Views {
     historicoController.initialize(alunoLogado.getEmail());
   }
 
-  public void showAlteraUsuarioWindow(){
+  public void showAlteraUsuarioWindow() {
     FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/demo/Professor/AlteraUsuario.fxml"));
     AlteraUsuarioController alteraUsuarioController = new AlteraUsuarioController();
     loader.setController(alteraUsuarioController);
     createStage(loader);
   }
-  public void createStage(FXMLLoader loader) {
+
+  private void createStage(FXMLLoader loader) {
     Scene scene = null;
     try {
       scene = new Scene(loader.load());
