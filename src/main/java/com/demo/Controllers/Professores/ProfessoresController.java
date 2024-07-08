@@ -21,8 +21,10 @@ public class ProfessoresController {
   public Button criapergunta;
   public Button criausuario;
   public Button btnSair;
+  public Button alterausuario;
 
   public void initialize(String email) {
+    alterausuario.setOnAction(event -> alteradorUsuario());
     criapergunta.setOnAction(event -> criadorPergunta());
     criausuario.setOnAction(event -> criadorUsuario());
     btnSair.setOnAction(event -> retornarLogin());
@@ -49,6 +51,12 @@ public class ProfessoresController {
     Stage currentStage = (Stage) btnSair.getScene().getWindow();
     currentStage.close();
     Classe.getInstance().getView().showLoginWindow();
+  }
+
+  private void alteradorUsuario(){
+    Stage currentStage = (Stage) alterausuario.getScene().getWindow();
+    currentStage.close();
+    Classe.getInstance().getView().showAlteraUsuarioWindow();
   }
 
 }

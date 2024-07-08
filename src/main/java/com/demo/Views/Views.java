@@ -6,6 +6,7 @@ import com.demo.Classes.Professor;
 import com.demo.Controllers.Alunos.AlunosController;
 import com.demo.Controllers.Alunos.ExercitarController;
 import com.demo.Controllers.Alunos.HistoricoController;
+import com.demo.Controllers.Professores.AlteraUsuarioController;
 import com.demo.Controllers.Professores.CriaUsuarioController;
 import com.demo.Controllers.Professores.CriarPerguntaController;
 import com.demo.Controllers.Professores.ProfessoresController;
@@ -87,6 +88,12 @@ public class Views {
     historicoController.initialize(alunoLogado.getEmail());
   }
 
+  public void showAlteraUsuarioWindow(){
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/demo/Professor/AlteraUsuario.fxml"));
+    AlteraUsuarioController alteraUsuarioController = new AlteraUsuarioController();
+    loader.setController(alteraUsuarioController);
+    createStage(loader);
+  }
   public void createStage(FXMLLoader loader) {
     Scene scene = null;
     try {

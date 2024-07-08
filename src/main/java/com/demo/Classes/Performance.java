@@ -18,7 +18,7 @@ public class Performance {
         salvaPerformance(performaceAluno, performancelist.getFirst());
     }
 
-    private static void salvaPerformance(String performancelist, String email) {
+    public static void salvaPerformance(String performancelist, String email) {
         final String PATH_PERFORMANCE = "src/main/java/com/demo/Database/performance.csv";
         ArrayList<String> linhas = new ArrayList<>();
         boolean encontrouEmail = false;
@@ -66,4 +66,5 @@ public class Performance {
                 return null;
         }
     }
+
 }

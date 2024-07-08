@@ -30,11 +30,11 @@ public class CriaUsuarioController {
 
   public void initialize() {
     nivel.getItems().addAll("1", "2", "3", "4");
-    criar.setOnAction(event -> salvaUsuario());
+    criar.setOnAction(event -> adicionaUsuario());
     voltar.setOnAction(event -> voltarTela());
   }
 
-  private void salvaUsuario() {
+  private void adicionaUsuario() {
     if (tipo.getText().equals("a") && (uemail.getText().isEmpty() || nivel.getValue() == null || senha.getText().isEmpty() || nome.getText().isEmpty() || tipo.getText().isEmpty())) {
       mensagemresposta.setFill(Color.RED);
       mensagemresposta.setText("Todos os campos devem ser preenchidos");
