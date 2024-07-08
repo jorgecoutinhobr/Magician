@@ -96,7 +96,7 @@ public class Busca {
     try {
       Random random = new Random();
       int tamanho = tamanhoArquivo(PATH);
-      if (respondidas.length - 1 == 0) {
+      if (respondidas.length == 0) {
         codigo = 1 + random.nextInt(tamanho);
       } else {
         codigo = 1 + random.nextInt(tamanho - respondidas.length);
