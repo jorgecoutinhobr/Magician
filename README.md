@@ -1,12 +1,12 @@
 # Estrutura do Projeto
 
-## Classes
-Localizadas em `src/main/java/com/demo/Classes/`.
+## Models
+Localizadas em `src/main/java/com/demo/Models/`.
 
 - [`Aluno`](src/main/java/com/demo/Models/Aluno.java)
-- [`Classe`](src/main/java/com/demo/Models/Classe.java)
+- [`GerenciadorDeUsuario`](src/main/java/com/demo/Models/GerenciadorDeUsuario.java)
 - [`Busca`](src/main/java/com/demo/Models/Busca.java) 
-- [`ContextoAplicacao`](src/main/java/com/demo/Models/Classe.java)
+- [`GerenciadorDeView`](src/main/java/com/demo/Models/GerenciadorDeView.java)
 - [`Performance`](src/main/java/com/demo/Models/Performance.java)
 - [`Professor`](src/main/java/com/demo/Models/Professor.java)
 - [`Usuario`](src/main/java/com/demo/Models/Usuario.java)
@@ -25,6 +25,7 @@ Localizados em `src/main/java/com/demo/Controllers/`.
 - [`CriaUsuarioController`](src/main/java/com/demo/Controllers/Professores/CriaUsuarioController.java)
 - [`CriarPerguntaController`](src/main/java/com/demo/Controllers/Professores/CriarPerguntaController.java)
 - [`ProfessoresController`](src/main/java/com/demo/Controllers/Professores/ProfessoresController.java)
+- [`AlteraUsuarioController`](src/main/java/com/demo/Controllers/Professores/AlteraUsuarioController.java)
 
 ## Database
 Arquivos CSV localizados em `src/main/java/com/demo/Database/`.
@@ -48,3 +49,4 @@ Localizados em `src/main/resources/com/demo/`.
 - `Professor.fxml`
 - `CriaUsuario.fxml`
 - `CriaPergunta.fxml`
+- `AlteraUsuario.fxml`
