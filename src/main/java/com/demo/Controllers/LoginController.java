@@ -27,7 +27,7 @@ public class LoginController implements Initializable {
   private void onLogin() {
     String semail = email.getText().toLowerCase().trim();
     String ssenha = senha.getText();
-    String[] niveltipo = Usuario.autenticar(semail, ssenha);
+    String[] niveltipo = Usuario.autentica(semail, ssenha);
     if (niveltipo != null) {
       if (niveltipo[1].equals("a")) {
         Aluno alunoLogado = new Aluno(semail, ssenha, niveltipo[0]);

@@ -15,10 +15,10 @@ public class Performance {
             "," + performancelist.get(1) +
             "," + performancelist.get(2) +
             "," + performancelist.getLast().substring(0, performancelist.getLast().length() - 1) + idpergunta + ";" + "]";
-    salvaPerformance(performaceAluno, performancelist.getFirst());
+    salva(performaceAluno, performancelist.getFirst());
   }
 
-  public static void salvaPerformance(String performancelist, String email) {
+  public static void salva(String performancelist, String email) {
     ArrayList<String> linhas = new ArrayList<>();
     boolean encontrouEmail = false;
 

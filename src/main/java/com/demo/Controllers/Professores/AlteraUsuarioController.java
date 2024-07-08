@@ -1,6 +1,7 @@
 package com.demo.Controllers.Professores;
 
 import com.demo.Models.Busca;
+import com.demo.Models.Usuario;
 import com.demo.Support.SingletonView;
 import com.demo.Models.Performance;
 import javafx.scene.control.Button;
@@ -10,12 +11,10 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class AlteraUsuarioController {
-  private final String PATH_USUARIOS = "src/main/java/com/demo/Database/usuarios.csv";
   public Button voltar;
   public Button alterar;
   public Button buscar;
@@ -50,7 +49,7 @@ public class AlteraUsuarioController {
     deletar.setVisible(false);
     voltar.setOnAction(event -> voltarParaProfessores());
     buscar.setOnAction(event -> buscarUsuario());
-    alterar.setOnAction(event -> alteraUsuario());
+    alterar.setOnAction(event -> alterarUsuario());
     subirNivel.setOnAction(event -> sobeNivel());
     descerNivel.setOnAction(event -> desceNivel());
     deletar.setOnAction(event -> deletarUsuario());
@@ -83,86 +82,54 @@ public class AlteraUsuarioController {
   }
 
   private void deletarUsuario() {
-    Performance.salvaPerformance("", uemail);
-    alteraUsuario("0");
+    Performance.salva("", uemail);
+    ArrayList<String> linhas = Usuario.retornaArquivo(usuario,"0");
+    Usuario.altera(linhas);
     usuario = null;
     limparCampos();
     mensagemresposta.setVisible(true);
     mensagemresposta.setText("Usuário Apagado!");
   }
 
-  private void alteraUsuario(String... nivel) {
-    ArrayList<String> linhas = new ArrayList<>();
-    boolean encontrouEmail = false;
+  private void alterarUsuario() {
+    ArrayList<String> linhas;
     usenha = senhaText.getText();
     unome = nomeText.getText();
-    if (nivel.length > 0) {
-      anivel = nivel[0];
+    usuario.clear();
+    if (!anivel.isEmpty()) {
+      usuario.addAll(Arrays.asList(uemail,usenha,unome,anivel,"a"));
     }
-    try (BufferedReader reader = new BufferedReader(new FileReader(PATH_USUARIOS))) {
-      String linha;
-      while ((linha = reader.readLine()) != null) {
-        String[] campos = linha.split(",");
-        if (campos[0].equals(uemail)) {
-          if (anivel == "0") {
-          } else if (anivel != "")
-            linhas.add(uemail +
-                    "," +
-                    usenha +
-                    "," +
-                    unome +
-                    "," +
-                    anivel +
-                    ",a"
-            );
-          else linhas.add(uemail +
-                    "," +
-                    usenha +
-                    "," +
-                    unome +
-                    "," +
-                    "p"
-            );
-          encontrouEmail = true;
-        } else {
-          linhas.add(linha);
-        }
-      }
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-
-    if (encontrouEmail) {
-      try (BufferedWriter writer = new BufferedWriter(new FileWriter(PATH_USUARIOS))) {
-        for (String linhaAtualizada : linhas) {
-          writer.write(linhaAtualizada);
-          writer.newLine();
-        }
-        mensagemresposta.setVisible(true);
-        mensagemresposta.setFill(Color.BLACK);
-        mensagemresposta.setText("Alteração realizada com sucesso!");
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
-    }
+    else usuario.addAll(Arrays.asList(uemail,usenha,unome,"p"));
+    linhas = Usuario.retornaArquivo(usuario,anivel);
+    System.out.println(linhas);
+      Usuario.altera(linhas);
+      mensagemresposta.setVisible(true);
+      mensagemresposta.setFill(Color.BLACK);
+      mensagemresposta.setText("Alteração realizada com sucesso!");
     usuario = Busca.usuario(uemail);
   }
 
   private void sobeNivel() {
     String novaperformace = uemail + ",0,0,[]";
-    Performance.salvaPerformance(novaperformace, uemail);
-    alteraUsuario(String.valueOf(Integer.parseInt(anivel) + 1));
+    anivel = String.valueOf(Integer.parseInt(anivel)+1);
+    Performance.salva(novaperformace, uemail);
+    ArrayList<String> linhas = Usuario.retornaArquivo(usuario,anivel);
+    Usuario.altera(linhas);
     aperformance.clear();
     aperformance.addAll(Arrays.asList(novaperformace.split(",")));
+    usuario.set(3,anivel);
     mostraAluno();
   }
 
   private void desceNivel() {
     String novaperformace = uemail + ",0,0,[]";
-    Performance.salvaPerformance(novaperformace, uemail);
-    alteraUsuario(String.valueOf(Integer.parseInt(anivel) - 1));
+    anivel = String.valueOf(Integer.parseInt(anivel)-1);
+    Performance.salva(novaperformace, uemail);
+    ArrayList<String> linhas = Usuario.retornaArquivo(usuario,anivel);
+    Usuario.altera(linhas);
     aperformance.clear();
     aperformance.addAll(Arrays.asList(novaperformace.split(",")));
+    usuario.set(3,anivel);
     mostraAluno();
   }
 

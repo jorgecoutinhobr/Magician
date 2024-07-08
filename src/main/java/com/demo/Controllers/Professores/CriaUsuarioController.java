@@ -1,6 +1,7 @@
 package com.demo.Controllers.Professores;
 
 import com.demo.Models.Busca;
+import com.demo.Models.Usuario;
 import com.demo.Support.SingletonView;
 import com.demo.Models.Performance;
 import javafx.beans.value.ChangeListener;
@@ -12,11 +13,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
 
 public class CriaUsuarioController {
   final String PATH_USUARIOS = "src/main/java/com/demo/Database/usuarios.csv";
@@ -71,11 +67,11 @@ public class CriaUsuarioController {
         }
       }
     });
-    criar.setOnAction(event -> adicionaUsuario());
+    criar.setOnAction(event -> criaUsuario());
     voltar.setOnAction(event -> voltarTela());
   }
 
-  private void adicionaUsuario() {
+  private void criaUsuario() {
     if (tipo.getValue() == "Aluno" && nivel.getValue() != null) {
       atipo = "a";
       anivel = Performance.numNivel(nivel.getValue());
@@ -107,9 +103,7 @@ public class CriaUsuarioController {
       return;
     }
 
-    try (FileWriter fw = new FileWriter(PATH_USUARIOS, true);
-         BufferedWriter bw = new BufferedWriter(fw);
-         PrintWriter out = new PrintWriter(bw)) {
+    try {
 
       if (atipo.equals("a")) {
         String dados = String.format("%s,%s,%s,%s,%s\n",
@@ -118,7 +112,7 @@ public class CriaUsuarioController {
                 nome.getText(),
                 anivel,
                 atipo);
-        out.print(dados);
+        Usuario.adiciona(dados);
         mensagemresposta.setFill(Color.BLACK);
         mensagemresposta.setText("Usuário cadastrado com sucesso");
         limparCampos();
@@ -128,13 +122,13 @@ public class CriaUsuarioController {
                 senha.getText(),
                 nome.getText(),
                 atipo);
-        out.print(dados);
+        Usuario.adiciona(dados);
         mensagemresposta.setFill(Color.BLACK);
         mensagemresposta.setText("Usuário cadastrado com sucesso");
         limparCampos();
       }
 
-    } catch (IOException e) {
+    } catch (Exception e) {
       mensagemresposta.setFill(Color.RED);
       mensagemresposta.setText("Erro ao salvar o usuário");
       e.printStackTrace();
