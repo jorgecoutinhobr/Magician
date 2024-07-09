@@ -11,6 +11,7 @@ import com.demo.Controllers.Professores.CriarPerguntaController;
 import com.demo.Controllers.Professores.ProfessoresController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class ViewsManager {
@@ -89,6 +90,7 @@ public class ViewsManager {
       e.printStackTrace();
     }
     Stage stage = new Stage();
+    stage.getIcons().add(new Image(getClass().getResourceAsStream("/com/demo/Imgs/logo.png")));
     stage.setScene(scene);
     stage.setTitle("Magician");
     stage.setResizable(false);
