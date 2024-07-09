@@ -49,8 +49,26 @@ Localizados em `src/main/resources/com/demo/`.
 - `CriaPergunta.fxml`
 - `AlteraUsuario.fxml`
 
-## Como Rodar o Projeto
+# Como Rodar o Projeto
+## Rodar com Maven
+### Instalação
 
+É altamente recomendável construir e rodar esse projeto usando [Apache Maven](http://maven.apache.org)<br/>
+[Download e Instalação.](http://maven.apache.org/download.html)
+
+Vá para o repositório onde o arquivo esta baixado e extraído
+```
+$cd /path/to/Magician-APP
+```
+Construa o projeto usando mvn install
+```
+$mvn clean install
+```
+## Execução
+```
+$mvn javafx:run
+```
+## Rodar sem Maven
 ### Pré-requisitos
 1. Java: Versão 22
 2. JavaFX: Versão 22-ea+11
