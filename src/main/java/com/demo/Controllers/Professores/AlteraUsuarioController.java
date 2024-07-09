@@ -80,6 +80,8 @@ public class AlteraUsuarioController {
       } else {
         mostraProfessor();
       }
+      nomeText.setText(usuario.get(2));
+      senhaText.setText(usuario.get(1));
     }
   }
 
@@ -134,8 +136,6 @@ public class AlteraUsuarioController {
   }
 
   private void mostraAluno() {
-    nomeText.setText(usuario.get(2));
-    senhaText.setText(usuario.get(1));
     anivel = usuario.get(3);
     nomeText.setVisible(true);
     senhaText.setVisible(true);
@@ -171,8 +171,6 @@ public class AlteraUsuarioController {
 
   private void mostraProfessor() {
     anivel = "";
-    nomeText.setText(usuario.get(2));
-    senhaText.setText(usuario.get(1));
     nomeText.setVisible(true);
     senhaText.setVisible(true);
     alterar.setVisible(true);

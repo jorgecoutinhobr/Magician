@@ -42,7 +42,7 @@ public class Usuario {
 
   public static ArrayList<String> retornaArquivo(ArrayList<String> usuarios, String anivel) {
     ArrayList<String> linhas = new ArrayList<>();
-    try (BufferedReader reader = new BufferedReader(new FileReader("src/main/java/com/demo/Database/usuarios.csv"))) {
+    try (BufferedReader reader = new BufferedReader(new FileReader(PATH_USUARIOS))) {
       String uemail = usuarios.getFirst();
       String usenha = usuarios.get(1);
       String unome = usuarios.get(2);
