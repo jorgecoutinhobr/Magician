@@ -33,7 +33,7 @@ public class Busca {
       BufferedReader reader = new BufferedReader(new FileReader(PATH_PERGUNTAS));
       String linha;
       String[] respondidas = performanceList.getLast().substring(1, performanceList.getLast().length() - 1).split(";");
-      int codigo = randomnumero(nivel,respondidas,PATH_PERGUNTAS);
+      int codigo = randomnumero(nivel, respondidas, PATH_PERGUNTAS);
       while ((linha = reader.readLine()) != null) {
         String[] campos = linha.split(";");
         String idPergunta = campos[campos.length - 1];
@@ -46,7 +46,7 @@ public class Busca {
         return null;
       }
     } catch (Exception e) {
-      System.out.println(e.getMessage());
+      e.printStackTrace();
     }
     return resultado;
   }
@@ -92,7 +92,7 @@ public class Busca {
 
   private static int randomnumero(String nivel, String[] respondidas, String PATH) {
     int codigo = 0;
-    Arrays.sort(respondidas, (a,b) -> Integer.parseInt(a) - Integer.parseInt(b));
+    Arrays.sort(respondidas, (a, b) -> Integer.parseInt(a) - Integer.parseInt(b));
     try {
       Random random = new Random();
       int tamanho = tamanhoArquivo(PATH);

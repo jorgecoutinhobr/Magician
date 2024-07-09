@@ -75,9 +75,7 @@ public class CriaUsuarioController {
     if (tipo.getValue() == "Aluno" && nivel.getValue() != null) {
       atipo = "a";
       anivel = Performance.numNivel(nivel.getValue());
-      System.out.println(anivel);
-    }
-    else if (tipo.getValue() == "Professor")
+    } else if (tipo.getValue() == "Professor")
       atipo = "p";
     if (atipo.equals("a") && (uemail.getText().isEmpty() || nivel.getValue() == null || senha.getText().isEmpty() || nome.getText().isEmpty() || atipo.isEmpty())) {
       mensagemresposta.setFill(Color.RED);

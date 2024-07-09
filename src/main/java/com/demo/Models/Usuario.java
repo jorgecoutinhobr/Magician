@@ -35,20 +35,18 @@ public class Usuario {
         writer.write(linhaAtualizada);
         writer.newLine();
       }
-    }
-    catch (Exception e){
+    } catch (Exception e) {
       e.printStackTrace();
     }
   }
 
-  public static ArrayList<String> retornaArquivo(ArrayList<String> usuarios, String anivel){
+  public static ArrayList<String> retornaArquivo(ArrayList<String> usuarios, String anivel) {
     ArrayList<String> linhas = new ArrayList<>();
     try (BufferedReader reader = new BufferedReader(new FileReader("src/main/java/com/demo/Database/usuarios.csv"))) {
       String uemail = usuarios.getFirst();
       String usenha = usuarios.get(1);
       String unome = usuarios.get(2);
       String linha;
-      System.out.println("\n" +uemail + usenha + unome + anivel);
       while ((linha = reader.readLine()) != null) {
         String[] campos = linha.split(",");
         if (campos[0].equals(usuarios.getFirst())) {
