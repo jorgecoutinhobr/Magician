@@ -8,7 +8,7 @@ Localizadas em `src/main/java/com/demo/Models/`.
 - [`Performance`](src/main/java/com/demo/Models/Performance.java)
 - [`Professor`](src/main/java/com/demo/Models/Professor.java)
 - [`Usuario`](src/main/java/com/demo/Models/Usuario.java)
-- 
+  
 ## Controllers
 Localizados em `src/main/java/com/demo/Controllers/`.
 
@@ -25,9 +25,10 @@ Localizados em `src/main/java/com/demo/Controllers/`.
 - [`ProfessoresController`](src/main/java/com/demo/Controllers/Professores/ProfessoresController.java)
 - [`AlteraUsuarioController`](src/main/java/com/demo/Controllers/Professores/AlteraUsuarioController.java)
 
-## Managers
-- [`GerenciadorDeView`](src/main/java/com/demo/Support/GerenciadorDeView.java)
-- [`GerenciadorDeUsuario`](src/main/java/com/demo/Support/GerenciadorDeUsuario.java)
+## Support
+- [`SingletonView`](src/main/java/com/demo/Support/SingletonView.java)
+- [`SingletonUsuario`](src/main/java/com/demo/Support/SingletonUsuario.java)
+- [`ViewsManager`](src/main/java/com/demo/Support/ViewsManager.java)
 
 ## Database
 Arquivos CSV localizados em `src/main/java/com/demo/Database/`.
@@ -35,11 +36,6 @@ Arquivos CSV localizados em `src/main/java/com/demo/Database/`.
 - `usuarios.csv`
 - `nivel[n].csv`
 - `performance.csv`
-
-## Views
-Localizadas em `src/main/java/com/demo/Views/`.
-
-- [`Views`](src/main/java/com/demo/Views/Views.java)
 
 ## Resources
 Localizados em `src/main/resources/com/demo/`.
