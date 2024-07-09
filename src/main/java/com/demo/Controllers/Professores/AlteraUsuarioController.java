@@ -85,7 +85,7 @@ public class AlteraUsuarioController {
 
   private void deletarUsuario() {
     Performance.salva("", uemail);
-    ArrayList<String> linhas = Usuario.retornaArquivo(usuario,"0");
+    ArrayList<String> linhas = Usuario.retornaArquivo(usuario, "0");
     Usuario.altera(linhas);
     usuario = null;
     limparCampos();
@@ -99,39 +99,37 @@ public class AlteraUsuarioController {
     unome = nomeText.getText();
     usuario.clear();
     if (!anivel.isEmpty()) {
-      usuario.addAll(Arrays.asList(uemail,usenha,unome,anivel,"a"));
-    }
-    else usuario.addAll(Arrays.asList(uemail,usenha,unome,"p"));
-    linhas = Usuario.retornaArquivo(usuario,anivel);
-    System.out.println(linhas);
-      Usuario.altera(linhas);
-      mensagemresposta.setVisible(true);
-      mensagemresposta.setFill(Color.BLACK);
-      mensagemresposta.setText("Alteração realizada com sucesso!");
+      usuario.addAll(Arrays.asList(uemail, usenha, unome, anivel, "a"));
+    } else usuario.addAll(Arrays.asList(uemail, usenha, unome, "p"));
+    linhas = Usuario.retornaArquivo(usuario, anivel);
+    Usuario.altera(linhas);
+    mensagemresposta.setVisible(true);
+    mensagemresposta.setFill(Color.BLACK);
+    mensagemresposta.setText("Alteração realizada com sucesso!");
     usuario = Busca.usuario(uemail);
   }
 
   private void sobeNivel() {
     String novaperformace = uemail + ",0,0,[]";
-    anivel = String.valueOf(Integer.parseInt(anivel)+1);
+    anivel = String.valueOf(Integer.parseInt(anivel) + 1);
     Performance.salva(novaperformace, uemail);
-    ArrayList<String> linhas = Usuario.retornaArquivo(usuario,anivel);
+    ArrayList<String> linhas = Usuario.retornaArquivo(usuario, anivel);
     Usuario.altera(linhas);
     aperformance.clear();
     aperformance.addAll(Arrays.asList(novaperformace.split(",")));
-    usuario.set(3,anivel);
+    usuario.set(3, anivel);
     mostraAluno();
   }
 
   private void desceNivel() {
     String novaperformace = uemail + ",0,0,[]";
-    anivel = String.valueOf(Integer.parseInt(anivel)-1);
+    anivel = String.valueOf(Integer.parseInt(anivel) - 1);
     Performance.salva(novaperformace, uemail);
-    ArrayList<String> linhas = Usuario.retornaArquivo(usuario,anivel);
+    ArrayList<String> linhas = Usuario.retornaArquivo(usuario, anivel);
     Usuario.altera(linhas);
     aperformance.clear();
     aperformance.addAll(Arrays.asList(novaperformace.split(",")));
-    usuario.set(3,anivel);
+    usuario.set(3, anivel);
     mostraAluno();
   }
 
@@ -184,8 +182,8 @@ public class AlteraUsuarioController {
     nivelText.setVisible(false);
     performanceTitle.setVisible(false);
     nivelTitle.setVisible(false);
-    if(emailText.getText().equals(admemail))
-        deletar.setVisible(false);
+    if (emailText.getText().equals(admemail))
+      deletar.setVisible(false);
     else deletar.setVisible(true);
   }
 
